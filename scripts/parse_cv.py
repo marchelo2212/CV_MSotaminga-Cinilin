@@ -22,44 +22,107 @@ ENRICHMENT_PATH = BASE_DIR / "data" / "enrichment.json"
 OUTPUT_PATH = BASE_DIR / "data" / "cv_data.json"
 
 def clean_latex(text: str) -> str:
-    """Limpia macros comunes de LaTeX, tildes y caracteres especiales."""
+    """Limpia macros comunes de LaTeX, tildes, llaves de BibTeX y caracteres especiales."""
     if not text:
         return ""
     
-    # Reemplazos de acentos y caracteres especiales LaTeX
+    # 1. Reemplazos de acentos y caracteres especiales LaTeX (con y sin llaves)
     replacements = [
-        (r"\'a", "á"), (r"\'e", "é"), (r"\'i", "í"), (r"\'o", "ó"), (r"\'u", "ú"),
-        (r"\'A", "Á"), (r"\'E", "É"), (r"\'I", "Í"), (r"\'O", "Ó"), (r"\'U", "Ú"),
-        (r'\~n', 'ñ'), (r'\~N', 'Ñ'),
-        (r'\"u', 'ü'), (r'\"U', 'Ü'),
-        (r'\\&', '&'), (r'\%', '%'), (r'\\#', '#'), (r'\\_', '_'),
-        (r'~', ' '), (r'\,', ' '), (r'\|', '|'), (r'\\par', ' '),
-        (r'\\quad', ' '), (r'\\qquad', ' '), (r'\\vspace\{[^}]*\}', ' '),
-        (r'\\hspace\{[^}]*\}', ' '), (r'\\multicolumn\{[^}]*\}\{[^}]*\}\{[^}]*\}', ' '),
-        (r'\\fb', ''), (r'\\titlerule', '')
-    ]
-    for pattern, repl in replacements:
-        text = re.sub(pattern, repl, text)
+        # Acentos agudos: \'a, \'{a}, etc.
+        (r"\\\'\{a\}", "á"), (r"\\\'\{e\}", "é"), (r"\\\'\{i\}", "í"), (r"\\\'\{o\}", "ó"), (r"\\\'\{u\}", "ú"),
+        (r"\\\'\{\\i\}", "í"), (r"\\\'\{A\}", "Á"), (r"\\\'\{E\}", "É"), (r"\\\'\{I\}", "Í"), (r"\\\'\{O\}", "Ó"), (r"\\\'\{U\}", "Ú"),
+        (r"\\\'a", "á"), (r"\\\'e", "é"), (r"\\\'i", "í"), (r"\\\'o", "ó"), (r"\\\'u", "ú"),
+        (r"\\\'A", "Á"), (r"\\\'E", "É"), (r"\\\'I", "Í"), (r"\\\'O", "Ó"), (r"\\\'U", "Ú"),
         
-    # Remover comandos con argumentos { ... }
-    text = re.sub(r'\\textsc\{([^}]*)\}', r'\1', text)
-    text = re.sub(r'\\textbf\{([^}]*)\}', r'\1', text)
-    text = re.sub(r'\\emph\{([^}]*)\}', r'\1', text)
-    text = re.sub(r'\\textit\{([^}]*)\}', r'\1', text)
-    text = re.sub(r'\\footnotesize\{([^}]*)\}', r'\1', text)
-    text = re.sub(r'\\small\{([^}]*)\}', r'\1', text)
-    text = re.sub(r'\\large\{([^}]*)\}', r'\1', text)
-    text = re.sub(r'\\Large\{([^}]*)\}', r'\1', text)
-    text = re.sub(r'\\LARGE\{([^}]*)\}', r'\1', text)
-    text = re.sub(r'\\url\{([^}]*)\}', r'\1', text)
-    text = re.sub(r'\\href\{[^}]*\}\{([^}]*)\}', r'\1', text)
-    text = re.sub(r'\{\{([^{}]*)\}\}', r'\1', text)
-    text = re.sub(r'\{([^{}]*)\}', r'\1', text)
-    text = re.sub(r'\\[a-zA-Z]+', '', text)
-    
-    # Limpiar espacios múltiples y saltos innecesarios
-    text = re.sub(r'\s+', ' ', text).strip()
+        # Acentos graves: \`a, \`{a}, etc.
+        (r"\\`\{a\}", "à"), (r"\\`\{e\}", "è"), (r"\\`\{i\}", "ì"), (r"\\`\{o\}", "ò"), (r"\\`\{u\}", "ù"),
+        (r"\\`a", "à"), (r"\\`e", "è"), (r"\\`i", "ì"), (r"\\`o", "ò"), (r"\\`u", "ù"),
+
+        # Tilde (ñ, etc.): \~n, \~{n}, \~ n, etc.
+        (r"\\~\{n\}", "ñ"), (r"\\~\{N\}", "Ñ"), (r"\\~n", "ñ"), (r"\\~N", "Ñ"), (r"\\~\s*n", "ñ"), (r"\\~\s*N", "Ñ"),
+
+        # Diéresis / Umlaut: \"u, \"{u}, etc.
+        (r'\\\"\{u\}', "ü"), (r'\\\"\{U\}', "Ü"), (r'\\\"u', "ü"), (r'\\\"U', "Ü"),
+        (r'\\\"\{a\}', "ä"), (r'\\\"\{e\}', "ë"), (r'\\\"\{i\}', "ï"), (r'\\\"\{o\}', "ö"),
+
+        # Cedilla: \c{c}, \c c
+        (r"\\c\{c\}", "ç"), (r"\\c\{C\}", "Ç"), (r"\\c\s*c", "ç"), (r"\\c\s*C", "Ç"),
+
+        # Circunflejo: \^a, \^{a}
+        (r"\\\^\{a\}", "â"), (r"\\\^\{e\}", "ê"), (r"\\\^\{i\}", "î"), (r"\\\^\{o\}", "ô"), (r"\\\^\{u\}", "û"),
+        (r"\\\^a", "â"), (r"\\\^e", "ê"), (r"\\\^i", "î"), (r"\\\^o", "ô"), (r"\\\^u", "û"),
+
+        # Símbolos especiales
+        (r"\\&", "&"), (r"\\%", "%"), (r"\\#", "#"), (r"\\_", "_"), (r"\\\$", "$"),
+        (r"---", "—"), (r"--", "–"),
+        (r"\\par\b", " "), (r"\\quad\b", " "), (r"\\qquad\b", " "),
+        (r"\\vspace\{[^}]*\}", " "), (r"\\hspace\{[^}]*\}", " "),
+        (r"\\multicolumn\{[^}]*\}\{[^}]*\}\{[^}]*\}", " "),
+        (r"\\fb\b", ""), (r"\\titlerule\b", "")
+    ]
+
+    for pat, rep in replacements:
+        text = re.sub(pat, rep, text)
+
+    # 2. Comandos LaTeX con argumentos: \textbf{...}, \emph{...}, etc.
+    for cmd in ["textsc", "textbf", "emph", "textit", "footnotesize", "small", "large", "Large", "LARGE", "url"]:
+        text = re.sub(r"\\" + cmd + r"\{([^}]*)\}", r"\1", text)
+    text = re.sub(r"\\href\{[^}]*\}\{([^}]*)\}", r"\1", text)
+
+    # 3. Tratar i sin punto (dotless i): {\i} o \i
+    text = re.sub(r"\{\\i\}", "i", text)
+    text = re.sub(r"\\i\b", "i", text)
+
+    # 4. Remover cualquier secuencia de control LaTeX restante
+    text = re.sub(r"\\[a-zA-Z]+", "", text)
+
+    # 5. Remover llaves protectoras de BibTeX {{...}} o {...}
+    while "{" in text or "}" in text:
+        prev = text
+        text = re.sub(r"\{([^{}]*)\}", r"\1", text)
+        if text == prev:
+            text = text.replace("{", "").replace("}", "")
+            break
+
+    # 6. Limpiar virgulillas usadas como espacios duros
+    text = text.replace("~", " ")
+
+    # 7. Normalizar espacios múltiples
+    text = re.sub(r"\s+", " ", text).strip()
     return text
+
+def extract_bib_field(name: str, block: str) -> str:
+    """Extrae el valor completo de un campo BibTeX respetando llaves anidadas balanceadas."""
+    match = re.search(r'\b' + re.escape(name) + r'\s*=\s*', block, re.IGNORECASE)
+    if not match:
+        return ""
+    idx = match.end()
+    if idx >= len(block):
+        return ""
+    
+    first_char = block[idx]
+    if first_char == '{':
+        depth = 0
+        start = idx + 1
+        for i in range(idx, len(block)):
+            if block[i] == '{':
+                depth += 1
+            elif block[i] == '}':
+                depth -= 1
+                if depth == 0:
+                    return block[start:i].strip()
+        return block[start:].split('\n')[0].strip().rstrip(',')
+    elif first_char == '"':
+        start = idx + 1
+        for i in range(start, len(block)):
+            if block[i] == '"' and block[i-1] != '\\':
+                return block[start:i].strip()
+        return block[start:].split('\n')[0].strip().rstrip(',')
+    else:
+        end_match = re.search(r'[,}\n]', block[idx:])
+        if end_match:
+            return block[idx:idx + end_match.start()].strip()
+        return block[idx:].split('\n')[0].strip().rstrip(',')
 
 def parse_bib_file(bib_path: Path):
     """Parsea el archivo BibTeX a objetos estructurados con soporte de copia BibTeX."""
@@ -70,32 +133,25 @@ def parse_bib_file(bib_path: Path):
     entries = []
     
     # Regex para capturar entradas completas
-    raw_entries = re.findall(r'(@[a-zA-Z]+\s*\{([^,]+),\s*([\s\S]*?)\n\})', content)
+    raw_entries = re.findall(r'(@[a-zA-Z]+\s*\{([^,]+),\s*([\s\S]*?\n\}))', content)
     
     for raw_block, cite_key, fields_block in raw_entries:
         entry_type_match = re.match(r'@([a-zA-Z]+)', raw_block)
         entry_type = entry_type_match.group(1).lower() if entry_type_match else "article"
         
-        # Extraer campos clave
-        def get_field(name):
-            m = re.search(r'\b' + name + r'\s*=\s*\{([\s\S]*?)\}', fields_block)
-            if not m:
-                m = re.search(r'\b' + name + r'\s*=\s*"([^"]*)"', fields_block)
-            return m.group(1).strip() if m else ""
-        
-        title = clean_latex(get_field('title'))
-        author_raw = get_field('author')
+        title = clean_latex(extract_bib_field('title', fields_block))
+        author_raw = extract_bib_field('author', fields_block)
         authors = [clean_latex(a.strip()) for a in author_raw.split(' and ') if a.strip()]
-        journal = clean_latex(get_field('journaltitle') or get_field('journal') or get_field('booktitle'))
-        year = get_field('date') or get_field('year') or ""
+        journal = clean_latex(extract_bib_field('journaltitle', fields_block) or extract_bib_field('journal', fields_block) or extract_bib_field('booktitle', fields_block))
+        year = extract_bib_field('date', fields_block) or extract_bib_field('year', fields_block) or ""
         year = year.split('-')[0].strip()
-        doi = get_field('doi')
-        url = get_field('url')
+        doi = extract_bib_field('doi', fields_block)
+        url = extract_bib_field('url', fields_block)
         if not url and doi:
             url = f"https://doi.org/{doi}"
-        abstract = clean_latex(get_field('abstract'))
-        publisher = clean_latex(get_field('publisher'))
-        keywords_raw = get_field('keywords')
+        abstract = clean_latex(extract_bib_field('abstract', fields_block))
+        publisher = clean_latex(extract_bib_field('publisher', fields_block))
+        keywords_raw = extract_bib_field('keywords', fields_block)
         keywords = [clean_latex(k) for k in keywords_raw.split(',') if k.strip() and not k.startswith('/') and 'No DOI' not in k]
         
         # Determinar cluster temático para el grafo

@@ -72,7 +72,7 @@
     "doctorate": "Doctorando en Ingeniería (Informática), Universidad de La Sabana",
     "location": "Cajicá / Bogotá, Colombia",
     "photo": "foto_ms.png",
-    "bio": "Doctorando en Ingeniería en la Universidad de La Sabana con diversas maestrías en Educación Tecnología Calidad y Gestión de la Información y el Conocimiento por la Universitat Oberta de Catalunya además de formación avanzada en Educación Tecnología e Innovación. Su investigación actual se centra en la aplicación de arquitecturas de Deep Learning y modelos de diagnóstico cognitivo para la medición de competencias el desarrollo de ontologías y la creación de sistemas inteligentes de apoyo al aprendizaje. Cuenta con más de 15 años de experiencia liderando proyectos de transformación digital innovación educativa y analítica de datos en colaboración con organismos como la UNESCO la OEI el BID y el Ministerio de Educación del Ecuador. Ha diseñado e implementado soluciones tecnopedagógicas y ecosistemas de aprendizaje digital basados en plataformas LMS analítica educativa y automatización de flujos de datos. Domina tecnologías como Python SQL R Power BI y Moodle junto con entornos GNU/Linux y herramientas de modelamiento de información. Actualmente se desempeña como docente universitario en asignaturas de bases de datos y Jefe de Producción Virtual en la Universidad de La Sabana así como profesor de posgrado en diversas instituciones iberoamericanas. Su trabajo integra investigación aplicada desarrollo tecnológico y formación docente en competencias digitales pensamiento computacional e inteligencia artificial. %Section: Work Experience at the top",
+    "bio": "Doctorando en Ingeniería en la Universidad de La Sabana, con diversas maestrías en Educación, Tecnología, Calidad y Gestión de la Información y el Conocimiento por la Universitat Oberta de Catalunya, además de formación avanzada en Educación, Tecnología e Innovación. Su investigación actual se centra en la aplicación de arquitecturas de Deep Learning y modelos de diagnóstico cognitivo para la medición de competencias, el desarrollo de ontologías y la creación de sistemas inteligentes de apoyo al aprendizaje. Cuenta con más de 15 años de experiencia liderando proyectos de transformación digital, innovación educativa y analítica de datos, en colaboración con organismos como la UNESCO, la OEI, el BID y el Ministerio de Educación del Ecuador. Ha diseñado e implementado soluciones tecnopedagógicas y ecosistemas de aprendizaje digital basados en plataformas LMS, analítica educativa y automatización de flujos de datos. Domina tecnologías como Python, SQL, R, Power BI y Moodle, junto con entornos GNU/Linux y herramientas de modelamiento de información. Actualmente se desempeña como docente universitario en asignaturas de bases de datos y Jefe de Producción Virtual en la Universidad de La Sabana, así como profesor de posgrado en diversas instituciones iberoamericanas. Su trabajo integra investigación aplicada, desarrollo tecnológico y formación docente en competencias digitales, pensamiento computacional e inteligencia artificial. %Section: Work Experience at the top",
     "shortBio": "Arquitecto tecnopedagógico e investigador en IA educativa. Doctorando en Ingeniería (Universidad de La Sabana), Jefe de Producción Virtual en Unisabana e-learning y ex-Director de Tecnologías Emergentes en el MINTEL (Ecuador). Especialista en modelos de diagnóstico cognitivo, evaluación con IA, ecosistemas LMS a escala e innovación para el aprendizaje.",
     "cvPdfPath": "/cv.pdf",
     "cvExecutivePdfPath": "/cv_ejecutivo.pdf",
@@ -805,17 +805,17 @@
     {
       "id": "paz-ojedaAdvancedCustomerSegmentation2026",
       "type": "incollection",
-      "title": "Advanced {{Customer Segmentation",
+      "title": "Advanced Customer Segmentation in the Natural Supplements Industry to Enhance Marketing Strategies Using Big Data Tools",
       "authors": [
-        "Paz-Ojeda Jorge",
-        "S\\ánchez-Montero Ivanna",
-        "Marcelo Sotaminga-Cinilin"
+        "Paz-Ojeda, Jorge",
+        "Sánchez-Montero, Ivanna",
+        "Marcelo, Sotaminga-Cinilin"
       ],
-      "venue": "Proceedings of 20th {{Iberian Conference",
+      "venue": "Proceedings of 20th Iberian Conference on Information Systems and Technologies (CISTI 2025)",
       "year": "2026",
       "doi": "10.1007/978-3-032-10721-3_63",
       "url": "https://link.springer.com/10.1007/978-3-032-10721-3_63",
-      "abstract": "This study underscores the critical role of Big Data and Business Intelligence tools in modern corporate decision-making particularly in the natural supplements industry where understanding customer behavior through advanced segmentation can significantly enhance marketing strategies and overall business performance. In this research two years of purchase records from a company in the natural supplements industry were analyzed using a combination of segmentation algorithms and RFM (Recency Frequency and Monetary value) analysis to identify distinct customer profiles. Leveraging Python three clustering algorithms---K-means DBSCAN and Agglomerative Hierarchical---were implemented and evaluated with the Silhouette Score identifying K-means as the most effective approach. This model categorized customers into four key segments: high-value customers potential growth customers at-risk customers and occasional buyers. The insights derived from this segmentation process were fundamental in designing targeted marketing strategies optimizing resource allocation and improving customer retention. Furthermore this study highlights how businesses that embrace data-driven decision-making gain a competitive edge by personalizing customer interactions enhancing efficiency and increasing the return on investment in marketing. The findings suggest that the integration of predictive modeling and intelligent data analysis supports more precise segmentation and enables organizations to anticipate trends mitigate risks and drive sustainable growth. The application of Big Data and Business Intelligence in this context allows companies to transform large datasets into actionable insights fostering proactive and informed decision-making in dynamic and competitive markets. Ultimately this research provides strong evidence that leveraging advanced analytics can lead to substantial economic benefits positioning businesses for long-term success in data-driven environments.",
+      "abstract": "This study underscores the critical role of Big Data and Business Intelligence tools in modern corporate decision-making, particularly in the natural supplements industry, where understanding customer behavior through advanced segmentation can significantly enhance marketing strategies and overall business performance. In this research, two years of purchase records from a company in the natural supplements industry were analyzed using a combination of segmentation algorithms and RFM (Recency, Frequency, and Monetary value) analysis to identify distinct customer profiles. Leveraging Python, three clustering algorithms—K-means, DBSCAN, and Agglomerative Hierarchical—were implemented and evaluated, with the Silhouette Score identifying K-means as the most effective approach. This model categorized customers into four key segments: high-value customers, potential growth customers, at-risk customers, and occasional buyers. The insights derived from this segmentation process were fundamental in designing targeted marketing strategies, optimizing resource allocation, and improving customer retention. Furthermore, this study highlights how businesses that embrace data-driven decision-making gain a competitive edge by personalizing customer interactions, enhancing efficiency, and increasing the return on investment in marketing. The findings suggest that the integration of predictive modeling and intelligent data analysis supports more precise segmentation and enables organizations to anticipate trends, mitigate risks, and drive sustainable growth. The application of Big Data and Business Intelligence in this context allows companies to transform large datasets into actionable insights, fostering proactive and informed decision-making in dynamic and competitive markets. Ultimately, this research provides strong evidence that leveraging advanced analytics can lead to substantial economic benefits, positioning businesses for long-term success in data-driven environments.",
       "publisher": "Springer Nature Switzerland",
       "keywords": [],
       "cluster": "ia_data_science",
@@ -824,37 +824,37 @@
     {
       "id": "sotaminga-cinilinStudentPerceptionsAIBased2026",
       "type": "incollection",
-      "title": "Student {{Perceptions",
+      "title": "Student Perceptions of an AI-Based Assistant for Formative Feedback in Higher Education",
       "authors": [
-        "Sotaminga-Cinilin Marcelo Javier",
-        "Uribe-Laverde Miguel \\Ángel"
+        "Sotaminga-Cinilin, Marcelo Javier",
+        "Uribe-Laverde, Miguel Ángel"
       ],
-      "venue": "Emerging {{Technologies",
+      "venue": "Emerging Technologies in Applied Engineering and Education",
       "year": "2026",
       "doi": "10.1007/978-3-032-10310-9_15",
       "url": "https://link.springer.com/10.1007/978-3-032-10310-9_15",
       "abstract": "",
       "publisher": "Springer Nature Switzerland",
       "keywords": [],
-      "cluster": "tecnopedagogia",
+      "cluster": "ia_data_science",
       "bibtex": "@incollection{sotaminga-cinilinStudentPerceptionsAIBased2026,\n  title = {Student {{Perceptions}} of an {{AI-Based Assistant}} for {{Formative Feedback}} in {{Higher Education}}},\n  booktitle = {Emerging {{Technologies}} in {{Applied Engineering}} and {{Education}}},\n  author = {Sotaminga-Cinilin, Marcelo Javier and Uribe-Laverde, Miguel \\'Angel},\n  editor = {Buele, Jorge and Palacios-Navarro, Guillermo and Avil\\'es-Castillo, F\\'atima},\n  date = {2026},\n  pages = {217--230},\n  publisher = {Springer Nature Switzerland},\n  location = {Cham},\n  doi = {10.1007/978-3-032-10310-9_15},\n  url = {https://link.springer.com/10.1007/978-3-032-10310-9_15},\n  urldate = {2026-02-19},\n  isbn = {978-3-032-10309-3 978-3-032-10310-9},\n  langid = {english},\n  file = {/Users/marcelosotaminga/Nextcloud/Zotero/z-mac-mho2212/storage/UWA6MEGY/Sotaminga-Cinilin and Uribe-Laverde - 2026 - Student Perceptions of an AI-Based Assistant for Formative Feedback in Higher Education.pdf}\n}"
     },
     {
       "id": "sotaminga-cinilinTechnologicalMigrationSoftware2026",
       "type": "incollection",
-      "title": "Technological {{Migration",
+      "title": "Technological Migration and Software Optimization for Measuring Entrepreneurship Maturity",
       "authors": [
-        "Sotaminga-Cinilin Marcelo",
-        "S\\ánchez-Montero Ivanna",
-        "Borja-Galeas Carlos",
-        "Cadena Fausto",
-        "Cajas Viviana"
+        "Sotaminga-Cinilin, Marcelo",
+        "Sánchez-Montero, Ivanna",
+        "Borja-Galeas, Carlos",
+        "Cadena, Fausto",
+        "Cajas, Viviana"
       ],
-      "venue": "Proceedings of 20th {{Iberian Conference",
+      "venue": "Proceedings of 20th Iberian Conference on Information Systems and Technologies (CISTI 2025)",
       "year": "2026",
       "doi": "10.1007/978-3-032-10721-3_74",
       "url": "https://link.springer.com/10.1007/978-3-032-10721-3_74",
-      "abstract": "This study analyzes the technological migration and optimization of Nexus4D as a strategy to enhance the measurement of entrepreneurship maturity. Nexus4D was developed initially with a closed faced performance scalability and sustainability limitations. To address these challenges a migration to opensource solutions was implemented utilizing WordPress for content management LimeSurvey for data collection and Power BI for advanced analysis. Through a methodological approach based on diagnosis implementation and impact evaluation a significant improvement was observed in operational efficiency security and user experience. The findings highlight how adopting open technologies can strengthen innovation in academic and business platforms facilitating data-driven decision-making.",
+      "abstract": "This study analyzes the technological migration and optimization of Nexus4D as a strategy to enhance the measurement of entrepreneurship maturity. Nexus4D was developed initially with a closed faced performance, scalability, and sustainability limitations. To address these challenges, a migration to opensource solutions was implemented, utilizing WordPress for content management, LimeSurvey for data collection, and Power BI for advanced analysis. Through a methodological approach based on diagnosis, implementation, and impact evaluation, a significant improvement was observed in operational efficiency, security, and user experience. The findings highlight how adopting open technologies can strengthen innovation in academic and business platforms, facilitating data-driven decision-making.",
       "publisher": "Springer Nature Switzerland",
       "keywords": [],
       "cluster": "ia_data_science",
@@ -863,17 +863,17 @@
     {
       "id": "paredes-ulloaCompetenciasDigitalesDocentes2025",
       "type": "article",
-      "title": "Competencias digitales de los docentes de la unidad educativa amauta \\ñanpi Autores",
+      "title": "Competencias digitales de los docentes de la unidad educativa amauta ñanpi Autores",
       "authors": [
-        "Paredes-Ulloa Christopher Oswaldo",
-        "Guevara-Vizcaino Claudio Fernando",
-        "Sotaminga-Cinilin Marcelo Javier"
+        "Paredes-Ulloa, Christopher Oswaldo",
+        "Guevara-Vizcaino, Claudio Fernando",
+        "Sotaminga-Cinilin, Marcelo Javier"
       ],
       "venue": "MQRInvestigar",
       "year": "2025",
       "doi": "10.56048/MQR20225.9.1.2025.e236",
       "url": "https://mqrinvestigar.com/2025/index.php/mqr/article/view/236",
-      "abstract": "This study presents the analysis of digital competencies and the use of virtual platforms by teachers in the Amauta \\Ñanpi Educational Unit located in the city of Puyo. Through a mixed methodological approach that combines both qualitative and quantitative tools information was collected from 45 teachers and the rector of the institution. The research used a survey based on the Likert scale addressed to teachers and an interview with open questions to the rector. The results showed a lack in the training of educators in digital skills added to an evident shortage of technological resources which restricts the fluid integration of Information and Communication Technologies in pedagogical processes. Additionally 66.7\\% of teachers felt able to classify their digital skills as excellent which highlights not only the lack of in-depth training but also the absence of a decisive drive towards technological innovation in their educational practices.",
+      "abstract": "This study presents the analysis of digital competencies and the use of virtual platforms by teachers in the Amauta Ñanpi Educational Unit, located in the city of Puyo. Through a mixed methodological approach that combines both qualitative and quantitative tools, information was collected from 45 teachers and the rector of the institution. The research used a survey based on the Likert scale addressed to teachers and an interview with open questions to the rector. The results showed a lack in the training of educators in digital skills, added to an evident shortage of technological resources, which restricts the fluid integration of Information and Communication Technologies in pedagogical processes. Additionally, 66.7% of teachers felt able to classify their digital skills as excellent, which highlights not only the lack of in-depth training, but also the absence of a decisive drive towards technological innovation in their educational practices.",
       "publisher": "",
       "keywords": [
         "Capacitacion docente",
@@ -889,16 +889,16 @@
       "type": "article",
       "title": "Usos de Internet con fines educativos: perspectivas para su fortalecimiento",
       "authors": [
-        "Apolo-Buena\\ño Diego Eduardo",
-        "Hermann-Acosta Ernesto Andr\\és",
-        "Garc\\ía-Herrera Darwin Gabriel",
-        "Sotaminga-Cinilin Marcelo Javier"
+        "Apolo-Buenaño, Diego Eduardo",
+        "Hermann-Acosta, Ernesto Andrés",
+        "García-Herrera, Darwin Gabriel",
+        "Sotaminga-Cinilin, Marcelo Javier"
       ],
       "venue": "Revista Conrado",
       "year": "2023",
       "doi": "",
       "url": "https://conrado.ucf.edu.cu/index.php/conrado/article/view/2887",
-      "abstract": "El desarrollo de las tecnolog\\ías ha permitido un avance vertiginoso en la sociedad; lamentablemente en los campos educativos no han tenido un acompa\\ñamiento para su comprensi\\ón desde un enfoque sociocr\\ítico centr\\ándose principalmente en el enfoque artefactual priorizando dispositivos y conexiones. Es as\\í que en este texto se presentan algunas l\\íneas que permitan analizar los diferentes procesos que podr\\ía aportar a una aproximaci\\ón desde el uso educativo de plataformas digitales y redes sociales en el desarrollo se evidencia varios aspectos a tomar en consideraci\\ón como lo pedagogo metodol\\ógico y evaluativo base fundamental para la generaci\\ón de un interaprendizaje de calidad en Educaci\\ón Superior. Palabras clave: Usos educativos de internet educaci\\ón internet Educaci\\ón Superior. &nbsp; ABSTRACT The development of technologies has allowed a vertiginous advance in society; unfortunately in the educational fields they have not had an accompaniment for their understanding from a sociocritical approach focusing mainly on the artifactual approach prioritizing devices and connections. Thus in this text some lines are presented that allow analyzing the different processes that could contribute to an approach from the educational use of digital platforms and social networks; In the development several aspects to be taken into consideration are evident such as the pedagogical methodological and evaluative fundamental base for the generation of a quality inter-learning in Higher Education. Keywords: Educational uses of the internet education Internet Higher education. &nbsp;",
+      "abstract": "El desarrollo de las tecnologías ha permitido un avance vertiginoso en la sociedad; lamentablemente, en los campos educativos no han tenido un acompañamiento para su comprensión desde un enfoque sociocrítico, centrándose principalmente en el enfoque artefactual priorizando dispositivos y conexiones. Es así que en este texto se presentan algunas líneas que permitan analizar los diferentes procesos que podría aportar a una aproximación desde el uso educativo de plataformas digitales y redes sociales, en el desarrollo se evidencia varios aspectos a tomar en consideración como lo pedagogo, metodológico y evaluativo base fundamental para la generación de un interaprendizaje de calidad en Educación Superior. Palabras clave: Usos educativos de internet, educación, internet, Educación Superior. &nbsp; ABSTRACT The development of technologies has allowed a vertiginous advance in society; unfortunately, in the educational fields they have not had an accompaniment for their understanding from a sociocritical approach, focusing mainly on the artifactual approach prioritizing devices and connections. Thus, in this text some lines are presented that allow analyzing the different processes that could contribute to an approach from the educational use of digital platforms and social networks; In the development, several aspects to be taken into consideration are evident, such as the pedagogical, methodological and evaluative fundamental base for the generation of a quality inter-learning in Higher Education. Keywords: Educational uses of the internet, education, Internet, Higher education. &nbsp;",
       "publisher": "",
       "keywords": [],
       "cluster": "ia_data_science",
@@ -907,17 +907,17 @@
     {
       "id": "sarmiento-pesantezNivelSatisfaccionEstudiantil2023",
       "type": "article",
-      "title": "Nivel de satisfacci\\ón estudiantil en el uso de estrategias y metodolog\\ías en la Educaci\\ón Virtual",
+      "title": "Nivel de satisfacción estudiantil en el uso de estrategias y metodologías en la Educación Virtual",
       "authors": [
-        "Sarmiento-Pes\\ántez Mercedes Magdalena",
-        "Palta-Valladares Norma Isabel",
-        "Sotaminga-Cinilin Marcelo Javier"
+        "Sarmiento-Pesántez, Mercedes Magdalena",
+        "Palta-Valladares, Norma Isabel",
+        "Sotaminga-Cinilin, Marcelo Javier"
       ],
       "venue": "Revista Conrado",
       "year": "2023",
       "doi": "",
       "url": "https://conrado.ucf.edu.cu/index.php/conrado/article/view/3370",
-      "abstract": "La ense\\ñanza virtual se ha convertido en un tema de importancia por consiguiente se promueve la educaci\\ón virtual como un elemento indispensable para proporcionar nuevos espacios de aprendizaje por ello hablar de una educaci\\ón del futuro requiere encaminar las necesidades pedag\\ógicas a los nuevos contextos de aprendizaje. El objetivo de esta investigaci\\ón es evaluar el nivel de uso de estrategias y metodolog\\ías en relaci\\ón con la satisfacci\\ón estudiantil en la educaci\\ón virtual. La metodolog\\ía fue cuantitativa mediante la aplicaci\\ón de una encuesta a una muestra de 56 estudiantes su alcance fue de tipo exploratorio descriptivo y correlacional. Se us\\ó el programa Jasp para la tabulaci\\ón y el an\\álisis de los resultados; la estad\\ística descriptiva se presenta en tablas de frecuencia y porcentajes para el an\\álisis estad\\ístico se us\\ó la correlaci\\ón de Pearson para relacionar las variables de estudio. Los resultados muestran una relaci\\ón directa entre el nivel de satisfacci\\ón estudiantil con respecto al uso de estrategias virtuales adem\\ás la integraci\\ón de la Inteligencia Artificial como recurso de aprendizaje en la modalidad virtual en una propuesta acad\\émica que pretende optimizar la ense\\ñanza y el aprendizaje permitiendo a los educadores adaptar contenidos y personalizar la experiencia de los estudiantes. Palabras clave: Aprendizaje en l\\ínea m\\étodo de ense\\ñanza estrategias educativas aprendizaje active. &nbsp;ABSTRACT Virtual teaching has become an important issue therefore virtual education is promoted as an essential element to provide new learning spaces therefore talking about an education of the future requires directing the pedagogical needs to the new contexts of learning. learning. The objective of this research is to evaluate the level of use of strategies and methodologies in relation to student satisfaction in virtual education. The methodology was quantitative through the application of a survey to a sample of 56 students its scope was exploratory descriptive and correlational. The Jasp program was used for the tabulation and analysis of the results; the descriptive statistics are presented in tables of frequency and percentages for the statistical analysis the Pearson correlation was used to relate the study variables. The results show a direct relationship between the level of student satisfaction regarding the use of virtual strategies as well as the integration of Artificial Intelligence as a learning resource in the virtual modality in an academic proposal that aims to optimize teaching and learning allowing educators to tailor content and personalize the student experience. Keywords: Online learning teaching method educational strategies active learning",
+      "abstract": "La enseñanza virtual se ha convertido en un tema de importancia, por consiguiente, se promueve la educación virtual como un elemento indispensable para proporcionar nuevos espacios de aprendizaje, por ello hablar de una educación del futuro, requiere encaminar las necesidades pedagógicas a los nuevos contextos de aprendizaje. El objetivo de esta investigación es evaluar el nivel de uso de estrategias y metodologías en relación con la satisfacción estudiantil en la educación virtual. La metodología fue cuantitativa, mediante la aplicación de una encuesta a una muestra de 56 estudiantes, su alcance fue de tipo exploratorio, descriptivo y correlacional. Se usó el programa Jasp para la tabulación y el análisis de los resultados; la estadística descriptiva se presenta en tablas de frecuencia y porcentajes, para el análisis estadístico se usó la correlación de Pearson para relacionar las variables de estudio. Los resultados muestran una relación directa entre el nivel de satisfacción estudiantil con respecto al uso de estrategias virtuales, además la integración de la Inteligencia Artificial como recurso de aprendizaje en la modalidad virtual, en una propuesta académica que pretende optimizar la enseñanza y el aprendizaje, permitiendo a los educadores adaptar contenidos y personalizar la experiencia de los estudiantes. Palabras clave: Aprendizaje en línea, método de enseñanza, estrategias educativas, aprendizaje active. &nbsp;ABSTRACT Virtual teaching has become an important issue, therefore, virtual education is promoted as an essential element to provide new learning spaces, therefore, talking about an education of the future requires directing the pedagogical needs to the new contexts of learning. learning. The objective of this research is to evaluate the level of use of strategies and methodologies in relation to student satisfaction in virtual education. The methodology was quantitative, through the application of a survey to a sample of 56 students, its scope was exploratory, descriptive and correlational. The Jasp program was used for the tabulation and analysis of the results; the descriptive statistics are presented in tables of frequency and percentages, for the statistical analysis the Pearson correlation was used to relate the study variables. The results show a direct relationship between the level of student satisfaction regarding the use of virtual strategies, as well as the integration of Artificial Intelligence as a learning resource in the virtual modality, in an academic proposal that aims to optimize teaching and learning, allowing educators to tailor content and personalize the student experience. Keywords: Online learning, teaching method, educational strategies, active learning",
       "publisher": "",
       "keywords": [],
       "cluster": "ia_data_science",
@@ -926,17 +926,17 @@
     {
       "id": "arias-becerraQuizzizComoEstrategia2022",
       "type": "article",
-      "title": "Quizziz como estrategia de evaluaci\\ón en la carrera de medicina",
+      "title": "Quizziz como estrategia de evaluación en la carrera de medicina",
       "authors": [
-        "Arias-Becerra Jimmy Alexander",
-        "Sotaminga-Cinilin Marcelo Javier",
-        "Castro-Salazar Ana Zulema"
+        "Arias-Becerra, Jimmy Alexander",
+        "Sotaminga-Cinilin, Marcelo Javier",
+        "Castro-Salazar, Ana Zulema"
       ],
       "venue": "EPISTEME KOINONIA",
       "year": "2022",
       "doi": "10.35381/e.k.v5i1.1975",
       "url": "https://fundacionkoinonia.com.ve/ojs/index.php/epistemekoinonia/article/view/1975",
-      "abstract": "The purpose of this research is to show how the use of technological evaluation tools such as the Quizziz. Of descriptive type. The result was favorable in both parallels. The students also stated that the teacher emphasized more the summative evaluation before the diagnostic and formative ones and this fact helps them in the general performance in a similar way when making the comparison between the traditional evaluation and the one that uses digital tools the students state that they feel more attracted by the evaluation that uses digital tools. It is concluded that by using different digital tools for assessment students obtain better results and therefore raise their performance their use positively affects the learning process and students feel less pressure when developing an assessment.",
+      "abstract": "The purpose of this research is to show how the use of technological evaluation tools such as the Quizziz. Of descriptive type. The result was favorable in both parallels. The students also stated that the teacher emphasized more the summative evaluation before the diagnostic and formative ones, and this fact helps them in the general performance in a similar way, when making the comparison between the traditional evaluation and the one that uses digital tools, the students state that they feel more attracted by the evaluation that uses digital tools. It is concluded that, by using different digital tools for assessment, students obtain better results and therefore raise their performance, their use positively affects the learning process and students feel less pressure when developing an assessment.",
       "publisher": "",
       "keywords": [
         "ensenanza multimedia",
@@ -952,15 +952,15 @@
       "type": "article",
       "title": "Aprendizaje basado en problemas. Experiencia en estudiantes universitarios",
       "authors": [
-        "Ochoa-Coronel Eduardo Maciel",
-        "Sotaminga-Cinilin Marcelo Javier",
-        "Toledo-Moncayo Cecilia"
+        "Ochoa-Coronel, Eduardo Maciel",
+        "Sotaminga-Cinilin, Marcelo Javier",
+        "Toledo-Moncayo, Cecilia"
       ],
       "venue": "CIENCIAMATRIA",
       "year": "2022",
       "doi": "10.35381/cm.v8i4.850",
       "url": "https://cienciamatriarevista.org.ve/index.php/cm/article/view/850",
-      "abstract": "Resumen La intenci\\ón de este art\\ículo es describir los resultados obtenidos de una experiencia una vez que se aplic\\ó el ABP cuya problem\\ática se bas\\ó en la determinaci\\ón de un tipo de energ\\ía alternativa una vez que se termine el petr\\óleo como recurso energ\\ético. Esta t\\écnica busca promover la formaci\\ón auto dirigida orientada en la resoluci\\ón de problemas a trav\\és de una investigaci\\ón aplicada que mantiene una metodolog\\ía cuasi experimental. Los resultados cuantitativos demuestran que la energ\\ía solar es la primera opci\\ón para su utilizaci\\ón como recurso alternativo; mientras que los resultados cualitativos se\\ñalan que el ABP motiva y estimula a los estudiantes a profundizar m\\ás en su aprendizaje. Finalmente con la implementaci\\ón del ABP los procesos de ense\\ñanza se vuelven mucho m\\ás did\\ácticos y pr\\ácticos de manera que fortalecen las habilidades de comunicaci\\ón trabajo en equipo facilitando la comprensi\\ón y el entendimiento del aprendizaje que se ha adquirido.",
+      "abstract": "Resumen La intención de este artículo es describir los resultados obtenidos de una experiencia una vez que se aplicó el ABP, cuya problemática se basó en la determinación de un tipo de energía alternativa una vez que se termine el petróleo como recurso energético. Esta técnica busca promover la formación auto dirigida orientada en la resolución de problemas a través de una investigación aplicada, que mantiene una metodología cuasi experimental. Los resultados cuantitativos demuestran que la energía solar es la primera opción para su utilización como recurso alternativo; mientras que los resultados cualitativos señalan que el ABP motiva y estimula a los estudiantes a profundizar más en su aprendizaje. Finalmente, con la implementación del ABP los procesos de enseñanza se vuelven mucho más didácticos y prácticos de manera que fortalecen las habilidades de comunicación, trabajo en equipo facilitando la comprensión y el entendimiento del aprendizaje que se ha adquirido.",
       "publisher": "",
       "keywords": [
         "(Tesauro UNESCO)",
@@ -974,17 +974,17 @@
     {
       "id": "palta-valladaresEscapeRoomComo2022",
       "type": "article",
-      "title": "Escape room como estrategia did\\áctica para el desarrollo del pensamiento cr\\ítico",
+      "title": "Escape room como estrategia didáctica para el desarrollo del pensamiento crítico",
       "authors": [
-        "Palta-Valladares Norma Isabel",
-        "Sotaminga-Cinilin Marcelo Javier",
-        "Mena-Clerque Sandra Elizabeth"
+        "Palta-Valladares, Norma Isabel",
+        "Sotaminga-Cinilin, Marcelo Javier",
+        "Mena-Clerque, Sandra Elizabeth"
       ],
-      "venue": "Revista Arbitrada Interdisciplinaria Koinon\\ía",
+      "venue": "Revista Arbitrada Interdisciplinaria Koinonía",
       "year": "2022",
       "doi": "10.35381/r.k.v7i2.1968",
       "url": "https://fundacionkoinonia.com.ve/ojs/index.php/revistakoinonia/article/view/1968",
-      "abstract": "This study is carried out with the purpose of proposing the Escape Room as a didactic strategy for the development of critical thinking in first cycle students of Medicine at the Catholic University of Cuenca in the period 2022. It is a descriptive research. The results show that the students are at an intermediate level in critical thinking and that the interlearning process is centered on the teacher since the methodology of demonstration and exercise is used; the learning activities are focused on practical activities of case or problem solving and the evaluation is focused on objective tests. The Escape Room proposal shows that from any area or subject it is possible to contribute to the development of critical thinking through the design of innovative learning activities.",
+      "abstract": "This study is carried out with the purpose of proposing the Escape Room as a didactic strategy for the development of critical thinking in first cycle students of Medicine at the Catholic University of Cuenca in the period 2022. It is a descriptive research. The results show that the students are at an intermediate level in critical thinking, and that the interlearning process is centered on the teacher since the methodology of demonstration and exercise is used; the learning activities are focused on practical activities of case or problem solving and the evaluation is focused on objective tests. The Escape Room proposal shows that from any area or subject it is possible to contribute to the development of critical thinking through the design of innovative learning activities.",
       "publisher": "",
       "keywords": [
         "ensenanza superior",
@@ -999,17 +999,17 @@
     {
       "id": "pogoVideojuegoRPGComo2022",
       "type": "article",
-      "title": "Videojuego RPG como material de apoyo en la ense\\ñanza de ortograf\\ía en ni\\ños de 10 a\\ños de edad",
+      "title": "Videojuego RPG como material de apoyo en la enseñanza de ortografía en niños de 10 años de edad",
       "authors": [
-        "Pogo Rosa Fabiola Machuca",
-        "Cinilin Marcelo Javier Sotaminga",
-        "\\Álvarez Cristi\\án Andr\\és Erazo"
+        "Pogo, Rosa Fabiola Machuca",
+        "Cinilin, Marcelo Javier Sotaminga",
+        "Álvarez, Cristián Andrés Erazo"
       ],
       "venue": "ConcienciaDigital",
       "year": "2022",
       "doi": "10.33262/concienciadigital.v5i4.2354",
       "url": "https://cienciadigital.org/revistacienciadigital2/index.php/ConcienciaDigital/article/view/2354",
-      "abstract": "El presente trabajo de investigaci\\ón tiene por objeto la creaci\\ón de un piloto de videojuego RPG que funcione como objeto virtual de aprendizaje para la ense\\ñanza de la ortograf\\ía en el uso de la C S y Z en Sexto Grado de Educaci\\ón General B\\ásica. Esta propuesta se hace con miras a incorporar la utilizaci\\ón de videojuegos como herramienta v\\álida para la ense\\ñanza de la ortograf\\ía. Adem\\ás se busca presentar los beneficios asociados a los videojuegos del g\\énero RPG que sirvan para mejorar la comunicaci\\ón escrita mediante la correcta utilizaci\\ón de la ortograf\\ía de los estudiantes del Sexto a\\ño de Educaci\\ón General B\\ásica en la escuela Fiscomisional La Consolaci\\ón.",
+      "abstract": "El presente trabajo de investigación tiene por objeto la creación de un piloto de videojuego RPG que funcione como objeto virtual de aprendizaje para la enseñanza de la ortografía en el uso de la C, S y Z en Sexto Grado de Educación General Básica. Esta propuesta se hace con miras a incorporar la utilización de videojuegos como herramienta válida para la enseñanza de la ortografía. Además, se busca presentar los beneficios asociados a los videojuegos del género RPG que sirvan para mejorar la comunicación escrita mediante la correcta utilización de la ortografía de los estudiantes del Sexto año de Educación General Básica en la escuela Fiscomisional La Consolación.",
       "publisher": "",
       "keywords": [
         "educational game",
@@ -1024,15 +1024,15 @@
       "type": "article",
       "title": "Escape room educativo: Una mirada desde la experiencia de los estudiantes en Endodoncia",
       "authors": [
-        "Rivera Mayra Vanessa Montesinos",
-        "Cinilin Marcelo Javier Sotaminga",
-        "Encalada Sergio Constantino Ochoa"
+        "Rivera, Mayra Vanessa Montesinos",
+        "Cinilin, Marcelo Javier Sotaminga",
+        "Encalada, Sergio Constantino Ochoa"
       ],
       "venue": "Dominio de las Ciencias",
       "year": "2022",
       "doi": "10.23857/dc.v8i3.2964",
       "url": "https://doi.org/10.23857/dc.v8i3.2964",
-      "abstract": "En la actualidad la educaci\\ón superior requiere la implementaci\\ón de nuevas estrategias y recursos para el aprendizaje que incluyen el desarrollo de competencias necesarias para la era digital. Dentro de \\éstas metodol\\ógicas innovadoras en el \\ómbito educativo se encuentra la gamificaci\\ón identificada como un m\\étodo el cual utiliza din\\ómicas de juego en contextos no l\\íºdicos que favorecen el desarrollo de competencias como el trabajo colaborativo resoluci\\ón de problemas autonom\\í\\-a entre otras. El escape room constituye una estrategia metodol\\ógica gamificada que con la aplicaci\\ón de puzles y enigmas promueve el desarrollo de valores conductuales y acad\\émicos como parte integral del proceso de formaci\\ón de los alumnos. Por lo que el objetivo de este estudio fue evaluar la experiencia de los estudiantes mediante esta metodolog\\í\\-a en la asignatura de endodoncia a trav\\és de un estudio de enfoque mixto exploratorio-descriptivo de corte transversal cuya muestra estuvo conformada por 150 participantes de la Universidad Cat\\ólica de Cuenca campus universitario Azogues-Ecuador valoraci\\ón que se realiz\\ó tras la aplicaci\\ón de una encuesta validada cuyos resultados determinaron una buena aceptaci\\ón del escape room educativo virtual en los alumnos al favorecer el desarrollo de competencias como la comunicaci\\ón trabajo en equipo manejo del tiempo y tolerancia de trabajo bajo presi\\ón.",
+      "abstract": "En la actualidad, la educación superior requiere la implementación de nuevas estrategias y recursos para el aprendizaje, que incluyen el desarrollo de competencias necesarias para la era digital. Dentro de éstas metodológicas innovadoras en el ómbito educativo se encuentra la gamificación identificada como un método el cual utiliza dinómicas de juego en contextos no líºdicos que favorecen el desarrollo de competencias como el trabajo colaborativo, resolución de problemas, autonomí\\-a, entre otras. El escape room constituye una estrategia metodológica gamificada que, con la aplicación de puzles y enigmas, promueve el desarrollo de valores conductuales y académicos como parte integral del proceso de formación de los alumnos. Por lo que, el objetivo de este estudio fue evaluar la experiencia de los estudiantes mediante esta metodologí\\-a en la asignatura de endodoncia, a través de un estudio de enfoque mixto, exploratorio-descriptivo, de corte transversal, cuya muestra estuvo conformada por 150 participantes de la Universidad Católica de Cuenca campus universitario Azogues-Ecuador, valoración que se realizó tras la aplicación de una encuesta validada, cuyos resultados determinaron una buena aceptación del escape room educativo virtual en los alumnos, al favorecer el desarrollo de competencias como la comunicación, trabajo en equipo, manejo del tiempo y tolerancia de trabajo bajo presión.",
       "publisher": "",
       "keywords": [
         "Arts and Humanities",
@@ -1070,17 +1070,17 @@
     {
       "id": "sarangoBalanzaVirtualComo2022",
       "type": "article",
-      "title": "Balanza virtual como estrategia de aprendizaje de ecuaciones de primer grado con una inc\\ógnita",
+      "title": "Balanza virtual como estrategia de aprendizaje, de ecuaciones de primer grado con una incógnita",
       "authors": [
-        "Sarango Jessica Viodelda Imaicela",
-        "Cinilin Marcelo Javier Sotaminga",
-        "Clerque Sandra Elizabeth Mena"
+        "Sarango, Jessica Viodelda Imaicela",
+        "Cinilin, Marcelo Javier Sotaminga",
+        "Clerque, Sandra Elizabeth Mena"
       ],
       "venue": "AlfaPublicaciones",
       "year": "2022",
       "doi": "10.33262/ap.v4i4.1.291",
       "url": "https://alfapublicaciones.com/index.php/alfapublicaciones/article/view/291",
-      "abstract": "The research seeks that the learning of mathematics itself be a little more attractive to the student when solving first degree equations with one unknown it is very common for students to enter the upper level of basic general education present multiple difficulties since they not only have to solve numbers but also letters and to minimize this problem the objective was to apply m the virtual scale as a strategy for learning first-degree equations with an unknown of the eighth-year students of the Educational Unit Jose Maria Velasco Ibarra. The research is of a quasi-experimental type since it studies a before (pretest) and after (posttest) of applying the virtual resource it has a qualitative approach since the total score of the knowledge test is valued from which a low percentage of results was obtained. progress in learning the equations of the first degree with one unknown considering that it was applied in an institution in the rural sector and in two moments to obtain a better result of the investigation the time of applicability should be extended despite this it is identified that the students improve some difficulties in identifying terms and solving operations with first degree equations with an unknown number of positive and negative integers.",
+      "abstract": "The research seeks that the learning of mathematics itself be a little more attractive to the student when solving first degree equations with one unknown, it is very common for students to enter the upper level of basic general education present multiple difficulties since they not only have to solve numbers but also letters, and to minimize this problem, the objective was to apply m the virtual scale as a strategy for learning first-degree equations with an unknown of the eighth-year students of the Educational Unit Jose Maria Velasco Ibarra. The research is of a quasi-experimental type since it studies a before (pretest) and after (posttest) of applying the virtual resource, it has a qualitative approach since the total score of the knowledge test is valued, from which a low percentage of results was obtained. progress in learning the equations of the first degree with one unknown, considering that it was applied in an institution in the rural sector and in two moments, to obtain a better result of the investigation, the time of applicability should be extended, despite this it is identified that the students improve some difficulties in identifying terms and solving operations with first degree equations with an unknown number of positive and negative integers.",
       "publisher": "",
       "keywords": [
         "Matematicas Algebra Ecuacion Metodo de aprendizaje Innovacion pedagogica"
@@ -1091,12 +1091,12 @@
     {
       "id": "sotamingaPensamientoComputacionalProgramacion2021",
       "type": "incollection",
-      "title": "Pensamiento computacional programaci\\ón creativa y ciencias de la computaci\\ón para la educaci\\ón. Reflexiones y experiencias desde Am\\érica Latina",
+      "title": "Pensamiento computacional, programación creativa y ciencias de la computación para la educación. Reflexiones y experiencias desde América Latina",
       "authors": [
-        "Sotaminga Marcelo",
-        "Apolo Diego"
+        "Sotaminga, Marcelo",
+        "Apolo, Diego"
       ],
-      "venue": "Pensamiento computacional programaci\\ón creativa y ciencias de la computaci\\ón para la educaci\\ón. Reflexiones y experiencias desde Am\\érica Latina",
+      "venue": "Pensamiento computacional, programación creativa y ciencias de la computación para la educación. Reflexiones y experiencias desde América Latina",
       "year": "2021",
       "doi": "",
       "url": "https://ediciones.ciespal.org/index.php/ediciones/catalog/download/30/34/230-1?inline=1",
@@ -1137,7 +1137,7 @@
     {
       "year": "2025",
       "organization": "Coordinadora de Medios Comunitarios Populares y Educativos del Ecuador - CORAPE",
-      "title": "Diseño producción y desarrollo de dos aulas virtuales en el marco del proyecto “Strengthening communications capacity for biodiversity conservation Ecuador”.",
+      "title": "Diseño, producción y desarrollo de dos aulas virtuales en el marco del proyecto “Strengthening communications capacity for biodiversity conservation, Ecuador”.",
       "cluster": "tecnopedagogia",
       "featured": false,
       "badge": "",
@@ -1312,7 +1312,7 @@
     },
     {
       "year": "2022",
-      "organization": "Organización de las Naciones Unidas para la Educación la Ciencia y la Cultura (UNESCO)",
+      "organization": "Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura (UNESCO)",
       "title": "Red de primeros países adoptantes de la Recomendación sobre la Ética de la Inteligencia Artificial - MINTEL.",
       "cluster": "tecnopedagogia",
       "featured": false,
@@ -1448,7 +1448,7 @@
     {
       "year": "2020",
       "organization": "CIESPAL - Aldeas Infantiles SOS",
-      "title": "Generación de un proceso formativo para niños niñas y adolescentes sobre creación de videojuegos y desarrollo del pensamiento computacional con Scratch.",
+      "title": "Generación de un proceso formativo para niños, niñas y adolescentes sobre creación de videojuegos y desarrollo del pensamiento computacional con Scratch.",
       "cluster": "tecnopedagogia",
       "featured": false,
       "badge": "",
@@ -1470,7 +1470,7 @@
     {
       "year": "2019",
       "organization": "CIESPAL - ChildFund",
-      "title": "Navegación Segura ciberseguridad para niños y niñas.",
+      "title": "Navegación Segura, ciberseguridad para niños y niñas.",
       "cluster": "tecnopedagogia",
       "featured": false,
       "badge": "",
@@ -1906,7 +1906,7 @@
       "organization": "Universidad de La Sabana",
       "unit": "Actual & Unisabana e-learning",
       "role": "Jefe de Producción Virtual",
-      "description": "Dirigir el proceso de uso integración y apropiación de las TIC y tecnologías emergentes en los programas de educación formal a nivel de grado posgrado y educación contínua de la Universidad de La Sabana",
+      "description": "Dirigir el proceso de uso, integración y apropiación de las TIC y tecnologías emergentes en los programas de educación formal a nivel de grado, posgrado y educación contínua de la Universidad de La Sabana",
       "type": "professional"
     },
     {
@@ -1914,7 +1914,7 @@
       "organization": "Espiral Educativa",
       "unit": "",
       "role": "Director de Proyectos",
-      "description": "Diseño instruccional de programas y proyectos Transformación Digital en organizaciones creación de Aulas Virtuales en LMS MOODLE Gestión del cambio Metodologías Ágiles (Design Thinking SCRUM PMBOK) modelos de innovación metodologías activas indicadores de resultados e impacto sistema de garantía de interna de calidad Modelos tecnopedagógicos Gestión del Conocimiento PDCA",
+      "description": "Diseño instruccional de programas y proyectos, Transformación Digital en organizaciones, creación de Aulas Virtuales en LMS MOODLE, Gestión del cambio, Metodologías Ágiles (Design Thinking, SCRUM, PMBOK), modelos de innovación, metodologías activas, indicadores de resultados e impacto, sistema de garantía de interna de calidad, Modelos tecnopedagógicos, Gestión del Conocimiento, PDCA",
       "type": "professional"
     },
     {
@@ -1922,7 +1922,7 @@
       "organization": "Ministerio De Telecomunicaciones Y De La Sociedad De La Información (MINTEL)",
       "unit": "",
       "role": "Director de Fomento De Tecnologías Emergentes",
-      "description": "Desarrollar planes programas proyectos y acciones para el uso adecuado y progresivo de las Tecnologías Emergentes a nivel nacional diseño de proyectos centrados en el ciudadano uso de metodologías ágiles trabajo con cooperación internacional identificación de indicadores de resultados e impacto (KPI) Planificación estratégica y prospectiva",
+      "description": "Desarrollar planes, programas, proyectos y acciones para el uso adecuado y progresivo de las Tecnologías Emergentes a nivel nacional, diseño de proyectos centrados en el ciudadano, uso de metodologías ágiles, trabajo con cooperación internacional, identificación de indicadores de resultados e impacto (KPI), Planificación estratégica y prospectiva",
       "type": "professional"
     },
     {
@@ -1930,15 +1930,15 @@
       "organization": "ProFuturo - ChildFund",
       "unit": "",
       "role": "Coordinador Comunidades de Aprendizaje Digital",
-      "description": "Diseño ejecución y evaluación de proyectos comunidades de aprendizaje y práctica innovación educativa investigación cualitativa y cuantitativa reportes de logros gestión de la información.",
+      "description": "Diseño, ejecución y evaluación de proyectos, comunidades de aprendizaje y práctica, innovación educativa, investigación cualitativa y cuantitativa, reportes de logros, gestión de la información.",
       "type": "professional"
     },
     {
       "period": "Abr 13",
       "organization": "Fundación de Waal Internacional",
       "unit": "",
-      "role": "Coordinador Educación Innovación y TIC",
-      "description": "Diseño tecnopedagógico planificación proyectos educativos con TIC Creación de Aula Virtual LMS MOODLE Atención a 4 países capacitación para docentes Administración y desarrollo de plataformas tecnológicas (LMS CMS CRM) Dashboard de KPI (resultado e impacto) Creación de OVAs REAs innovación educativa Prospectiva gerencia internacional transferencia de conocimientos.",
+      "role": "Coordinador Educación, Innovación y TIC",
+      "description": "Diseño tecnopedagógico, planificación proyectos educativos con TIC, Creación de Aula Virtual LMS MOODLE Atención a 4 países, capacitación para docentes, Administración y desarrollo de plataformas tecnológicas (LMS, CMS, CRM), Dashboard de KPI (resultado e impacto), Creación de OVAs, REAs, innovación educativa, Prospectiva, gerencia internacional, transferencia de conocimientos.",
       "type": "professional"
     },
     {
@@ -1946,7 +1946,7 @@
       "organization": "Colegio Francis Bacon",
       "unit": "",
       "role": "Docente - Matemática",
-      "description": "Implementar plan de estudios coordinar área. Brindar seguimiento y evaluar resultados insertar TIC en la educación crear proyectos multidisciplinarios usar metodologías innovadoras redactar informes del área.",
+      "description": "Implementar plan de estudios, coordinar área. Brindar seguimiento y evaluar resultados, insertar TIC en la educación, crear proyectos multidisciplinarios, usar metodologías innovadoras, redactar informes del área.",
       "type": "professional"
     }
   ],
@@ -1955,56 +1955,56 @@
       "period": "Jul 25",
       "institution": "Universidad de La Sabana",
       "role": "Docente",
-      "subjects": "Bases de datos}",
-      "description": "Aplicar aprendizaje experiencial trabajo Colaborativo Aprendizaje Basado en Proyectos Seguimiento y retroalimentación a estudiantes evaluación y mejoras",
+      "subjects": "Bases de datos",
+      "description": "Aplicar aprendizaje experiencial, trabajo Colaborativo, Aprendizaje Basado en Proyectos, Seguimiento y retroalimentación a estudiantes, evaluación y mejoras",
       "type": "teaching"
     },
     {
       "period": "Oct 22",
       "institution": "Universidad Indoamérica",
       "role": "Docente y Coordinador de Carrera",
-      "subjects": "Computación y Sociedad Fundamentos de Sistemas Operativos Interacción Humano Máquina Matemáticas Discretas}",
-      "description": "Docencia Computación y Sociedad IHM Competencias Digitales Trabajo Colaborativo Aprendizaje basado en proyectos Seguimiento y retroalimentación a estudiantes evaluación y mejoras; Coordinación de la carrera gestión de proyectos y programas formativos.",
+      "subjects": "Computación y Sociedad, Fundamentos de Sistemas Operativos, Interacción Humano Máquina, Matemáticas Discretas",
+      "description": "Docencia, Computación y Sociedad, IHM, Competencias Digitales, Trabajo Colaborativo, Aprendizaje basado en proyectos, Seguimiento y retroalimentación a estudiantes, evaluación y mejoras; Coordinación de la carrera, gestión de proyectos y programas formativos.",
       "type": "teaching"
     },
     {
       "period": "Ago 20",
       "institution": "Universitat Oberta de Catalunya",
       "role": "Profesor Colaborador",
-      "subjects": "Competencias en Tecnologías de la Información y de la Comunicación (C-TIC)}",
-      "description": "Docencia competencias Digitales Trabajo Colaborativo Aprendizaje basado en proyectos Role-playing Seguimiento y retroalimentación a estudiantes evaluación de competencias evaluación y mejoras.",
+      "subjects": "Competencias en Tecnologías de la Información y de la Comunicación (C-TIC)",
+      "description": "Docencia, competencias Digitales, Trabajo Colaborativo, Aprendizaje basado en proyectos, Role-playing, Seguimiento y retroalimentación a estudiantes, evaluación de competencias, evaluación y mejoras.",
       "type": "teaching"
     },
     {
       "period": "Sep",
       "institution": "Universidad Tecnológica Empresarial de Guayaquil - UTEG",
       "role": "Profesor invitado en posgrados",
-      "subjects": "Diseño Curricular en Entornos Virtuales de Aprendizaje (EVA)}",
-      "description": "Profesor del módulo \"Diseño curricular en entornos virtuales\" Implementación del sílabo desarrollo de talleres y seguimiento al proceso de aprendizaje de los maestrantes. preparar recursos didácticos Impartir módulo empleando metodologías activas Aprendizaje basado en proyectos Banco de preguntas estructuradas Recursos Web 2.0. evaluación y mejoras.",
+      "subjects": "Diseño Curricular en Entornos Virtuales de Aprendizaje (EVA)",
+      "description": "Profesor del módulo \"Diseño curricular en entornos virtuales\", Implementación del sílabo, desarrollo de talleres y seguimiento al proceso de aprendizaje de los maestrantes. preparar recursos didácticos, Impartir módulo empleando metodologías activas, Aprendizaje basado en proyectos, Banco de preguntas estructuradas, Recursos Web 2.0. evaluación y mejoras.",
       "type": "teaching"
     },
     {
       "period": "Jun",
       "institution": "Universidad Nacional de Educación",
       "role": "Profesor invitado en posgrados",
-      "subjects": "Fundamentos educativos y pedagógicos de las TIC}",
-      "description": "Docente autor Diseño del módulo de Ciudadanía Digital uso de Metodologías actividades diseño de proyecto de aplicación creación de Aula Virtual en LMS Moodle Aprendizaje basado en proyectos Retroalimentación Seguimiento y retroalimentación Recursos Web 2.0. LMS MOODLE y OVA evaluación y mejoras.",
+      "subjects": "Fundamentos educativos y pedagógicos de las TIC",
+      "description": "Docente autor, Diseño del módulo de Ciudadanía Digital, uso de Metodologías actividades, diseño de proyecto de aplicación, creación de Aula Virtual en LMS Moodle, Aprendizaje basado en proyectos, Retroalimentación, Seguimiento y retroalimentación, Recursos Web 2.0. LMS MOODLE y OVA, evaluación y mejoras.",
       "type": "teaching"
     },
     {
       "period": "Mar 22",
       "institution": "Universidad Católica de Cuenca",
       "role": "Profesor invitado en posgrados",
-      "subjects": "1) Recursos Tecnológicos Para La Innovación 2) Tecnologías aplicadas en la Educación y 3) Tecnologías Emergentes Y Recursos Didácticos Innovadores Aplicados Al Contexto Intercultural}",
-      "description": "Docencia Creación de OVAs Competencias Digitales Creación de Aula Virtual en LMS MOODLE Metodologías Aprendizaje basado en proyectos Retroalimentación Seguimiento y retroalimentación Recursos Web 2.0. SCORM Dublin Core evaluación y mejoras.",
+      "subjects": "1) Recursos Tecnológicos Para La Innovación, 2) Tecnologías aplicadas en la Educación y 3) Tecnologías Emergentes Y Recursos Didácticos Innovadores Aplicados Al Contexto Intercultural",
+      "description": "Docencia, Creación de OVAs, Competencias Digitales, Creación de Aula Virtual en LMS MOODLE Metodologías, Aprendizaje basado en proyectos, Retroalimentación, Seguimiento y retroalimentación, Recursos Web 2.0. SCORM, Dublin Core, evaluación y mejoras.",
       "type": "teaching"
     },
     {
       "period": "Mar 19",
       "institution": "Centro de Educación Continua Politécnica Nacional",
       "role": "Profesor Invitado",
-      "subjects": "Formador de Formadores Inteligencia Artificial Aplicada a la Educación Diseño Instruccional y EVA}",
-      "description": "Creación de cursos Modelos tecnopedagógico Contenidos y recursos educativos con TIC Web 2.0 Diseño y Creación de Aulas Virtuales en LMS MOODLE. Competencias digitales Innovación Educativa evaluar planes de formación mejora continua redactar informes de cursos para coordinación.",
+      "subjects": "Formador de Formadores, Inteligencia Artificial Aplicada a la Educación, Diseño Instruccional y EVA",
+      "description": "Creación de cursos, Modelos tecnopedagógico, Contenidos y recursos educativos con TIC, Web 2.0, Diseño y Creación de Aulas Virtuales en LMS MOODLE. Competencias digitales, Innovación Educativa, evaluar planes de formación, mejora continua, redactar informes de cursos para coordinación.",
       "type": "teaching"
     },
     {
@@ -2012,7 +2012,7 @@
       "institution": "Universidad Técnica del Norte - posgrados",
       "role": "Profesor posgrados",
       "subjects": "",
-      "description": "Trabajo colaborativo Diseño y desarrollo de Recursos Digitales creación del aula virtual en LMS MOODLE Diseño de proyectos Innovación Educativa diseñar LMS recursos y actividades de aprendizaje competencias digitales enfoque tecnopedagógico.",
+      "description": "Trabajo colaborativo, Diseño y desarrollo de Recursos Digitales, creación del aula virtual en LMS MOODLE Diseño de proyectos, Innovación Educativa, diseñar LMS, recursos y actividades de aprendizaje, competencias digitales, enfoque tecnopedagógico.",
       "type": "teaching"
     },
     {
@@ -2020,14 +2020,14 @@
       "institution": "Universidad Central del Ecuador - posgrados",
       "role": "Profesor posgrados",
       "subjects": "",
-      "description": "Metodologías activas informática educativa Proyectos educativos LMS Moodle Aprendizaje Basado en Proyectos Competencias Digitales.",
+      "description": "Metodologías activas, informática educativa, Proyectos educativos, LMS Moodle, Aprendizaje Basado en Proyectos, Competencias Digitales.",
       "type": "teaching"
     }
   ],
   "education": [
     {
       "year": "2024",
-      "degree": "Doctorado en Ingeniería Informática",
+      "degree": "Doctorado en Ingeniería, Informática",
       "institution": "Universidad de La Sabana",
       "status": "En curso"
     },
@@ -2063,7 +2063,7 @@
     },
     {
       "year": "2016",
-      "degree": "Máster Universitario en Educación y TIC Esp. Diseño Tecnopedagógico",
+      "degree": "Máster Universitario en Educación y TIC, Esp. Diseño Tecnopedagógico",
       "institution": "Universitat Oberta de Catalunya",
       "status": "Concluido"
     },
