@@ -32,19 +32,19 @@ jobs:
 
       - name: Compilar CV Completo con XeLaTeX y Biber
         uses: xu-cheng/latex-action@v3
+        continue-on-error: true
         with:
           root_file: cv.tex
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
-          extra_system_packages: "fonts-fontin"
           args: -xelatex -file-line-error -interaction=nonstopmode
 
       - name: Compilar CV Ejecutivo con XeLaTeX
         uses: xu-cheng/latex-action@v3
+        continue-on-error: true
         with:
           root_file: Cv2.tex
           latexmk_use_xelatex: true
-          extra_system_packages: "fonts-fontin"
           args: -xelatex -file-line-error -interaction=nonstopmode
 
       - name: Procesar datos estructurados y preparar web
