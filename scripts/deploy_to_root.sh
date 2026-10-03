@@ -60,6 +60,8 @@ cp "${CV_REPO_DIR}/web/data.json" "${TARGET_DIR}/data.json"
 cp -r "${CV_REPO_DIR}/web/assets" "${TARGET_DIR}/"
 cp "${CV_REPO_DIR}/web/cv.pdf" "${TARGET_DIR}/" 2>/dev/null || true
 cp "${CV_REPO_DIR}/web/cv_ejecutivo.pdf" "${TARGET_DIR}/" 2>/dev/null || true
+touch "${TARGET_DIR}/.nojekyll"
+touch "${TARGET_DIR}/jardin/.nojekyll"
 
 echo ""
 echo "======================================================================"
