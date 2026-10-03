@@ -52,6 +52,25 @@ function renderMetrics() {
 function initKnowledgeGraph() {
   if (!cvData.knowledgeGraph) return;
 
+  // Actualizar conteos dinámicos en los botones de cluster
+  const nodes = cvData.knowledgeGraph.nodes || [];
+  const counts = {
+    all: nodes.length,
+    ia_data_science: nodes.filter(n => n.cluster === 'ia_data_science').length,
+    politicas_direccion: nodes.filter(n => n.cluster === 'politicas_direccion').length,
+    tecnopedagogia: nodes.filter(n => n.cluster === 'tecnopedagogia').length
+  };
+
+  const btnAll = document.querySelector('.cluster-btn[data-cluster="all"]');
+  const btnIA = document.querySelector('.cluster-btn[data-cluster="ia_data_science"]');
+  const btnPol = document.querySelector('.cluster-btn[data-cluster="politicas_direccion"]');
+  const btnTec = document.querySelector('.cluster-btn[data-cluster="tecnopedagogia"]');
+
+  if (btnAll) btnAll.textContent = `Todos (${counts.all})`;
+  if (btnIA) btnIA.textContent = `● IA & Data (${counts.ia_data_science})`;
+  if (btnPol) btnPol.textContent = `● Políticas (${counts.politicas_direccion})`;
+  if (btnTec) btnTec.textContent = `● Tecnopedagogía (${counts.tecnopedagogia})`;
+
   graphInstance = new KnowledgeGraph('knowledge-graph-container', cvData.knowledgeGraph, {
     onNodeClick: (node) => {
       showNodeDetail(node);
@@ -60,15 +79,26 @@ function initKnowledgeGraph() {
 
   // Filtros de cluster
   const clusterBtns = document.querySelectorAll('.cluster-btn');
+  const setActiveClusterBtn = (activeBtn) => {
+    clusterBtns.forEach(b => {
+      b.classList.remove('bg-white/[0.15]', 'ring-1', 'ring-white/20', 'font-bold');
+      if (b.getAttribute('data-cluster') === 'all') {
+        b.classList.remove('bg-white/[0.1]');
+        b.classList.add('text-slate-400');
+      }
+    });
+    if (activeBtn) {
+      activeBtn.classList.add('bg-white/[0.15]', 'ring-1', 'ring-white/20', 'font-bold');
+      if (activeBtn.getAttribute('data-cluster') === 'all') {
+        activeBtn.classList.remove('text-slate-400');
+        activeBtn.classList.add('text-white');
+      }
+    }
+  };
+
   clusterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      clusterBtns.forEach(b => {
-        b.classList.remove('bg-white/[0.12]', 'text-white', 'font-bold');
-        b.classList.add('text-slate-400');
-      });
-      btn.classList.add('bg-white/[0.12]', 'text-white', 'font-bold');
-      btn.classList.remove('text-slate-400');
-
+      setActiveClusterBtn(btn);
       const cluster = btn.getAttribute('data-cluster');
       graphInstance.setCluster(cluster);
     });
@@ -85,13 +115,7 @@ function initKnowledgeGraph() {
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
       graphInstance.resetView();
-      clusterBtns.forEach(b => {
-        if (b.getAttribute('data-cluster') === 'all') {
-          b.classList.add('bg-white/[0.12]', 'text-white');
-        } else {
-          b.classList.remove('bg-white/[0.12]', 'text-white');
-        }
-      });
+      if (btnAll) setActiveClusterBtn(btnAll);
     });
   }
 
