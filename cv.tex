@@ -1,0 +1,911 @@
+\documentclass[a4paper]{article}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{bibliografia.bib}
+
+\usepackage[spanish]{babel}
+\usepackage[english]{isodate}
+\numdate
+
+\usepackage{longtable}
+\usepackage{parskip}
+\usepackage{array}
+\usepackage{tabularx}
+
+\usepackage{tabularx, array, ragged2e}
+\usepackage[hidelinks]{hyperref}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X} % columna que envuelve texto
+\newcommand{\refe}[5]{%
+  \parbox[t]{\linewidth}{\small
+    \textbf{#1}\\
+    #2\\
+    \textsc{#3}\\
+    #4\\
+    \href{mailto:#5}{#5}%
+  }%
+}
+
+
+
+
+
+\usepackage{marvosym}
+\usepackage{fontspec} % XeLaTeX/LuaLaTeX
+\usepackage{xunicode,xltxtra,url,parskip}
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo}
+\usepackage{supertabular}
+\usepackage{titlesec}
+\usepackage{comment}
+% Cargar hyperref una sola vez, sin marcos
+\usepackage[hidelinks]{hyperref}
+\hypersetup{breaklinks=true} % opcional: permite cortar URLs largas
+
+
+
+% ===== ÍCONOS AÑADIDOS =====
+\usepackage{fontawesome5}   % \faLinkedin \faGithub \faTwitter \faEnvelope \faGlobe ...
+\usepackage{academicons}    % \aiOrcid
+\usepackage{orcidlink}      % \orcidlink{0000-....}
+
+% Colores de marca (opcional)
+\definecolor{orcidlogocol}{HTML}{A6CE39}
+\definecolor{linkedin}{HTML}{0A66C2}
+\definecolor{github}{HTML}{24292E}
+\definecolor{blogcol}{HTML}{0F6CBD}
+
+% Macro: icono + texto en un solo enlace
+\newcommand{\social}[4]{%
+  \href{#2}{\textcolor{#3}{#1}\hspace{0.5ex}\textcolor{black}{#4}}%
+}
+% ===========================
+
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+\hyphenation{im-pre-se}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+\usepackage{graphicx}
+
+\begin{document}
+\pagestyle{empty}
+\font\fb=''[cmr10]''
+
+
+
+% En el documento:
+\begin{center}
+\noindent
+\begin{minipage}[c]{0.23\textwidth}
+  \centering
+  % Ajusta la altura a tu gusto (mantiene proporciones)
+  \includegraphics[height=3.6cm]{foto_ms.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.73\textwidth}
+  \centering
+  {\Large \textbf{Marcelo Javier} \textsc{Sotaminga Cinilin}}\par\vspace{8pt}
+  {\large \textsc{Tecnología e IA para la Innovación, Educación y Gestión del Conocimiento}}
+\end{minipage}
+\end{center}
+% ===== BARRA DE REDES (NUEVA) =====
+\begin{center}
+  \social{\faLinkedin}{https://www.linkedin.com/in/marchelo2212}{linkedin}{marchelo2212}\quad
+  \social{\faGithub}{https://github.com/marchelo2212}{github}{marchelo2212}\quad
+  \href{mailto:marcelo.sotaminga@gmail.com}{\faEnvelope\hspace{0.5ex}marcelo.sotaminga@gmail.com}\quad
+\\  \orcidlink{0000-0003-4250-906X}\hspace{1ex}\href{https://orcid.org/0000-0003-4250-906X}{0000-0003-4250-906X}\quad
+  \href{https://marchelo2212.espiraleducativa.org}{\textcolor{blogcol}{\faGlobe}\hspace{0.5ex}\textcolor{black}{marchelo2212.espiraleducativa.org}}
+\end{center}
+% ===================================
+
+
+
+
+\section{Datos Personales}
+
+\begin{comment}
+
+% ECUADOR
+\begin{tabular}{rl}
+  \textsc{Cédula de Ciudadanía:} & 1719920041 (Ecuatoriano)\\
+  \textsc{Lugar y fecha de nacimiento:} & Quito - Ecuador \,|\, 22 Diciembre 1988 \\
+  \textsc{Dirección:} & Av. Cacha y Cantabria (Calle F), Calderón \\
+                       & Conjunto Finca 4, CP.170155 (Quito - Ecuador) \\
+  \textsc{Celular:} & +593 992888378\\
+ 
+\end{tabular}
+\end{comment}
+
+% COLOMBIA
+\begin{tabular}{rl}
+  \textsc{Cédula de extranjería:} & 8063616 (Ecuatoriano)\\
+  \textsc{Lugar y fecha de nacimiento:} & Quito - Ecuador  | 22 Diciembre 1988 \\
+  \textsc{Dirección:} & Dg. 4ª \#4e-20, Cajicá, Cundinamarca \\
+                      & Caminos de Cajicá II, \\
+  \textsc{Celular:} & +57 3174751858\\
+\end{tabular}
+
+%Profesional en tecnología educativa con enfoque en Inteligencia Artificial aplicada y Transformación Digital. Especialista en diseño y despliegue de soluciones sobre entornos GNU/Linux,
+%Python y SQL, integrando LMS, CMS y CRM, y automatizando flujos de datos para la toma de decisiones basadas en evidencia en educación, innovación y desarrollo social. %Lidero equipos multidisciplinarios, implemento métricas de desempeño (KPI) y aplico analítica para asegurar resultados. Actualmente curso el Doctorado en Ingeniería en la Universidad de La Sabana.
+
+
+
+\section{Acerca de mí}
+Doctorando en Ingeniería en la Universidad de La Sabana, con diversas maestrías en Educación, Tecnología, Calidad y Gestión de la Información y el Conocimiento por la Universitat Oberta de Catalunya, además de formación avanzada en Educación, Tecnología e Innovación. Su investigación actual se centra en la aplicación de arquitecturas de Deep Learning y modelos de diagnóstico cognitivo para la medición de competencias, el desarrollo de ontologías y la creación de sistemas inteligentes de apoyo al aprendizaje.
+Cuenta con más de 15 años de experiencia liderando proyectos de transformación digital, innovación educativa y analítica de datos, en colaboración con organismos como la UNESCO, la OEI, el BID y el Ministerio de Educación del Ecuador.
+Ha diseñado e implementado soluciones tecnopedagógicas y ecosistemas de aprendizaje digital basados en plataformas LMS, analítica educativa y automatización de flujos de datos. Domina tecnologías como Python, SQL, R, Power BI y Moodle, junto con entornos GNU/Linux y herramientas de modelamiento de información.
+Actualmente se desempeña como docente universitario en asignaturas de bases de datos y Jefe de Producción Virtual en la Universidad de La Sabana, así como profesor de posgrado en diversas instituciones iberoamericanas. Su trabajo integra investigación aplicada, desarrollo tecnológico y formación docente en competencias digitales, pensamiento computacional e inteligencia artificial.
+%Section: Work Experience at the top
+\section{Experiencia Profesional}
+\begin{longtable}{r|p{12cm}}
+
+\textsc{Mar 26} & \textsc{Universidad de La Sabana} \\
+Actual & Unisabana e-learning\\
+&\emph{Jefe de Producción Virtual}\\
+&\footnotesize{Dirigir el proceso de uso, integración y apropiación de las TIC y tecnologías emergentes en los programas de educación formal a nivel de grado, posgrado y educación contínua de la Universidad de La Sabana}\\
+
+\multicolumn{2}{c}{} \\
+\textsc{Sep 15} &  \textsc{Espiral Educativa} \\
+\textsc{Sep} 24&\emph{Director de Proyectos}\\&\footnotesize{Diseño instruccional de programas y proyectos, Transformación Digital en organizaciones, creación de Aulas Virtuales en LMS MOODLE, Gestión del cambio, Metodologías Ágiles (Design Thinking, SCRUM, PMBOK),  modelos de innovación, metodologías activas, indicadores de resultados e impacto, sistema de garantía de interna de calidad, Modelos tecnopedagógicos, Gestión del Conocimiento, PDCA}\\
+
+
+\multicolumn{2}{c}{} \\
+\textsc{Sep 21} & \textsc{Ministerio De Telecomunicaciones Y De La Sociedad De La Información (MINTEL)} \\
+\textsc{Jun} 22&\emph{Director de Fomento De Tecnologías Emergentes}\\&\footnotesize{Desarrollar planes, programas, proyectos y acciones para el uso adecuado y progresivo de las Tecnologías Emergentes a nivel nacional, diseño de proyectos centrados en el ciudadano, uso de metodologías ágiles, trabajo con cooperación internacional, identificación de indicadores de resultados e impacto (KPI), Planificación estratégica y prospectiva}\\
+
+
+
+\multicolumn{2}{c}{} \\
+\textsc{Abr 21} &  \textsc{ProFuturo - ChildFund}\\
+\textsc{Sep 21}&\emph{Coordinador Comunidades de Aprendizaje Digital}\\&\footnotesize{Diseño, ejecución y evaluación de proyectos, comunidades de aprendizaje y práctica, innovación educativa, investigación cualitativa y cuantitativa, reportes de logros, gestión de la información.} \\
+
+
+
+\multicolumn{2}{c}{} \\
+\textsc{Abr 13} &  \textsc{Fundación de Waal Internacional} \\ \textsc{Dic 20}&\emph{Coordinador Educación, Innovación y TIC}\\&\footnotesize{Diseño tecnopedagógico, planificación proyectos educativos con TIC, Creación de Aula Virtual LMS MOODLE Atención a 4 países, capacitación para docentes, Administración y desarrollo de plataformas tecnológicas (LMS, CMS, CRM), Dashboard de KPI (resultado e impacto), Creación de OVAs, REAs, innovación educativa, Prospectiva, gerencia internacional, transferencia de conocimientos.}\\ 
+
+\multicolumn{2}{c}{} \\
+\textsc{Abr 09} & \textsc{Colegio Francis Bacon}\\\textsc{ Mar 13}& \emph{Docente - Matemática}\\&\footnotesize{Implementar plan de estudios, coordinar área. Brindar seguimiento y evaluar resultados, insertar TIC en la educación, crear proyectos multidisciplinarios, usar metodologías innovadoras, redactar informes del área.}\\
+\end{longtable}
+
+
+
+\section{Experiencia Docente en Educación Superior}
+\begin{longtable}{r|p{12cm}}
+
+%\multicolumn{2}{c}{} \\
+
+
+\textsc{Jul 25} & \textsc{Universidad de La Sabana} \\
+Actual & Ingeniería en Informática e Ingeniería en Ciencia de Datos\\
+&\emph{Docente}\\
+&\footnotesize{Aplicar aprendizaje experiencial, trabajo Colaborativo, Aprendizaje Basado en Proyectos, Seguimiento y retroalimentación  a estudiantes, evaluación y mejoras}\\& \footnotesize{\textbf{Asignaturas impartidas:} Bases de datos}\\
+
+\multicolumn{2}{c}{} \\
+\textsc{Oct 22} & \textsc{Universidad Indoamérica} \\
+Sep 24 & Ingeniería en Tecnologías de la Información\\
+&\emph{Docente y Coordinador de Carrera}\\
+&\footnotesize{Docencia, Computación y Sociedad, IHM, Competencias Digitales, Trabajo Colaborativo, Aprendizaje basado en proyectos, Seguimiento y retroalimentación  a estudiantes, evaluación y mejoras; Coordinación de la carrera, gestión de proyectos y programas formativos.}\\& \footnotesize{\textbf{Asignaturas impartidas:} Computación y Sociedad, Fundamentos de Sistemas Operativos, Interacción Humano Máquina, Matemáticas Discretas}\\
+
+\multicolumn{2}{c}{} \\
+\textsc{Ago 20} & \textsc{Universitat Oberta de Catalunya} \\
+Sep 23& Asignatura de Competencias TIC\\
+&\emph{Profesor Colaborador}\\
+&\footnotesize{Docencia, competencias Digitales, Trabajo Colaborativo, Aprendizaje basado en proyectos, Role-playing, Seguimiento y retroalimentación  a estudiantes, evaluación de competencias, evaluación y mejoras.}\\ & \footnotesize{\textbf{Asignaturas impartidas:} Competencias en Tecnologías de la Información y de la Comunicación (C-TIC)}\\
+
+\multicolumn{2}{c}{} \\
+\textsc{Sep} & \textsc{Universidad Tecnológica Empresarial de Guayaquil - UTEG} \\
+ Oct& Maestría en Educación mención pedagogía\\
+ 2022&\emph{Profesor invitado en posgrados}\\
+ &\footnotesize{Profesor del módulo "Diseño curricular en entornos virtuales", Implementación del sílabo, desarrollo de talleres y seguimiento al proceso de aprendizaje de los maestrantes. preparar recursos didácticos, Impartir módulo empleando metodologías activas, Aprendizaje basado en proyectos, Banco de preguntas estructuradas, Recursos Web 2.0. evaluación y mejoras.}\\ & \footnotesize{\textbf{Asignaturas impartidas:} Diseño Curricular en Entornos Virtuales de Aprendizaje (EVA)}\\
+ 
+\multicolumn{2}{c}{} \\
+\textsc{Jun} & \textsc{Universidad Nacional de Educación} \\
+\textsc{Jul}& Maestría en Educación, Tecnología e Innovación\\
+2022&\emph{Profesor invitado en posgrados}\\
+&\footnotesize{Docente autor, Diseño del módulo de Ciudadanía Digital, uso de Metodologías actividades, diseño de proyecto de aplicación, creación de Aula Virtual en LMS Moodle, Aprendizaje basado en proyectos, Retroalimentación, Seguimiento y retroalimentación, Recursos Web 2.0. LMS MOODLE y OVA, evaluación y mejoras. }\\ & \footnotesize{\textbf{Asignaturas impartidas en posgrado:} Fundamentos educativos y pedagógicos de las TIC}\\
+
+\multicolumn{2}{c}{} \\
+\textsc{Mar 22} & \textsc{Universidad Católica de Cuenca} \\
+Ocasional & Maestría en Educación, Tecnología e Innovación\\
+&\emph{Profesor invitado en posgrados}\\&\footnotesize{Docencia, Creación de OVAs, Competencias Digitales, Creación de Aula Virtual en LMS MOODLE Metodologías, Aprendizaje basado en proyectos, Retroalimentación, Seguimiento y retroalimentación, Recursos Web 2.0. SCORM, Dublin Core, evaluación y mejoras. }\\ & \footnotesize{\textbf{Asignaturas impartidas en posgrado:} 1) Recursos Tecnológicos Para La Innovación, 2) Tecnologías aplicadas en la Educación y 3) Tecnologías Emergentes Y Recursos Didácticos Innovadores Aplicados Al Contexto Intercultural} \\
+
+\multicolumn{2}{c}{} \\
+\textsc{Mar 19} & \textsc{Centro de Educación Continua Politécnica Nacional} \\Actual
+&\emph{Profesor Invitado}\\Ocasional&\footnotesize{Creación de cursos, Modelos tecnopedagógico, Contenidos y recursos educativos con TIC, Web 2.0, Diseño y Creación de Aulas Virtuales en LMS MOODLE. Competencias digitales, Innovación Educativa, evaluar planes de formación, mejora continua, redactar informes de cursos para coordinación.}\\ & \footnotesize{\textbf{Cursos impartidos:} Formador de Formadores, Inteligencia Artificial Aplicada a la Educación, Diseño Instruccional y EVA}\\
+
+\multicolumn{2}{c}{} \\
+\textsc{14 Feb} & \textsc{Universidad Técnica del Norte - posgrados} \\28 Feb& Maestría en Tecnología e Innovación Educativa\\
+2020&\emph{Profesor posgrados}\\Ocasional&\footnotesize{Trabajo colaborativo, Diseño y desarrollo de Recursos Digitales, creación del aula virtual en LMS MOODLE Diseño de proyectos, Innovación Educativa, diseñar LMS, recursos y actividades de aprendizaje, competencias digitales, enfoque  tecnopedagógico.
+}\\ & \footnotesize{\textbf{Asignatura impartida posgrado:} Herramientas TIC en la Educación}\\
+
+ \multicolumn{2}{c}{} \\
+\textsc{11 Abr} & \textsc{Universidad Central del Ecuador - posgrados} \\11 May
+& Maestría en Educación, Mención en Gestión del Aprendizaje Mediado por TIC\\19
+&\emph{Profesor posgrados}\\Ocasional&\footnotesize{Metodologías activas, informática educativa, Proyectos educativos, LMS Moodle, Aprendizaje Basado en Proyectos, Competencias Digitales.}
+ \\ & \footnotesize{\textbf{Asignatura impartida:} Metodologías Activas para la enseñanza de la Informática}\\
+\end{longtable}
+
+
+\section{Educación Universitaria}
+\begin{longtable}{r|p{12cm}}
+
+
+\textsc{2024} & Doctorado \\ & \textsc{Ingeniería, Informática}\\
+& \textbf{Universidad de La Sabana}\\
+& En curso\\
+&Chía - Colombia
+\\\multicolumn{2}{c}{} \\
+    
+\textsc{2025} & Diplomado \\ & \textsc{Inteligencia Artificial con Deep Learning}\\
+& \textbf{Universidad de La Sabana}\\
+& REG: \href{https://unisabana.evolutool.com/index.php?chk=fdbd5ad273a37445359840c7b91a3087\&v=23449}{Verificación}\\
+&Chía - Colombia
+\\\multicolumn{2}{c}{} \\
+
+
+\textsc{2024} & Máster Universitario \\ & \textsc{Ciencia de Datos}\\
+& \textbf{Universitat Oberta de Catalunya}\\
+& En curso\\
+&Barcelona - España
+\\\multicolumn{2}{c}{} \\
+
+
+
+\begin{comment}
+    
+
+\textsc{2022} & Máster Universitario \\ & \textsc{Ingeniería Computacional y Matemática}\\
+& \textbf{Universitat Rovira i Virgili }\\
+& En curso\\
+&Tarragona - España
+\\\multicolumn{2}{c}{} \\
+\end{comment}
+
+\textsc{2020} & Máster Universitario \\ & \textsc{Gestión Estratégica de la Información y el Conocimiento en las Organizaciones}\\
+& \textbf{Universitat Oberta de Catalunya}\\
+& REG SENECYT. 7241199351\\
+&Barcelona - España
+\\\multicolumn{2}{c}{} \\
+
+\textsc{2019} & Máster Universitario \\ & \textsc{Evaluación y Gestión de la Calidad en la Educación Superior}\\
+& \textbf{Universitat Oberta de Catalunya}\\
+& REG SENECYT. 7241175728\\
+&Barcelona - España
+\\\multicolumn{2}{c}{} \\
+
+\textsc{2016} & Máster Universitario \\&  \textsc{Educación y TIC, Esp. Diseño Tecnopedagógico}\\
+& \textbf{Universitat Oberta de Catalunya}\\
+& REG SENECYT. 7241115069\\
+&Barcelona - España\\
+
+\multicolumn{2}{c}{} \\
+
+\textsc{2016}  & Posgrado {Diseño tecnopedagógico de programas, entornos y recursos}\\
+& \textbf{Universitat Oberta de Catalunya}\\
+&Barcelona - España\\
+
+\multicolumn{2}{c}{} \\
+
+\textsc{2015} & Especialización \textsc{Apoyo al diseño de programas y cursos}\\
+& \textbf{Universitat Oberta de Catalunya}\\
+&Barcelona - España\\
+
+\multicolumn{2}{c}{} \\
+
+\textsc{2012} & Licenciatura en \textsc{Ciencias de la Educación} especialidad \textsc{Informática} \\&\textbf{Universidad Central del Ecuador} \\
+& REG SENECYT. 1005-15-1388142\\
+& Quito - Ecuador\\
+\end{longtable}
+
+
+\section{Certificaciones}
+\begin{longtable}{r|p{12cm}}
+
+\textsc{2022} & \textsc{Educador certificado por GOOGLE}\\
+&\textbf{Google for Education - Level 1} \\
+& URL: \url{https://bit.ly/3P8nwbF} \\
+
+\multicolumn{2}{c}{} \\
+
+\textsc{2020} & \textsc{Master’s Degree in Management and Evaluation in Higher Quality Education.}\\
+&\textbf{INQAAHE} \\
+& URL: \url{https://bit.ly/34H9JDW} \\
+
+\multicolumn{2}{c}{} \\
+
+\textsc{2020} & \textsc{Formación de Tutores de Nivelación Especializados en Modalidad en Línea.}\\
+& \textbf{Universidad Internacional de la Rioja}\\
+&  Reg. e4e2cfaa-3617-43a9-bb21-5c69d2f34553 \\
+& URL: \url{https://verifirma.unir.net/csv} \\
+
+\multicolumn{2}{c}{} \\
+
+\textsc{2019} & \textsc{Formador de Formadores}\\&\textbf{Liderazgo,   Capacitación Y Consultoría CIA. LTDA} \\
+& Reg. SETEC-260-CCL-172865 \\
+& URL: \url{https://www.senescyt.gob.ec/} \\
+
+\multicolumn{2}{c}{} \\
+
+\textsc{2017} & \textsc{Moodle Course Creator Certificate}\\&\textbf{Edulabs - Colombia, Moodle Australia} \\
+& Reg. Moodle: G7AN-SDZW-KA1B-NHFN \\
+& URL: \url{https://certificates.moodle.com/} \\
+
+\multicolumn{2}{c}{} \\
+
+\textsc{2014}  & Experto en \textsc{ educación virtual} \\
+&\textbf{Fundación para la Actualización Tecnológica de América Latina (FATLA)} \\
+& URL: \href{https://www.flickr.com/search/?text=sotaminga}{https://www.fatla.org/} \\
+
+\end{longtable}
+
+
+    
+\begin{comment}
+    
+
+\section{Cursos en tabla }
+
+\extrarowheight = -0.5ex
+\renewcommand{\arraystretch}{2}
+
+\begin{tabular}{m{1.4cm} m{1.4cm} m{1cm} m{4cm} m{2.5cm} m{1cm}}
+ \textbf{Inicio}& \textbf{Fin}& \textbf{Tipo}& \textbf{Nombre}& \textbf{Inst. país }& \textbf{Horas} \\ 
+ 
+ 22-09-19 & 22-11-07& Curso & Mobile Learning: Claves para la aplicación de los dispositivos móviles en el aula. 1ª edición & Universidad de Granada (España) & 75 \\
+
+22-09-19 & 22-11-07& Curso & Mobile Learning: Claves para la aplicación de los dispositivos móviles en el aula. 1ª edición & Universidad de Granada (España) & 75 \\
+
+22-09-19 & 22-11-07& Curso & Mobile Learning: Claves para la aplicación de los dispositivos móviles en el aula. 1ª edición & Universidad de Granada (España) & 75 \\
+
+\end{tabular}
+\end{comment}
+
+
+
+
+\section{Proyectos Relevantes}
+
+
+
+\begin{longtable}{r|p{12cm}}
+\textsc{2026} &  \textsc{Universiadad de La Sabana - IALab} \\&\emph{Proyecto: Ecosistema Neuro-Simbólico de Evaluación Inteligente: Transformación de la Educación
+STEM hacia un Territorio de Aprendizaje Sostenible en Sabana Centro”.}\\\multicolumn{2}{c}{}\\
+
+
+\textsc{2025} &  \textsc{Coordinadora de Medios Comunitarios Populares y Educativos del Ecuador - CORAPE} \\&\emph{Proyecto: Diseño, producción y desarrollo de dos aulas virtuales en el marco del proyecto “Strengthening communications capacity for biodiversity conservation, Ecuador”.}\\\multicolumn{2}{c}{}\\
+
+\textsc{2025} &  \textsc{Corporación Nacional de Finanzas Populares y Solidarias - Innovanci Internacional} \\&\emph{Proyecto: Implementación de infraestructura tecnológica para el levantamiento de un Campus de Formación Virtual.}\\\multicolumn{2}{c}{}\\
+
+\textsc{2025} &  \textsc{Organización de los Estados Iberoamericanos (OEI) - OpenLab Ecuador} \\&\emph{Proyecto: Curso de Pensamiento Computacional y Cultura Digital.}\\\multicolumn{2}{c}{}\\
+
+\textsc{2024} &  \textsc{Banco Interamericano de Desarrollo (BID)- Ministerio de Educación del Ecuador} \\&\emph{Proyecto: Implementación y acompañamiento a docentes
+en el marco del piloto de Ciudadanía Digital.}\\\multicolumn{2}{c}{}\\
+
+
+\textsc{2024} &  \textsc{Ministerio de Educación del Ecuador} \\&\emph{Proyecto: Ferias de Proyectos Educativos por parte del Ministerio de Educación.}\\\multicolumn{2}{c}{}\\
+
+\textsc{2024} &  \textsc{ChildFund Ecuador} \\&\emph{Proyecto: Desarrollo de Cursos MOOC sobre Ciudadanía Digital.}\\\multicolumn{2}{c}{}\\
+
+\textsc{2022} &  \textsc{Banco Interamericano de Desarrollo (BID)} \\&\emph{Proyecto: Agenda de Transformación Digital del Ecuador - MINTEL.}\\\multicolumn{2}{c}{}\\
+
+\textsc{2022} &  \textsc{Comunidad Andina} \\&\emph{Proyecto: Agenda Digital Andina - MINTEL.}\\\multicolumn{2}{c}{}\\
+
+\textsc{2022} &  \textsc{Comisión Económica para América Latina y el Caribe (CEPAL)} \\&\emph{Proyecto: Agenda digital para América Latina y el Caribe (eLAC2022) - MINTEL.}\\\multicolumn{2}{c}{}\\
+
+
+\textsc{2022} &  \textsc{Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura (UNESCO)} \\&\emph{Proyecto: Red de primeros países adoptantes de la Recomendación sobre la Ética de la Inteligencia Artificial - MINTEL.}\\\multicolumn{2}{c}{}\\
+
+\textsc{2022} &  \textsc{Organización de los Estados Americanos OEI} \\&\emph{Proyecto: Programa de formación en la metodología STEAM a docentes del magisterio nacional.}\\\multicolumn{2}{c}{} \\
+
+\textsc{2022} &  \textsc{Aldeas S.O.S - Bolivia} \\&\emph{Servicio de Desarrollo pedagógico y técnico del microlearning:
+“Infancia y juventud en un mundo digital”}\\\multicolumn{2}{c}{} \\
+
+\begin{comment}
+\textsc{2022} &  \textsc{Young Potential Development} \\&\emph{Configuración dentro de plataforma virtual Moodle para desarrollo de procesos formativos”}\\\multicolumn{2}{c}{} \\
+\end{comment}
+
+\textsc{2021} &  \textsc{OEI - CIESPAL - Ministerio de educación} \\&\emph{Proyecto: Curso masivo de Programación de videojuegos dirigido a miembros de la comunidad educativa.}\\\multicolumn{2}{c}{} \\
+
+\textsc{2021} &  \textsc{Universidad Nacional de Educación - posgrados} \\&\emph{Proyecto: Construcción de modelo Tecnopedagógico y Sistema de Garantía Interna de la Calidad para la maestría en Inclusión Educativa.}\\\multicolumn{2}{c}{} \\
+
+\textsc{2020} &  \textsc{Ministerio de Agricultura y Ganadería (MAG)} \\&\emph{Proyecto: Curso MOOC Fortalecimiento asociativo para organizaciones de productores.}\\\multicolumn{2}{c}{} \\
+
+\textsc{2020} &  \textsc{CORAPE - GIZ}\\&\emph{Proyecto: Desarrollo e Implementación de un Entorno Virtual de Aprendizaje para ejecutar procesos formativos dirigidos a diferentes públicos objetivos.}\\\multicolumn{2}{c}{} \\
+
+\textsc{2020} &  \textsc{CORAPE - ONUMUJERES}\\&\emph{Proyecto: Desarrollo e Implementación de un Modelo de Intervención Comunitaria con Enfoque de Género.}\\\multicolumn{2}{c}{} \\
+
+\textsc{2020} &  \textsc{CORAPE - UNICEF}\\&\emph{Proyecto: Proyecto Binacional Comunidades Protectoras.}\\\multicolumn{2}{c}{} \\
+
+\textsc{2020} &  \textsc{Aldeas Infantiles SOS} \\&\emph{Proyecto: Creación de una bolsa de empleo virtual juvenil de Aldeas Infantiles SOS.}\\\multicolumn{2}{c}{} \\
+
+\textsc{2020} &  \textsc{CIESPAL - Aldeas Infantiles SOS} \\&\emph{Proyecto: Generación de un proceso formativo para niños, niñas y adolescentes sobre creación de videojuegos y desarrollo del pensamiento computacional con Scratch.}\\\multicolumn{2}{c}{} \\
+
+\textsc{2019} &  \textsc{CIESPAL - Ministerio de educación} \\&\emph{Proyecto: Capacitación a docentes en el desarrollo del pensamiento computacional.}\\\multicolumn{2}{c}{} \\
+\begin{comment}
+
+\textsc{2019} &  \textsc{CIESPAL - ChildFund} \\&\emph{Proyecto: Navegación Segura, ciberseguridad para niños y niñas.}\\\multicolumn{2}{c}{} \\
+\end{comment}
+
+\textsc{2019} &  \textsc{Ministerio de Telecomunicaciones y de la Sociedad de la Información de Ecuador - MINTEL} \\&\emph{Proyecto: Fortalecimiento de capacidades al servidor público en el uso e importancia del sistema de información y trámites GOB.EC}\\\multicolumn{2}{c}{} \\
+
+\textsc{2019} &  \textsc{ECU911} \\&\emph{Proyecto: Generación de una plataforma (LMS) de formación continua para el departamento de Doctrina y actualización de 2 cursos(EMERCON y Atención al usuario)}\\\multicolumn{2}{c}{} \\
+
+\textsc{2018} &  \textsc{Instituto de Altos Estudios Nacionales - IAEN} \\&\emph{Proyecto: Creación de una plataforma (LMS) de formación continua y actualización de 2 cursos (Economía Social y Solidaria -ESS- y LibreOffice)}\\
+
+\end{longtable}
+
+
+%Section: Educación
+
+
+\begin{comment}
+    
+
+\section{Cursos y talleres impartidos}
+
+\textsc{Dic} 2020. Curso: \textsc{Docencia para entornos virtuales: Aportes para su desarrollo sincrónico y asincrónico.} 40 horas.\\
+\textbf{Facilitador}\\
+\textbf{Universidad Nacional de Educación}, Ecuador (Virtual) \\
+
+\end{comment}
+
+
+
+
+
+
+\section{Cursos }
+
+\textsc{May} 2025, 40 horas, curso: \textsc{De la Idea al Paper: Fundamentos para la Redacción de Artículos}.
+\textbf{Pontificia Universidad Católica del Ecuador}, Ecuador (Online).
+
+
+\textsc{Oct} 2024, 60 horas, curso: \textsc{Capacitación en Investigación Científica 2024}.
+\textbf{SCImago Research Group (SCImago Lab)}, España (Online).
+
+
+\textsc{Oct} 2024, 60 horas, curso: \textsc{Capacitación en Investigación Científica 2024}.
+\textbf{SCImago Research Group (SCImago Lab)}, España (Online).
+
+\textsc{Mar} 2023, 2 horas, curso: \textsc{Information Security Awareness}.
+\textbf{Fortinet NSE Training Institute}, España (Online).
+
+\textsc{Nov} 2022, 75 horas, curso: \textsc{Mobile learning: claves para la aplicación de los dispositivos móviles en el aula. 1ª edición}.
+\textbf{Universidad de Granada}, España (Online).
+
+\textsc{Jul} 2022, 2 horas, curso: \textsc{Protege tu Negocio: Ciberseguridad en el Teletrabajo}.
+\textbf{INCIBE--Google}, España (Online).
+
+\textsc{May} 2022, 24 horas, curso: \textsc{Inteligencia emocional aplicada al control}.
+\textbf{Contraloría General del Estado}, (Online).
+
+\textsc{Mar} 2022, 120 horas, curso: \textsc{Formación Docente Tecno-pedagógica para educación en línea}.
+\textbf{Universidad Nacional de Educación}, Ecuador (Online).
+
+\textsc{Feb} 2022, 50 horas, curso: \textsc{Fundamentos de Contratación Pública}.
+\textbf{Servicio Nacional de Contratación Pública}, Ecuador (Online).
+
+\textsc{Dic} 2021, 100 horas, curso: \textsc{Juegos, gamificación y TIC}.
+\textbf{Universidad Antonio de Nebrija}, España (Online).
+
+\textsc{Nov} 2021, 8 horas, curso: \textsc{Liderazgo político público}.
+\textbf{Corporación Líderes para Gobernar}, Ecuador (Online).
+
+\textsc{Nov} 2021, 8 horas, curso: \textsc{Las herramientas básicas para una eficiente gerencia pública}.
+\textbf{Corporación Líderes para Gobernar}, Ecuador (Online).
+
+\textsc{Nov} 2021, 8 horas, curso: \textsc{Gestión de proyectos públicos}.
+\textbf{Corporación Líderes para Gobernar}, Ecuador (Online).
+
+\textsc{May} 2021, 25 horas, curso: \textsc{Introducción a los datos abiertos en Ecuador}.
+\textbf{Fundación Datalat -- REDAM}, Ecuador (Online).
+
+\textsc{Abr} 2021, 20 horas, curso: \textsc{Effective Communication for Remote Teams}.
+\textbf{DisasterReady.org}, Ecuador (Online).
+
+\textsc{Abr} 2021, 30 horas, curso: \textsc{Programación de videojuegos}.
+\textbf{Ministerio de Educación -- OEI}, Ecuador (Online).
+
+\textsc{Dic} 2020, 30 horas, curso: \textsc{Violencia contra las mujeres y mecanismos de protección en el marco del Sistema de Protección Integral}.
+\textbf{Consejo de Protección de Derechos D.M. Quito}, Ecuador (Online).
+
+\textsc{Jul} 2020, 25 horas, curso: \textsc{Formación básica para el consultor}.
+\textbf{Universitat Oberta de Catalunya}, España (Online).
+
+\textsc{Nov} 2019, 48 horas, curso: \textsc{Formador de Formadores CEC--EPN}.
+\textbf{CEC -- Escuela Politécnica Nacional}, Ecuador (Online).
+
+\textsc{Oct} 2019, 30 horas, curso: \textsc{Learning Analytics en Educación}.
+\textbf{Instituto Nacional de Tecnologías Educativas y de Formación del Profesorado (INTEF)}, España (Online).
+
+\textsc{Jun} 2019, 8 horas, seminario: \textsc{MoodleDay 2019}.
+\textbf{CEC -- Escuela Politécnica Nacional}, Ecuador (Presencial).
+
+\textsc{Sep} 2018, 32 horas, curso: \textsc{Storytelling: narrativas digitales para el aprendizaje virtual}.
+\textbf{CEC -- Escuela Politécnica Nacional}, Ecuador (Presencial).
+
+\textsc{Jul} 2018, 50 horas, curso: \textsc{Formación en didáctica de la prevención de discapacidades}.
+\textbf{Fundación de Waal y CONADIS}, Ecuador (Presencial).
+
+\textsc{Jun} 2018, 40 horas, curso: \textsc{Accesibilidad al medio físico y normativa técnica ecuatoriana}.
+\textbf{Universidad Tecnológica Indoamérica y CONADIS}, Ecuador (Online).
+
+\textsc{Abr--Jun} 2018, 50 horas, curso: \textsc{Estrategias didácticas digitales}.
+\textbf{Organización de los Estados Americanos (OEA)}, Ecuador (Online).
+
+\textsc{Mar} 2018, 50 horas (2 ECTS), curso: \textsc{S4A: Scratch/Snap 4 Arduino}.
+\textbf{Programa de Cooperación para el Desarrollo, Grupo Inventa -- Universitat Oberta de Catalunya (UOC)}, España (Online).
+
+\textsc{Ene} 2018, 25 horas (1 ECTS), curso: \textsc{Seguridad en la red: la seguridad TIC en la infancia}.
+\textbf{Programa de Cooperación para el Desarrollo, Grupo Inventa -- Universitat Oberta de Catalunya (UOC)}, España (Online).
+
+\textsc{Oct} 2017, 18 horas, curso: \textsc{El profesor del siglo XXI}.
+\textbf{Pontificia Universidad Católica de Valparaíso y Miriadax}, España (Online).
+
+\textsc{Ago} 2017, 288 horas, curso superior: \textsc{Programa de formación de mediadores en prevención prenatal de discapacidades}.
+\textbf{Universidad Central del Ecuador -- Fundación de Waal}, Ecuador (B-learning).
+
+\textsc{May} 2017, 40 horas (1 ECTS), taller virtual: \textsc{Generar actividades educativas para el Scratch Day}.
+\textbf{Programa de Cooperación para el Desarrollo, Grupo Inventa -- Universitat Oberta de Catalunya (UOC)}, España (Online).
+
+\textsc{Abr} 2017, 40 horas, seminario: \textsc{V Congreso Internacional de Ciencias, Software Libre y Nuevas Tecnologías Aplicadas a la Educación}.
+\textbf{Universidad Central del Ecuador (UCE)}, Ecuador (Presencial).
+
+\textsc{Feb} 2017, 40 horas, taller: \textsc{Recursos didácticos digitales para el aula}.
+\textbf{Centro de Educación Continua de la Escuela Politécnica Nacional (CEC--EPN)}, Ecuador (B-learning).
+
+
+
+\section{Ponencias}
+\textsc{Ago} 2023. Ponente: \textsc{Uso de las actividades de aprendizaje en Moodle para evaluación en educación continua y formal}.\\
+\textbf{CEC - Escuela Politécnica Nacional} (Presencial) \\
+
+
+\textsc{Oct} 2022. Ponente en tertulia dialógica: \textsc{Mejorando nuestras vidas en comunidad, con el uso de las TIC}.\\
+\textbf{ Ministerio de Educación}, Ecuador (Online) \\
+
+\textsc{Ene} 2022. Ponente en seminario: \textsc{Campamentos "Escuelas que inspiran" capacitación y formación en innovación tecnopedagógica para la comunidad educativa 2021} \\
+\textbf{ Ministerio de Educación}, Ecuador (Online) \\
+
+\textsc{Feb} 2020. Ponencia: \textsc{Ciberseguridad para niños, niñas y adolescentes.} \\
+\textbf{Facilitador}\\
+\textbf{Ministerio de Educación, Distrito 01D03}, Ecuador (Virtual) \\
+
+
+\textsc{Nov} 2020. Jornada: \textsc{Actualización Científica y Profesional Vida Nueva 2020} \\
+\textbf{Ponente - Videojuegos como recursos educativos en el aula}\\
+\textbf{Instituto Superior Tecnológico Vida Nueva}, Ecuador (Virtual) \\
+
+\textsc{Nov} 2020. Jornada: \textsc{Actualización Científica y Profesional Vida Nueva 2020} \\
+\textbf{Ponente - Curación de contenidos para ambientes virtuales de aprendizaje}\\
+\textbf{Instituto Superior Tecnológico Vida Nueva}, Ecuador (Virtual) \\
+
+\textsc{Sep} 2020. Seminario: \textsc{I Congreso Internacional de Educación Zona 6 "YO EDUCO}, 16 horas \\
+\textbf{Ponente - Comunidades de práctica para la mejora de la acción docente}\\
+\textbf{Ministerio de Educación - Universidad de Cuenca}, Ecuador (Virtual) \\
+
+\textsc{Jul} 2019. I Congreso de Tecnologías Aplicadas a la educación y I Taller de Aplicaciones Digitales para la Gestión del Aprendizaje \textsc{Eje: Metodologías Innovadoras} \\
+\textbf{Ponente - Metodologías innovadoras para la enseñanza de la Informática}\\
+\textsc{Universidad Central del Ecuador}, Quito - Ecuador\\
+
+\textsc{Jun} 2019. Seminario: MoodleDay 2019 \textsc{Eje Innovación Educativa y Moodle} \\
+\textbf{Ponente - Mediación pedagógica, TIC y Moodle; ¿Cómo unir las TIC y la Educación de forma efectiva con un enfoque regional?}\\
+\textsc{CEC - Escuela Politécnica Nacional}, Quito - Ecuador\\
+
+\textsc{May} 2018. Primer encuentro Nacional de \textsc{Software Libre} \\
+\textbf{Ponente - API de Analíticas de Aprendizaje dentro de Entornos Virtuales de Aprendizaje}\\
+\textsc{Escuela Superior Politécnica de Chimborazo (ESPOCH)}, Chimborazo - Ecuador\\
+
+\textsc{Abr} 2018. Festival Latinoamericano de Instalación de Software Libre \textsc{FLISOL} \\
+\textbf{Ponente - Educación y Software Libre como generador de procesos de innovación}\\
+\textsc{Centro Internacional de Estudios Superiores de Comunicación para América Latina (CIESPAL)}, Quito - Ecuador\\
+
+
+\section{Seminarios}
+
+
+\textsc{OCT} 2022. Participante: \textsc{Seminario de introducción al pensamiento computacional del simposio STEAM Miami 2022} \\
+\textbf{ Florida}, EEUU (Online) \\
+
+\textsc{AGO} 2022. Seminario: \textsc{MoodleMoot Colombia Online 2022} \\
+\textbf{ EduLabs}, España (Online) \\
+
+\textsc{MAR} 2022. Seminario: \textsc{Hacia una Economía Circular desde la Eco-innovación} \\
+\textbf{ Universidad de Alcalá}, España (Online) \\
+
+
+\textsc{Ene} 2020. Seminario: \textsc{Seminario de Evaluación de la Calidad de la Formación en Modalidad en Línea: el caso español} \\
+\textbf{Secretaria de Educación Superior, Ciencia, Tecnología e Innovación}, 16 horas, Ecuador (Presencial) \\
+
+\begin{comment}
+
+
+\textsc{Dic} 2017. II Seminario Internacional de \textsc{Educación Disruptiva con TIC} \\
+\textbf{Asistente}\\
+\textsc{Universidad Nacional de Educación - UNAE, Infodesarrollo}, Azuay - Ecuador\\
+
+\textsc{Abr} 2017. V Congreso Internacional de \textsc{ Ciencias, Software Libre y Nuevas Tecnologías Aplicadas a la educación} \\
+\textbf{Facilitador - Construcción de un AV empleando un modelo tecnopedagógico} \\
+\textbf{Universidad Central del Ecuador (UCE)}, Quito - Ecuador \\
+
+\textsc{Abr} 2017. V Congreso Internacional de \textsc{Ciencias, Software Libre y NTIC Aplicadas a la educación.}\\
+\textbf{Ponente} \\
+\textbf{Universidad Central del Ecuador (UCE)}, Quito - Ecuador \\
+
+
+\textsc{Jun} 2017.  \textsc{Moodle Day 2017} \\
+\textbf{CEC - Escuela Politécnica Nacional}, Quito - Ecuador  \\
+
+
+\textsc{may} 2017. 10mo \textsc{ Scratch Day} \\
+\textbf{Ponencia - Scratch con un enfoque educativo} \\
+\textbf{Espiral Educativa, Medialab Quito e Infodesarrollo }, Quito - Ecuador \\
+
+\textsc{Abr} 2017. Formación de Monitores en  
+\textsc{ Mediación Pedagógica, Educación Popular y Estrategias de Facilitación} \\
+\textbf{Facilitador taller - Herramientas de la web 2.0 y su uso en clases} \\
+\textbf{Fundación de Waal - PreNatal}, Riobamba - Ecuador \\
+
+\textsc{Nov} 2016. Seminario Internacional  \textsc{"Políticas de formación docente inicial y continua"}\\
+\textbf{Asistente}\\
+\textbf{Instituto Internacional de Planeamiento de la Educación (IIPE-UNESCO) - Ecuador}, Quito - Ecuador\\
+
+\textsc{Dic} 2016. Seminario Internacional STEM Educación y TIC \textsc{Infodesarrollo}\\
+\textbf{Asistente}\\
+\textbf{Infodesarrollo, Instituto SantaFe}, Quito - Ecuador\\
+
+\textsc{Nov} 2016. I Congreso Virtual Argentino e Iberoamericano de Tecnología y Educación \textsc{COVAITE}\\
+\textbf{Ponente - Generando una comunidad de la indagación en la prevención prenatal de discapacidades}\\
+\textbf{Ministerio de Educación Ciencia y Tecnologia de la Rioja - Argentina}\\
+
+\textsc{Oct} 2016. VI Evento de innovación en \textsc{ EDUCACIÓN VIRTUAL }\\
+\textbf{Ponente - E-learning en el área de salud, generando una comunidad de la Indagación}\\
+\textbf{Universidad Politécnica Nacional}, Quito - Ecuador\\
+
+\textsc{Jun} 2016. \textsc{Moodle Day 2016} \\
+\textbf{CEC - Escuela Politécnica Nacional}, Quito - Ecuador \\
+
+\textsc{May} 2016. Festival Latinoamericano de Instalación de \textsc{Software Libre}\\
+\textbf{Ponente -  Software Libre y Educación, Cómo insertarlo y no retroceder en el intento?}\\
+\textbf{Universidad Politécnica Nacional, Hackem Research Group}, Quito - Ecuador\\
+
+\textsc{Ago} 2015. Sexto Congreso Internacional Itinerante de \textsc{ Software Libre }\\
+\textbf{Capacitador - Uso activo de un Content Management System (CMS - Joomla)}, 4 horas\\
+\textbf{Instituto Tecnológico Superior Sudamericano}, Quito - Ecuador\\
+
+\textsc{Oct} 2014. Quinto Congreso Internacional Itinerante de \textsc{ Software Libre }\\
+\textbf{Capacitador - LMS Moodle Rol administración y docente}\\
+\textbf{Universidad Laica Eloy Alfaro}, 60 horas, Manabí - Ecuador
+
+\textsc{Feb} 2014. Celebración mundial del Software Libre en la Educación y Recursos Educativos Abiertos (REA) \textsc{ Education Freedom Day (EFD) }\\
+\textbf{Organizador, Ponente - Uso de Geogebra, Octave y LMS Moodle en 1ro de Bachillerato}, 12 horas\\
+\textbf{Asociación de Software Libre del Ecuador - ASLE}, Quito - Ecuador\\
+
+\textsc{Oct} 2013. Cuarto Congreso Internacional Itinerante de \textsc{ Software Libre }\\
+\textbf{Capacitador - Manejo de sistemas operativos GNU/Linux}, 60 horas\\
+&\textbf{Servicios Académicos y de Software Libre SASLIBRE}, Quito - Ecuador\\
+
+\end{comment}
+
+%Section: Scholarships and additional info
+%\section{Scholarships and Certificates}
+%\begin{tabular}{rl}
+% \textsc{Sept.} 2006 & Scholarship for graduate students with an outstanding curriculum \footnotesize(\EURcr 30,000)\normalsize\\
+%\textsc{June} 2006 & {\textsc{Gmat}\textregistered}\setmainfont[SmallCapsFont=Fontin-SmallCaps.otf]{Fontin.otf}: 730 (\textsc{q:50;v:39}) 96\textsuperscript{th} percentile; \textsc{awa}: 6.0/6.0 (89\textsuperscript{th} percentile)
+%\end{tabular}
+
+
+
+
+\section{Becas y méritos}
+\begin{longtable}{rl}
+\textsc{2024}  & \textsc{Distinción Carlos Jordana, estudios doctorales} \textbf{Universidad de La Sabana} \\
+\textsc{2024}  & \textsc{Becario maestría} \textbf{Universidad Oberta de Catalunya} \\
+\textsc{2022}  & \textsc{Evaluador Novus 2022} \textbf{Tecnológico de Monterrey} \\
+\textsc{2022}  & \textsc{Becario seminario internacional } \textbf{Becas Santander} \\
+\textsc{2021}  & \textsc{Becario curso internacional} \textbf{Universidad Nebrija} \\
+\textsc{2020}  & \textsc{Becario maestría} \textbf{SENESCYT} \\
+\textsc{2018}  & \textsc{Becario maestría} \textbf{Organización de los Estados Americanos (OEA)} \\
+
+\textsc{2017}  & \textsc{Vicepresidente } \textbf{Asociación de Software Libre del Ecuador (ASLE)} \\
+
+\textsc{2016}  & \textsc{Secretario} \textbf{Asociación de Software Libre del Ecuador (ASLE)} \\
+
+\end{longtable}
+
+\nocite{*}
+\printbibliography[title={Publicaciones Académicas}]
+
+
+\section{Lenguajes}
+\begin{tabular}{rl}
+ \textsc{Español:}&Nativo\\
+\textsc{Inglés:}&Medio (hablado, lectura y escritura). Nivel B1 certificado\\
+\end{tabular}
+
+
+\section{Tecnologías y herramientas}
+\begin{longtable}{r|p{11cm}}
+Avanzadas: &
+\textbf{Lenguajes y desarrollo:} \textsc{python}, \textsc{php}, \textsc{sql}, \textsc{html5};\quad
+\textbf{Datos y analítica:} SPSS, Power BI, Gephi, \textsc{R} (Commander);\quad 
+\textbf{Sistemas:} \textsc{GNU/Linux} (Ubuntu), administración de servidores;\quad
+\textbf{Plataformas:} LMS \textsc{Moodle}; CMS \textsc{Joomla}, WordPress, Drupal;\quad
+\textbf{Automatización/CRM/Encuestas:} \textsc{CiviCRM}, \textsc{LimeSurvey};\quad
+\textbf{Contenidos y e-learning:} Articulate Storyline, Genially, SCORM, Dublin Core, LTI {\fb\LaTeX};\quad
+\textbf{Robótica/EdTech:} Arduino, Raspberry~Pi, S4A, Scratch, Pilas~Engine, GeoGebra;\quad
+\textbf{Marketing digital:} Google Ads, \textsc{SEO}, \textsc{SEM};\quad
+\textbf{Gestión de proyectos y colaboración:} \textsc{JIRA}, Trello, ownCloud, MS~Project.
+\\
+\end{longtable}
+
+
+
+
+
+\section{Habilidades blandas}
+Trabajo colaborativo, liderazgo, generación de ideas creativas, gestión del tiempo, adaptación a nuevos contextos y retos, actitud positiva, análisis  prospectivo, comunicación, escucha activa,  pensamiento crítico  y toma de decisiones. 
+\section{Actividades e intereses}
+Python, Ciencia de datos, IAG, Gestión de la información y el conocimiento, LMS, TIC-TAC-TEP, Transformación Digital, Cultura Digital, Pensamiento Computacional, Metodologías Ágiles,  I+D+i, CTS, modelos tecnopedagógicos, Ciencia Abierta, Tecnologías Emergentes, Innovación social, Copyleft.
+\section{Referencias Personales/Laborales}
+
+\begin{center}
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabularx}{\textwidth}{@{}Y Y Y@{}}
+\refe{Ph.D. Omar Perez}{Director de Escuela Informática}
+     {Universidad Central del Ecuador}{Cel. +593 984571937}{hperez@uce.edu.ec}
+&
+\refe{Ph.D. Janio Jadán}{Rector}
+     {Universidad Indoamérica}{Cel. +593 996339372}{janiojadan@uti.edu.ec}
+&
+\refe{Ph.D. Diego Apolo}{Docente Investigador}
+     {Universidad Nacional de Educación}{Cel. +593 984014919}{diego.apolo@unae.edu.ec}
+\end{tabularx}
+\end{center}
+
+\begin{comment}
+\begin{center}
+\begin{tabular}{ c c c }
+ \textbf{Ph.D. Omar Perez} & \textbf{Ph.D. Janio Jadán} & MS \\ 
+ 
+ Director de Escuela Informática & Rector  \\
+  \textsc{Universidad Central del Ecuador}& \textsc{Universidad Indoamérica}\\
+  Cel. +593 984571937 & Cel. +593 996339372       \\
+ \href{mailto:hperez@uce.edu.ec}{hperez@uce.edu.ec} & \href{mailto:janiojadan@uti.edu.ec }{janiojadan@uti.edu.ec } \\
+ \\
+ 
+\textbf{Ph.D. Diego Apolo} & \textbf{Ing. Rubén Zavala} \\
+Docente Investigador & Especialista en Proyectos \\  
+\textsc{Universidad Nacional de Educación}& \textsc{CIESPAL}\\
+Cel. +593 984014919   & Cel. +593 992522186  \\
+\href{mailto:diego.apolo@unae.edu.ec }{diego.apolo@unae.edu.ec}&\href{mailto:rzavala@ciespal.org }{rzavala@ciespal.org } \\ \\
+
+
+
+    
+
+\textbf{MSc. Claudia Andrade} & \textbf{MSc. Estefanía Pérez} \\
+Coordinadora de Proyectos & Directora Cultura Digital \\  
+\textsc{Espiral Educativa}& \textsc{MINTEL}\\
+Cel. +593 984783671   & Cel. +593 999086911  \\
+\href{mailto:c.andrade@espiraleducativa.org }{c.andrade@espiraleducativa.org}&\href{mailto:estefania.perez@mintel.gob.ec}{estefania.perez@mintel.gob.ec} \\
+\end{tabular}
+\end{center}
+
+\end{comment} 
+
+
+
+
+
+\begin{comment}
+\textbf{Ph.D. Juan Carlos Cobos} & \textbf{Ing. Rubén Zavala} \\
+Subdecano Facultad de Filosofía & Especialista en Proyectos \\  
+\textsc{Universidad Central del Ecuador}& \textsc{CIESPAL}\\
+Cel. +593 997859064   & Cel. +593 992522186  \\
+\href{mailto:jccobos@uce.edu.ec }{jccobos@uce.edu.ec}&\href{mailto:rzavala@ciespal.org }{rzavala@ciespal.org } \\
+ 
+
+
+
+\begin{center}
+
+
+
+
+\begin{tabular}{ c c c }
+ \textbf{Ing. Juan Carlos Sevillano} & \textbf{Dr. Ramiro Castillo} & \textbf{MSc. Marcelo Guacán} \\ 
+ Gerente General \textsc{Xpresion} & Gerente General \textsc{SasLibre} & Gerente \textsc{Conexion ecuador} \\  
+  Cel. +593 984383112 & Cel. +593 996644318  & Cel. +593 995638124     \\
+ \href{mailto:juank@xpresion-ec.com}{juank@xpresion-ec.com} & \href{mailto:ramiro@saslibre.net }{ramiro@saslibre.net } &\href{mailto:marcelo@conexion.ec }{marcelo@conexion.ec } \\
+ \url{http://xpresion-ec.com/}  &\url{http://saslibre.net}&\url{http://www.conexion.ec/} 
+ 
+\end{tabular}
+\end{center}
+
+\end{comment}
+
+\begin{comment}
+
+\textbf{Ph.D. Diego Apolo}\\ 
+Docente \textsc{Universidad Nacional de Educación} \\
+Cel. +593 98 401 4919 \\
+\href{mailto:DIEGO.APOLO@unae.edu.ec}{diego.apolo@unae.edu.ec}\\
+\url{https://unae.edu.ec/}  
+
+\textbf{Ing. Juan Carlos Sevillano}\\ 
+Gerente General \textsc{Xpresion} \\
+Cel. +593 984383112 \\
+\href{mailto:juank@xpresion-ec.com}{juank@xpresion-ec.com}\\
+\url{http://xpresion-ec.com/}  
+
+\textbf{PhD. Omar Perez}\\
+Director de posgrados \textsc{Universidad Central del Ecuador - Filosofía}\\
+Cel. +593 98 457 1937 \\
+\href{mailto:hperez@uce.edu.ec}{hperez@uce.edu.ec}\\
+\url{http://uce.edu.ec//}  
+
+\textbf{MSc. Marcelo Guacán}\\
+Gerente \textsc{Conexion ecuador}\\
+Cel. +593 995638124 \\
+\href{mailto:marcelo@conexion.ec }{marcelo@conexion.ec }\\
+\url{http://www.conexion.ec/} \\
+
+\end{comment}
+
+\begin{comment}
+\section{Aspiración Salarial}
+2.300 a 2.000 USD, negociables.
+
+
+
+\section{Ejemplos de proyectos}
+A continuación se muestran algunos de los proyectos que he participado dentro del campo profesional:
+\begin{itemize}
+ \item Fundación de Waal, Programa PreNatal - Curso "Prevención prenatal de discapacidades"
+    \begin{itemize}
+        \item \textsc{Tecnopedagogo}, Campus Virtual.\\ \url{https://avp.prenatal.tv/}
+        \item \textsc{Web master}, Sitio web \\ \url{https://prenatal.tv/}
+        \item \textsc{Creador de contenidos}, Canal de Youtube con vídeos institucionales.\\ \url{https://www.youtube.com/user/RedPreNatal}
+    \end{itemize}
+\item Australia Latin America Training Academy, Curso "Apoyo a niños y familia con necesidades complejas"
+    \begin{itemize}
+        %\item \textsc{Creador}, Campus Virtual \url{http://alata.conexion.ec/}
+        \item \textsc{Guionista}, Vídeo presentación del curso.\\ \url{http://xpresion-ec.com/alata/ALATA.mp4}
+        \item \textsc{Diseño instruccional}, Objetos de aprendizaje para el curso. \\ \url{https://www.espiraleducativa.org/oa/modulo1/} y \url{https://www.espiraleducativa.org/oa/modulo2/}
+    \end{itemize}
+\item Comunidad Espiral Educativa, creación de CMS y LMS
+    \begin{itemize}
+     \item \textsc{CEO - Fundador}, Sitio web (CMS) y Campus Virtual (LMS) \\ \url{https://www.espiraleducativa.org/}
+     \item \textsc{Colaborador}, Proyecto Scratch Social \\ \url{https://goo.gl/jhF0i9}
+    
+    \item \textsc{Colaborador}, Proyecto Huertos Literarios \\ \url{https://goo.gl/FBmqR0}
+    \end{itemize}
+\end{itemize}
+
+
+
+
+
+
+\section{Preferencias Laborales}
+\textbf{Aspiración Salarial:} 1700 usd (Dólares Americanos) Netos \\
+\textbf{Disponibilidad:} 2 semanas posteriores a la firma del contrato.
+
+
+
+\textbf{Cargo al que se aspira:} Docente de Matemática, Educación General Básica Superior (EGBS) o Bachillerato General Unificado (GBU).
+
+\end{comment}
+
+
+
+
+\end{document}
