@@ -1,0 +1,9 @@
+{
+  "name": "marcelo-sotaminga-portfolio",
+  "version": "1.0.0",
+  "description": "Interactive AI-Ed Research Lab & CV de Marcelo Sotaminga",
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 8000 --directory web"
+  }
+}

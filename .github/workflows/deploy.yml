@@ -1,0 +1,67 @@
+name: Build LaTeX & Deploy Interactive Portfolio
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Compilar CV Completo con XeLaTeX y Biber
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: cv.tex
+          latexmk_use_xelatex: true
+          latexmk_shell_escape: true
+          extra_system_packages: "fonts-fontin"
+          args: -xelatex -file-line-error -interaction=nonstopmode
+
+      - name: Compilar CV Ejecutivo con pdflatex
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: Cv2.tex
+          args: -pdf -file-line-error -interaction=nonstopmode
+
+      - name: Procesar datos estructurados y preparar web
+        run: |
+          python3 scripts/parse_cv.py
+          mkdir -p web/assets
+          cp data/cv_data.json web/data.json
+          cp foto_ms.png web/assets/foto_ms.png
+          cp cv.pdf web/cv.pdf
+          cp Cv2.pdf web/cv_ejecutivo.pdf
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir artefacto para GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

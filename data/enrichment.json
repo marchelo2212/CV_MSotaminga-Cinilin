@@ -1,0 +1,184 @@
+{
+  "profileAdditions": {
+    "shortBio": "Arquitecto tecnopedagógico e investigador en IA educativa. Doctorando en Ingeniería (Universidad de La Sabana), Jefe de Producción Virtual en Unisabana e-learning y ex-Director de Tecnologías Emergentes en el MINTEL (Ecuador). Especialista en modelos de diagnóstico cognitivo, evaluación con IA, ecosistemas LMS a escala e innovación para el aprendizaje.",
+    "location": "Cajicá / Bogotá, Colombia",
+    "photo": "foto_ms.png",
+    "cvPdfPath": "/cv.pdf",
+    "cvExecutivePdfPath": "/cv_ejecutivo.pdf"
+  },
+  "projectEnrichments": [
+    {
+      "matchKey": "Ecosistema Neuro-Simbólico",
+      "cluster": "ia_data_science",
+      "featured": true,
+      "badge": "Investigación Activa",
+      "image": "",
+      "links": [
+        { "label": "Universidad de La Sabana", "url": "https://www.unisabana.edu.co" },
+        { "label": "IALab Sabana", "url": "https://www.unisabana.edu.co/investigacion" }
+      ],
+      "tags": ["Deep Learning", "Neuro-Simbólico", "Evaluación Inteligente", "STEM", "Ontologías"]
+    },
+    {
+      "matchKey": "Recomendación sobre la Ética de la Inteligencia Artificial",
+      "cluster": "politicas_direccion",
+      "featured": true,
+      "badge": "Políticas Públicas",
+      "image": "",
+      "links": [
+        { "label": "Recomendación UNESCO", "url": "https://www.unesco.org/es/artificial-intelligence/recommendation-ethics" },
+        { "label": "MINTEL Ecuador", "url": "https://www.telecomunicaciones.gob.ec" }
+      ],
+      "tags": ["UNESCO", "MINTEL", "Ética de la IA", "Gobernanza Tecnológica", "Políticas Públicas"]
+    },
+    {
+      "matchKey": "Agenda de Transformación Digital del Ecuador",
+      "cluster": "politicas_direccion",
+      "featured": true,
+      "badge": "Transformación Digital",
+      "links": [
+        { "label": "BID", "url": "https://www.iadb.org" },
+        { "label": "MINTEL", "url": "https://www.telecomunicaciones.gob.ec" }
+      ],
+      "tags": ["BID", "MINTEL", "Transformación Digital", "Estrategia País", "KPIs"]
+    },
+    {
+      "matchKey": "Agenda Digital Andina",
+      "cluster": "politicas_direccion",
+      "featured": false,
+      "links": [
+        { "label": "Comunidad Andina", "url": "https://www.comunidadandina.org" }
+      ],
+      "tags": ["Comunidad Andina", "Integración Regional", "Telecomunicaciones"]
+    },
+    {
+      "matchKey": "Pensamiento Computacional y Cultura Digital",
+      "cluster": "tecnopedagogia",
+      "featured": true,
+      "badge": "EdTech & STEAM",
+      "links": [
+        { "label": "OEI", "url": "https://oei.int" },
+        { "label": "OpenLab Ecuador", "url": "https://openlab.ec" }
+      ],
+      "tags": ["OEI", "Scratch", "Pensamiento Computacional", "Cultura Digital", "Docencia STEAM"]
+    },
+    {
+      "matchKey": "Ciudadanía Digital",
+      "cluster": "tecnopedagogia",
+      "featured": false,
+      "links": [
+        { "label": "BID", "url": "https://www.iadb.org" },
+        { "label": "Ministerio de Educación", "url": "https://educacion.gob.ec" }
+      ],
+      "tags": ["BID", "MINEDUC", "Competencias Digitales", "Acompañamiento Docente"]
+    },
+    {
+      "matchKey": "Strengthening communications capacity for biodiversity",
+      "cluster": "tecnopedagogia",
+      "featured": false,
+      "links": [
+        { "label": "CORAPE", "url": "https://corape.org.ec" }
+      ],
+      "tags": ["Aulas Virtuales", "Moodle", "Conservación", "Biodiversidad"]
+    },
+    {
+      "matchKey": "Programación de videojuegos",
+      "cluster": "tecnopedagogia",
+      "featured": true,
+      "links": [
+        { "label": "CIESPAL", "url": "https://ciespal.org" },
+        { "label": "OEI", "url": "https://oei.int" }
+      ],
+      "tags": ["Scratch", "Videojuegos Educativos", "Gamificación", "MINEDUC"]
+    }
+  ],
+  "digitalResources": [
+    {
+      "title": "Programa PreNatal - Prevención de Discapacidades",
+      "institution": "Fundación de Waal Internacional",
+      "role": "Tecnopedagogo & Webmaster",
+      "description": "Campus virtual para la formación de profesionales de salud y educación en 4 países de América Latina.",
+      "category": "Ecosistema LMS",
+      "links": [
+        { "label": "Campus Virtual (LMS)", "url": "https://avp.prenatal.tv/" },
+        { "label": "Sitio Web Institucional", "url": "https://prenatal.tv/" },
+        { "label": "Canal Educativo YouTube", "url": "https://www.youtube.com/user/RedPreNatal" }
+      ],
+      "tags": ["Moodle", "LMS Multipaís", "Salud Materno-Infantil", "REAs"]
+    },
+    {
+      "title": "Objetos de Aprendizaje (OVAs) - Familias con Necesidades Complejas",
+      "institution": "Australia Latin America Training Academy (ALATA)",
+      "role": "Diseñador Instruccional & Guionista",
+      "description": "Objetos virtuales de aprendizaje interactivos basados en estándares web para capacitación especializada.",
+      "category": "Recurso Digital Interactivo",
+      "links": [
+        { "label": "OVA Módulo 1", "url": "https://www.espiraleducativa.org/oa/modulo1/" },
+        { "label": "OVA Módulo 2", "url": "https://www.espiraleducativa.org/oa/modulo2/" }
+      ],
+      "tags": ["OVAs", "Diseño Instruccional", "Accesibilidad", "SCORM"]
+    },
+    {
+      "title": "Plataforma Espiral Educativa",
+      "institution": "Espiral Educativa",
+      "role": "CEO & Fundador",
+      "description": "Comunidad tecnopedagógica, campus de formación virtual Moodle y proyectos abiertos de innovación social.",
+      "category": "Comunidad & LMS",
+      "links": [
+        { "label": "Sitio Web y Campus", "url": "https://www.espiraleducativa.org/" },
+        { "label": "Blog Personal", "url": "https://marchelo2212.espiraleducativa.org" }
+      ],
+      "tags": ["Moodle", "WordPress", "Innovación Educativa", "Comunidad"]
+    },
+    {
+      "title": "Proyectos de Pensamiento Computacional & Scratch Social",
+      "institution": "Comunidad Scratch / ASLE",
+      "role": "Investigador & Facilitador",
+      "description": "Talleres y recursos abiertos para el aprendizaje de lógica, algoritmos y pensamiento computacional en niñas, niños y jóvenes.",
+      "category": "Recurso Abierto",
+      "links": [
+        { "label": "Scratch Social", "url": "https://scratch.mit.edu" },
+        { "label": "GitHub marchelo2212", "url": "https://github.com/marchelo2212" }
+      ],
+      "tags": ["Scratch", "Pensamiento Computacional", "Software Libre", "STEAM"]
+    }
+  ],
+  "aiAssistantKnowledge": [
+    {
+      "id": "doctoral-research",
+      "triggerWords": ["doctorado", "investigacion", "tesis", "sabana", "diagnostico cognitivo", "deep learning", "neuro-simbolico"],
+      "question": "¿En qué consiste la investigación doctoral de Marcelo en La Sabana?",
+      "answer": "Marcelo realiza su Doctorado en Ingeniería en la Universidad de La Sabana (Chía, Colombia). Su investigación aborda la aplicación de arquitecturas de Deep Learning y modelos de diagnóstico cognitivo para la medición de competencias, el modelamiento de ontologías educativas y la creación de ecosistemas neuro-simbólicos de evaluación inteligente en áreas STEM, enfocado en territorios de aprendizaje sostenible en Sabana Centro."
+    },
+    {
+      "id": "ai-feedback-springer",
+      "triggerWords": ["springer", "feedback", "asistente", "formative feedback", "uribe"],
+      "question": "¿Cuál es su publicación sobre asistentes de IA para feedback formativo?",
+      "answer": "En 2026 publicó junto a Miguel Ángel Uribe-Laverde el capítulo en Springer: 'Student Perceptions of an AI-Based Assistant for Formative Feedback in Higher Education' (DOI: 10.1007/978-3-032-10310-9_15), donde analiza cómo los estudiantes universitarios perciben y aprovechan los asistentes impulsados por IA para recibir retroalimentación formativa personalizada y mejorar sus procesos de aprendizaje."
+    },
+    {
+      "id": "mintel-unesco",
+      "triggerWords": ["mintel", "unesco", "politicas", "etica", "gobierno", "director", "ecuador", "elac"],
+      "question": "¿Qué impacto tuvo Marcelo en políticas públicas de IA y transformación digital en Ecuador?",
+      "answer": "Como Director de Fomento de Tecnologías Emergentes en el MINTEL (Ministerio de Telecomunicaciones de Ecuador), lideró la adhesión del país a la Red de primeros países adoptantes de la Recomendación sobre la Ética de la Inteligencia Artificial de la UNESCO. Asimismo, coordinó la Agenda de Transformación Digital con el BID, la Agenda Digital Andina (CAN) y la agenda regional eLAC2022 de la CEPAL."
+    },
+    {
+      "id": "unisabana-elearning",
+      "triggerWords": ["produccion virtual", "unisabana", "moodle", "jefe", "elearning", "lms"],
+      "question": "¿Cuál es su rol actual como Jefe de Producción Virtual en la Universidad de La Sabana?",
+      "answer": "Marcelo lidera el equipo de producción virtual en Unisabana e-learning, coordinando el ciclo end-to-end de uso, integración y apropiación de tecnologías emergentes y TIC en programas formales de grado, posgrado y educación continua. Su labor abarca gobernanza de LMS Moodle a gran escala, estándares SCORM/xAPI, aseguramiento de la calidad gráfico-pedagógica y analítica del aprendizaje para la toma de decisiones."
+    },
+    {
+      "id": "gamification-escape-rooms",
+      "triggerWords": ["gamificacion", "escape room", "videojuegos", "quizziz"],
+      "question": "¿Qué investigaciones tiene sobre gamificación y escape rooms?",
+      "answer": "Ha publicado diversos artículos indexados sobre innovación tecnopedagógica lúdica, incluyendo estudios empíricos sobre 'Escape Room como estrategia de aprendizaje en estudiantes de educación superior' (2022), 'Videojuego RPG como recurso didáctico' (2022) y el uso de Quizziz y metodologías activas (PBL) para dinamizar la evaluación diagnóstica y formativa."
+    },
+    {
+      "id": "contact-and-cv",
+      "triggerWords": ["contacto", "cv", "descargar", "pdf", "correo", "email", "telefono"],
+      "question": "¿Cómo puedo contactar a Marcelo o descargar su CV oficial?",
+      "answer": "Puedes contactarlo a través de su correo marcelo.sotaminga@gmail.com, en LinkedIn (linkedin.com/in/marchelo2212) o consultar su identificador ORCID (0000-0003-4250-906X). Su CV formal completo en PDF y su versión ejecutiva se compilan automáticamente desde LaTeX en este repositorio y pueden descargarse directamente desde la barra superior de esta página."
+    }
+  ]
+}

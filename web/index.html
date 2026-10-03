@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marcelo Sotaminga | Interactive AI-Ed Research Lab & CV</title>
+  <meta name="description" content="Portafolio de investigación interactivo y CV de Marcelo Javier Sotaminga Cinilin. Arquitecto Tecnopedagógico e Investigador en IA Educativa.">
+  <link rel="icon" type="image/png" href="assets/foto_ms.png">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              ai: '#0ea5e9',
+              policy: '#8b5cf6',
+              edtech: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons (Vanilla lightweight CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* Estilos personalizados y utilidades de microanimación */
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(51, 65, 85, 0.4);
+    }
+    .light .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+    
+    /* Scrollbar estilizada */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+    
+    .glow-cyan {
+      box-shadow: 0 0 25px -5px rgba(14, 165, 233, 0.3);
+    }
+    .glow-purple {
+      box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans selection:bg-sky-500 selection:text-white transition-colors duration-300">
+
+  <!-- ========================================== -->
+  <!-- 1. BARRA DE NAVEGACIÓN FIJA & VISTA DUAL  -->
+  <!-- ========================================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-slate-800/80 transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Identidad y Avatar -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="relative w-9 h-9 rounded-full overflow-hidden border-2 border-sky-500/50 group-hover:border-sky-400 transition">
+          <img src="assets/foto_ms.png" alt="Marcelo Sotaminga" class="w-full h-full object-cover">
+        </div>
+        <div class="hidden sm:block">
+          <span class="font-bold text-sm text-white group-hover:text-sky-400 transition tracking-tight">Marcelo Sotaminga</span>
+          <span class="block text-[10px] text-slate-400">Ph.D.(c) & Líder EdTech / IA</span>
+        </div>
+      </a>
+
+      <!-- Interruptor de Modo (Dual View Switcher) -->
+      <div class="flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-800 text-xs shadow-inner">
+        <button id="view-interactive-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500 text-white font-medium shadow-md transition">
+          <i class="fa-solid fa-brain text-[11px]"></i>
+          <span>Research Lab</span>
+        </button>
+        <button id="view-classic-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition">
+          <i class="fa-solid fa-list-check text-[11px]"></i>
+          <span>CV Clásico</span>
+        </button>
+      </div>
+
+      <!-- Acciones Rápidas & Descargas de PDF -->
+      <div class="flex items-center gap-2">
+        <!-- Dropdown de descarga de PDF oficial -->
+        <div class="relative group">
+          <a href="cv.pdf" target="_blank" download="CV_Marcelo_Sotaminga_Academico.pdf" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white text-xs font-semibold shadow-md shadow-sky-500/20 transition">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span class="hidden md:inline">Descargar CV</span>
+            <span class="md:hidden">PDF</span>
+            <i class="fa-solid fa-chevron-down text-[10px] ml-0.5 opacity-70"></i>
+          </a>
+          <!-- Menu flotante con CV Académico y Ejecutivo -->
+          <div class="absolute right-0 mt-1 w-56 py-2 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+            <div class="px-3 py-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">PDFs Compilados</div>
+            <a href="cv.pdf" target="_blank" download="CV_Marcelo_Sotaminga_Academico.pdf" class="flex items-center gap-2 px-3 py-2 text-xs text-slate-200 hover:bg-slate-800 hover:text-sky-400 transition">
+              <i class="fa-solid fa-graduation-cap text-sky-400"></i>
+              <div>
+                <div class="font-medium">CV Integral Académico</div>
+                <div class="text-[10px] text-slate-400">XeLaTeX + Bibliografía (Completo)</div>
+              </div>
+            </a>
+            <a href="cv_ejecutivo.pdf" target="_blank" download="CV_Marcelo_Sotaminga_Ejecutivo.pdf" class="flex items-center gap-2 px-3 py-2 text-xs text-slate-200 hover:bg-slate-800 hover:text-purple-400 transition">
+              <i class="fa-solid fa-briefcase text-purple-400"></i>
+              <div>
+                <div class="font-medium">CV Ejecutivo Resumido</div>
+                <div class="text-[10px] text-slate-400">Enfoque en Gestión e IA (Cv2.tex)</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Social Icons Rápidos -->
+        <a href="https://orcid.org/0000-0003-4250-906X" target="_blank" title="ORCID iD" class="w-8 h-8 rounded-lg bg-slate-900 hover:bg-slate-800 text-[#A6CE39] border border-slate-800 flex items-center justify-center text-sm transition">
+          <i class="fa-brands fa-orcid"></i>
+        </a>
+        <a href="https://github.com/marchelo2212" target="_blank" title="GitHub" class="w-8 h-8 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 flex items-center justify-center text-sm transition">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/marchelo2212" target="_blank" title="LinkedIn" class="w-8 h-8 rounded-lg bg-slate-900 hover:bg-slate-800 text-[#0A66C2] border border-slate-800 flex items-center justify-center text-sm transition">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 2. HERO SECTION & RESUMEN DE IMPACTO       -->
+  <!-- ========================================== -->
+  <section id="hero" class="pt-28 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <!-- Columna Izquierda: Identidad y Perfil -->
+      <div class="lg:col-span-8 space-y-5">
+        
+        <!-- Badges Superiores -->
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-medium">
+            <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+            Investigador en IA Educativa
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 font-medium">
+            Doctorando en Ingeniería
+          </span>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+            📍 Cajicá / Chía, Colombia
+          </span>
+        </div>
+
+        <!-- Título Principal -->
+        <div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Marcelo Javier <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-300 to-purple-400">Sotaminga Cinilin</span>
+          </h1>
+          <p class="mt-2 text-base sm:text-lg text-slate-300 font-medium">
+            Arquitecto Tecnopedagógico e Investigador en Inteligencia Artificial Educativa
+          </p>
+        </div>
+
+        <!-- Rol actual y filiación -->
+        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-indigo-950 border border-indigo-700/40 flex items-center justify-center text-indigo-400 text-lg flex-shrink-0">
+              <i class="fa-solid fa-university"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-white">Jefe de Producción Virtual</div>
+              <div class="text-xs text-slate-400">Unisabana e-learning · Universidad de La Sabana</div>
+            </div>
+          </div>
+          <div class="text-xs text-slate-400 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
+            Doctorado en Informática (En curso)
+          </div>
+        </div>
+
+        <!-- Síntesis Bio -->
+        <p class="text-slate-300 text-sm leading-relaxed" id="hero-bio">
+          Cuento con más de 15 años de trayectoria articulando investigación aplicada, analítica de datos y gobernanza tecnológica. Mi investigación se enfoca en arquitecturas de <strong>Deep Learning y modelos de diagnóstico cognitivo</strong> para la medición de competencias y asistentes de <strong>feedback formativo</strong> (Springer 2026). He liderado agendas de transformación digital y políticas de ética de la IA con organismos internacionales como la <strong>UNESCO, el BID y el MINTEL</strong>.
+        </p>
+
+        <!-- Botones de Acción -->
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="#research-lab" class="px-4 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white text-xs font-semibold flex items-center gap-2 shadow-lg shadow-sky-500/25 transition">
+            <i class="fa-solid fa-circle-nodes"></i>
+            Explorar Espacio Latente (Grafo)
+          </a>
+          <a href="#ai-assistant-sec" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-2 border border-slate-700 transition">
+            <i class="fa-solid fa-comments"></i>
+            Probar Asistente de IA (Tutor)
+          </a>
+          <a href="#publications-sec" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-semibold flex items-center gap-2 border border-slate-800 transition">
+            <i class="fa-solid fa-book-open"></i>
+            Publicaciones (13)
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Columna Derecha: Foto de Perfil & Tarjetas de Métrica -->
+      <div class="lg:col-span-4 flex flex-col items-center">
+        
+        <!-- Contenedor Foto con Aura -->
+        <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-3xl overflow-hidden p-1 bg-gradient-to-tr from-sky-500 via-indigo-500 to-purple-600 shadow-2xl glow-cyan">
+          <img src="assets/foto_ms.png" alt="Marcelo Sotaminga" class="w-full h-full object-cover rounded-[22px] bg-slate-900">
+          <div class="absolute bottom-2 right-2 px-2.5 py-1 rounded-full bg-slate-950/80 backdrop-blur-md border border-slate-700 text-[10px] font-bold text-sky-400">
+            IALab Sabana
+          </div>
+        </div>
+
+        <!-- Enlaces directos a plataformas -->
+        <div class="mt-4 flex items-center gap-2 text-xs">
+          <a href="mailto:marcelo.sotaminga@gmail.com" class="text-slate-400 hover:text-sky-400 flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900 border border-slate-800">
+            <i class="fa-solid fa-envelope"></i> marcelo.sotaminga@gmail.com
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TARJETAS DE IMPACTO (METRICS CARDS) -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10" id="metrics-grid">
+      <!-- Se inyecta dinámicamente desde data.json -->
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. RESEARCH LAB: ESPACIO LATENTE & AI CHAT -->
+  <!-- ========================================== -->
+  <section id="research-lab" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    
+    <div class="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-sky-400 uppercase tracking-wider">
+          <i class="fa-solid fa-network-wired"></i>
+          Espacio Latente · Knowledge Graph
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">
+          Visualizador de Trayectoria e Investigación
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
+          Navega la red sinérgica entre mis tres dimensiones: <strong>IA & Data Science</strong>, <strong>Políticas Públicas & Dirección</strong> y <strong>Tecnopedagogía</strong>. Arrastra los nodos, haz zoom y haz clic para enfocar proyectos y publicaciones.
+        </p>
+      </div>
+
+      <!-- Filtros de Cluster del Grafo -->
+      <div class="flex flex-wrap items-center gap-1.5 bg-slate-900/90 p-1.5 rounded-xl border border-slate-800 text-xs self-start md:self-auto">
+        <button class="cluster-btn px-2.5 py-1 rounded-lg bg-slate-800 text-white font-medium hover:bg-slate-700 transition" data-cluster="all">
+          Todos los Clusters
+        </button>
+        <button class="cluster-btn px-2.5 py-1 rounded-lg text-sky-400 hover:bg-sky-950/60 transition" data-cluster="ia_data_science">
+          🔵 IA & Data Science
+        </button>
+        <button class="cluster-btn px-2.5 py-1 rounded-lg text-purple-400 hover:bg-purple-950/60 transition" data-cluster="politicas_direccion">
+          🟣 Políticas & Dirección
+        </button>
+        <button class="cluster-btn px-2.5 py-1 rounded-lg text-emerald-400 hover:bg-emerald-950/60 transition" data-cluster="tecnopedagogia">
+          🟢 Tecnopedagogía
+        </button>
+        <button id="reset-graph-btn" class="px-2 py-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition" title="Reiniciar Vista">
+          <i class="fa-solid fa-arrows-rotate"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Contenedor del Grafo Interactivo (Canvas 2D) -->
+    <div class="relative w-full h-[520px] rounded-2xl overflow-hidden border border-slate-800 bg-slate-950/90 shadow-2xl">
+      <div id="knowledge-graph-container" class="w-full h-full cursor-grab"></div>
+      
+      <!-- Leyenda y Controles en Overlay -->
+      <div class="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur-md p-2.5 rounded-xl border border-slate-800 text-[11px] space-y-1 shadow-lg pointer-events-none">
+        <div class="text-slate-400 font-semibold mb-1">Guía del Espacio Latente:</div>
+        <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span> <span>IA, Deep Learning & Diagnóstico Cognitivo</span></div>
+        <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> <span>Políticas Públicas, MINTEL & Ética UNESCO</span></div>
+        <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> <span>Unisabana Producción Virtual, Moodle & STEAM</span></div>
+      </div>
+
+      <!-- Drawer lateral de detalle al hacer clic en un nodo -->
+      <div id="node-detail-panel" class="absolute top-3 right-3 w-80 max-h-[480px] overflow-y-auto bg-slate-900/95 backdrop-blur-md border border-slate-700/80 rounded-2xl p-4 shadow-2xl hidden transition-all">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+          <span id="detail-node-cluster" class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"></span>
+          <button id="close-detail-btn" class="text-slate-400 hover:text-white text-xs p-1">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <h4 id="detail-node-title" class="text-sm font-bold text-white mt-2"></h4>
+        <p id="detail-node-desc" class="text-xs text-slate-300 mt-1 leading-relaxed"></p>
+        <div id="detail-node-links" class="mt-3 space-y-1"></div>
+      </div>
+    </div>
+
+    <!-- DEMO VIVA: AI FEEDBACK ASSISTANT WIDGET -->
+    <div id="ai-assistant-sec" class="mt-12">
+      <div class="mb-4">
+        <div class="flex items-center gap-2 text-xs font-semibold text-indigo-400 uppercase tracking-wider">
+          <i class="fa-solid fa-robot"></i>
+          AI Feedback Assistant · Demo Viva en el Navegador
+        </div>
+        <h3 class="text-xl sm:text-2xl font-bold text-white mt-0.5">
+          Tutor Inteligente de Trayectoria & Publicaciones
+        </h3>
+        <p class="text-xs text-slate-400">
+          Diseñado como prueba de concepto interactiva basada en el artículo <em>"Student Perceptions of an AI-Based Assistant for Formative Feedback in Higher Education"</em> (Springer 2026).
+        </p>
+      </div>
+
+      <!-- Contenedor del Chat inyectado por assistant.js -->
+      <div id="ai-chat-root"></div>
+    </div>
+
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. TIMELINE DE LIDERAZGO & DOCENCIA        -->
+  <!-- ========================================== -->
+  <section id="timeline-sec" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <div>
+        <div class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">
+          <i class="fa-solid fa-timeline"></i>
+          Experiencia & Liderazgo
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">
+          Trayectoria Profesional y Docente
+        </h2>
+      </div>
+
+      <!-- Selector de Pestañas: Liderazgo vs Docencia -->
+      <div class="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs shadow-inner">
+        <button id="tab-leadership-btn" class="px-4 py-2 rounded-lg bg-emerald-500 text-white font-medium transition shadow-md">
+          <i class="fa-solid fa-briefcase mr-1.5"></i> Gestión & Proyectos
+        </button>
+        <button id="tab-teaching-btn" class="px-4 py-2 rounded-lg text-slate-400 hover:text-white transition">
+          <i class="fa-solid fa-chalkboard-user mr-1.5"></i> Docencia Superior
+        </button>
+      </div>
+    </div>
+
+    <!-- Contenido del Timeline -->
+    <div id="timeline-content" class="space-y-4">
+      <!-- Inyectado dinámicamente -->
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. RESEARCH & PUBLICACIONES CIENTÍFICAS   -->
+  <!-- ========================================== -->
+  <section id="publications-sec" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+      <div>
+        <div class="text-xs font-semibold text-sky-400 uppercase tracking-wider">
+          <i class="fa-solid fa-graduation-cap"></i>
+          Producción Científica
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">
+          Artículos y Capítulos de Libro
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">
+          Publicaciones indexadas en Springer Nature, Scopus y revistas especializadas. Extraídas automáticamente desde <code class="text-sky-400">bibliografia.bib</code> con citas BibTeX copiables en un clic.
+        </p>
+      </div>
+
+      <!-- Buscador y filtro de publicaciones -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+        <div class="relative">
+          <input 
+            type="text" 
+            id="pub-search-input" 
+            placeholder="Buscar por título, autor, tema..." 
+            class="w-full sm:w-64 bg-slate-900 text-xs text-slate-200 px-3.5 py-2 pl-9 rounded-xl border border-slate-800 focus:outline-none focus:border-sky-500"
+          >
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-500 text-xs"></i>
+        </div>
+        <select id="pub-cluster-filter" class="bg-slate-900 text-xs text-slate-300 px-3 py-2 rounded-xl border border-slate-800 focus:outline-none focus:border-sky-500">
+          <option value="all">Todas las temáticas</option>
+          <option value="ia_data_science">IA & Data Science</option>
+          <option value="tecnopedagogia">Tecnopedagogía & Gamificación</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Lista de Publicaciones -->
+    <div id="publications-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Inyectado dinámicamente -->
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 6. PROYECTOS & RECURSOS EDUCATIVOS DIGITALES -->
+  <!-- ========================================== -->
+  <section id="projects-sec" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    
+    <div class="mb-6">
+      <div class="text-xs font-semibold text-purple-400 uppercase tracking-wider">
+        <i class="fa-solid fa-shapes"></i>
+        Proyectos Relevantes & Cooperación Internacional
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">
+        Iniciativas Nacionales y Ecosistemas Digitales
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">
+        Colaboraciones de impacto con organismos multilaterales (UNESCO, BID, CEPAL, CAN, OEI) y desarrollo de Recursos Educativos Abiertos (REAs/OVAs).
+      </p>
+    </div>
+
+    <!-- Tabs para Proyectos y Recursos Digitales -->
+    <div class="flex items-center gap-2 mb-6">
+      <button id="show-projects-btn" class="px-3.5 py-1.5 rounded-xl bg-purple-600 text-white text-xs font-medium transition shadow-md">
+        Proyectos Internacionales e Institucionales
+      </button>
+      <button id="show-resources-btn" class="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white text-xs font-medium border border-slate-800 transition">
+        Recursos Educativos Digitales, OVAs & LMS
+      </button>
+    </div>
+
+    <!-- Grid de Proyectos / Recursos -->
+    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Inyectado dinámicamente -->
+    </div>
+
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 7. EDUCACIÓN, CERTIFICACIONES & MÉRITOS    -->
+  <!-- ========================================== -->
+  <section id="education-sec" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- Educación Universitaria -->
+      <div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-sky-400 uppercase tracking-wider mb-2">
+          <i class="fa-solid fa-user-graduate"></i>
+          Formación Académica
+        </div>
+        <h3 class="text-xl font-bold text-white mb-4">Educación Universitaria</h3>
+        <div id="education-list" class="space-y-3">
+          <!-- Inyectado dinámicamente -->
+        </div>
+      </div>
+
+      <!-- Certificaciones y Méritos -->
+      <div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-purple-400 uppercase tracking-wider mb-2">
+          <i class="fa-solid fa-award"></i>
+          Distinciones y Certificaciones
+        </div>
+        <h3 class="text-xl font-bold text-white mb-4">Reconocimientos & Certificaciones</h3>
+        <div class="space-y-3">
+          <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 text-sm">
+              <i class="fa-solid fa-medal"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">Distinción Carlos Jordana, Estudios Doctorales (2024)</div>
+              <div class="text-xs text-slate-400">Universidad de La Sabana (Chía, Colombia)</div>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center flex-shrink-0 text-sm">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">Google Certified Educator - Level 1 (2022)</div>
+              <div class="text-xs text-slate-400">Google for Education</div>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 text-sm">
+              <i class="fa-solid fa-id-badge"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">Moodle Course Creator Certificate (2017)</div>
+              <div class="text-xs text-slate-400">Edulabs Colombia / Moodle Australia (Reg: G7AN-SDZW-KA1B-NHFN)</div>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center flex-shrink-0 text-sm">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">Experto en Educación Virtual (2014)</div>
+              <div class="text-xs text-slate-400">Fundación para la Actualización Tecnológica de Latinoamérica (FATLA)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 8. FOOTER                                  -->
+  <!-- ========================================== -->
+  <footer class="py-12 border-t border-slate-800/80 bg-slate-950 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="assets/foto_ms.png" alt="Marcelo Sotaminga" class="w-7 h-7 rounded-full object-cover">
+        <span>© 2026 <strong>Marcelo Javier Sotaminga Cinilin</strong> · Repositorio y Portafolio Oficial</span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/marchelo2212/CV_MSotaminga-Cinilin" target="_blank" class="hover:text-white transition flex items-center gap-1.5">
+          <i class="fa-brands fa-github text-sm"></i> Código fuente en GitHub
+        </a>
+        <a href="https://orcid.org/0000-0003-4250-906X" target="_blank" class="hover:text-white transition flex items-center gap-1.5">
+          <i class="fa-brands fa-orcid text-sm text-[#A6CE39]"></i> ORCID
+        </a>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-500 flex items-center gap-1">
+          <i class="fa-solid fa-code-branch text-sky-500"></i> CI/CD XeLaTeX + GitHub Pages
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Principal de Orquestación -->
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
