@@ -298,7 +298,7 @@ function renderPublications(clusterFilter = 'all', searchQuery = '') {
   });
 }
 
-// 6. Renderizar Proyectos y Recursos Digitales
+// 6. Renderizar Proyectos, Repositorios GitHub y Recursos Digitales
 function renderProjects(mode) {
   const container = document.getElementById('projects-grid');
   if (!container) return;
@@ -339,6 +339,47 @@ function renderProjects(mode) {
             `).join('')}
           </div>
         ` : ''}
+      </div>
+    `).join('');
+  } else if (mode === 'repos') {
+    const list = cvData.githubRepositories || [];
+    container.innerHTML = list.map(repo => `
+      <div class="p-5 rounded-2xl glass-card border border-slate-800 hover:border-slate-700 transition flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">
+              ${repo.badge || 'Open Source'}
+            </span>
+            <span class="text-[10px] font-medium text-slate-400 flex items-center gap-1">
+              <i class="fa-brands fa-github"></i> marchelo2212
+            </span>
+          </div>
+
+          <h4 class="text-sm font-bold text-white group-hover:text-sky-400 transition leading-snug">
+            ${repo.title}
+          </h4>
+
+          <div class="text-xs font-mono text-slate-400 mt-1">
+            repo: <span class="text-slate-300">${repo.name}</span>
+          </div>
+
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+            ${repo.description}
+          </p>
+
+          ${repo.tags && repo.tags.length > 0 ? `
+            <div class="flex flex-wrap gap-1 mt-3">
+              ${repo.tags.map(t => `<span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300">${t}</span>`).join('')}
+            </div>
+          ` : ''}
+        </div>
+
+        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+          <a href="${repo.url}" target="_blank" class="text-sky-400 hover:text-sky-300 font-medium flex items-center gap-1.5">
+            <i class="fa-brands fa-github text-sm"></i> Ver Repositorio
+          </a>
+          <span class="text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">${repo.category}</span>
+        </div>
       </div>
     `).join('');
   } else {
@@ -425,20 +466,33 @@ function setupEventListeners() {
     });
   }
 
-  // Tabs de Proyectos vs Recursos Digitales
+  // Tabs de Proyectos vs Repositorios vs Recursos Digitales
   const showProjBtn = document.getElementById('show-projects-btn');
+  const showReposBtn = document.getElementById('show-repos-btn');
   const showResBtn = document.getElementById('show-resources-btn');
 
-  if (showProjBtn && showResBtn) {
+  const activeTabClass = 'px-3.5 py-1.5 rounded-xl bg-purple-600 text-white text-xs font-medium transition shadow-md';
+  const inactiveTabClass = 'px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white text-xs font-medium border border-slate-800 transition';
+
+  if (showProjBtn && showReposBtn && showResBtn) {
     showProjBtn.addEventListener('click', () => {
-      showProjBtn.className = 'px-3.5 py-1.5 rounded-xl bg-purple-600 text-white text-xs font-medium transition shadow-md';
-      showResBtn.className = 'px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white text-xs font-medium border border-slate-800 transition';
+      showProjBtn.className = activeTabClass;
+      showReposBtn.className = inactiveTabClass;
+      showResBtn.className = inactiveTabClass;
       renderProjects('projects');
+    });
+
+    showReposBtn.addEventListener('click', () => {
+      showReposBtn.className = 'px-3.5 py-1.5 rounded-xl bg-sky-600 text-white text-xs font-medium transition shadow-md';
+      showProjBtn.className = inactiveTabClass;
+      showResBtn.className = inactiveTabClass;
+      renderProjects('repos');
     });
 
     showResBtn.addEventListener('click', () => {
       showResBtn.className = 'px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-medium transition shadow-md';
-      showProjBtn.className = 'px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white text-xs font-medium border border-slate-800 transition';
+      showProjBtn.className = inactiveTabClass;
+      showReposBtn.className = inactiveTabClass;
       renderProjects('resources');
     });
   }

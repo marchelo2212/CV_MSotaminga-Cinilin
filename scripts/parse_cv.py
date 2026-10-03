@@ -282,7 +282,7 @@ def parse_projects(section_text: str):
             })
     return items
 
-def build_knowledge_graph(profile, projects, publications, digital_resources):
+def build_knowledge_graph(profile, projects, publications, digital_resources, github_repos=None):
     """Construye los nodos y aristas del Espacio Latente (Knowledge Graph interactivo)."""
     clusters = [
         {
@@ -380,15 +380,22 @@ def build_knowledge_graph(profile, projects, publications, digital_resources):
     add_link("unesco_etica", "pensamiento_comp", "formación ciudadana y ética digital", value=2)
     add_link("docencia_posgrados", "diagnostico_cognitivo", "evaluación de competencias en aula", value=2)
     
-    # Conectar Publicaciones destacadas
-    for pub in publications[:8]:
-        pub_id = f"pub_{pub['id']}"
-        add_node(pub_id, pub['title'][:35] + "...", pub['cluster'], "publication", size=12, info=pub['title'])
-        # Conectar con el cluster o pilar correspondiente
-        if pub['cluster'] == 'ia_data_science':
-            add_link("deep_learning", pub_id, "publicación Springer/Scopus", value=1)
+    # Conectar Repositorios de GitHub destacados
+    for repo in (github_repos or []):
+        repo_id = f"repo_{repo['name']}"
+        add_node(repo_id, repo['title'][:28] + "...", repo['cluster'], "repository", size=13, info=f"{repo['title']} - {repo['description'][:80]}...")
+        if repo['name'] == 'curso_llm':
+            add_link("deep_learning", repo_id, "repositorio GitHub", value=2)
+        elif repo['name'] in ['scriptScratch', 'ProgramacionPensamientoComputacional']:
+            add_link("pensamiento_comp", repo_id, "recurso abierto STEAM", value=2)
+        elif repo['name'] in ['ibook-FSO', 'ebook-IHM', 'cajaherramientas']:
+            add_link("unisabana_pv", repo_id, "material docente interactivo", value=2)
+        elif repo['name'] == 'ebook-matematica-discreta':
+            add_link("diagnostico_cognitivo", repo_id, "recurso de ingeniería", value=2)
+        elif repo['name'] == 'marchelo2212.github.io':
+            add_link("ontologias", repo_id, "jardín digital Quartz", value=2)
         else:
-            add_link("tecnopedagogia", pub_id, "artículo indexado", value=1)
+            add_link(repo['cluster'], repo_id, "código abierto", value=1)
 
     return {
         "clusters": clusters,
@@ -467,6 +474,7 @@ def main():
         enriched_projects.append(item)
         
     digital_resources = enrichment.get("digitalResources", [])
+    github_repositories = enrichment.get("githubRepositories", [])
     ai_knowledge = enrichment.get("aiAssistantKnowledge", [])
     
     # Actualizar bio o detalles si vienen en enrichment
@@ -476,7 +484,7 @@ def main():
                 profile[k] = v
                 
     # 8. Generar Knowledge Graph
-    knowledge_graph = build_knowledge_graph(profile, enriched_projects, publications, digital_resources)
+    knowledge_graph = build_knowledge_graph(profile, enriched_projects, publications, digital_resources, github_repositories)
     
     # 9. Métricas Cuantitativas
     metrics = [
@@ -495,6 +503,7 @@ def main():
         "publications": publications,
         "projects": enriched_projects,
         "digitalResources": digital_resources,
+        "githubRepositories": github_repositories,
         "workExperience": work_experience,
         "teachingExperience": teaching_experience,
         "education": education
@@ -504,6 +513,7 @@ def main():
     print(f"[+] Archivo generado con éxito en: {OUTPUT_PATH}")
     print(f"    - Publicaciones extraídas: {len(publications)}")
     print(f"    - Proyectos procesados: {len(enriched_projects)}")
+    print(f"    - Repositorios de GitHub incorporados: {len(github_repositories)}")
     print(f"    - Experiencias laborales: {len(work_experience)}")
     print(f"    - Experiencias docentes: {len(teaching_experience)}")
     print(f"    - Nodos del Knowledge Graph: {len(knowledge_graph['nodes'])}")
@@ -511,3 +521,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

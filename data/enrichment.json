@@ -4,7 +4,8 @@
     "location": "Cajicá / Bogotá, Colombia",
     "photo": "foto_ms.png",
     "cvPdfPath": "/cv.pdf",
-    "cvExecutivePdfPath": "/cv_ejecutivo.pdf"
+    "cvExecutivePdfPath": "/cv_ejecutivo.pdf",
+    "digitalGardenUrl": "https://marchelo2212.github.io"
   },
   "projectEnrichments": [
     {
@@ -92,6 +93,108 @@
       "tags": ["Scratch", "Videojuegos Educativos", "Gamificación", "MINEDUC"]
     }
   ],
+  "githubRepositories": [
+    {
+      "name": "curso_llm",
+      "title": "Curso: Modelos de Lenguaje (LLMs) e IA Generativa",
+      "url": "https://github.com/marchelo2212/curso_llm",
+      "cluster": "ia_data_science",
+      "category": "Inteligencia Artificial",
+      "badge": "IA & LLMs",
+      "description": "Recursos didácticos, cuadernos interactivos y laboratorios para la formación aplicada en LLMs, prompts y ecosistemas de IA generativa.",
+      "tags": ["LLMs", "Python", "Generative AI", "NLP", "Educación con IA"]
+    },
+    {
+      "name": "ProgramacionPensamientoComputacional",
+      "title": "Pensamiento Computacional & Programación Didáctica",
+      "url": "https://github.com/marchelo2212/ProgramacionPensamientoComputacional",
+      "cluster": "tecnopedagogia",
+      "category": "Educación STEAM",
+      "badge": "STEAM & Código",
+      "description": "Guías, desafíos de lógica y secuencias didácticas orientadas a la formación del pensamiento computacional en docentes y jóvenes.",
+      "tags": ["Pensamiento Computacional", "Scratch", "Python", "Didáctica", "STEAM"]
+    },
+    {
+      "name": "ibook-FSO",
+      "title": "E-Book Interactivo: Fundamentos de Sistemas Operativos",
+      "url": "https://github.com/marchelo2212/ibook-FSO",
+      "cluster": "tecnopedagogia",
+      "category": "Libro Digital Universitario",
+      "badge": "E-Book Académico",
+      "description": "Libro interactivo y recurso docente para la asignatura universitaria de Fundamentos de Sistemas Operativos (procesos, memoria y GNU/Linux).",
+      "tags": ["GNU/Linux", "Sistemas Operativos", "Docencia Superior", "E-Book"]
+    },
+    {
+      "name": "ebook-IHM",
+      "title": "E-Book Interactivo: Interacción Humano-Máquina (IHM)",
+      "url": "https://github.com/marchelo2212/ebook-IHM",
+      "cluster": "tecnopedagogia",
+      "category": "Libro Digital Universitario",
+      "badge": "E-Book Académico",
+      "description": "Texto interactivo para la cátedra universitaria de IHM: principios de usabilidad, diseño centrado en el usuario (UCD), interfaces y accesibilidad.",
+      "tags": ["IHM / HCI", "Usabilidad", "UX/UI", "Docencia Superior"]
+    },
+    {
+      "name": "ebook-matematica-discreta",
+      "title": "E-Book Interactivo: Matemáticas Discretas",
+      "url": "https://github.com/marchelo2212/ebook-matematica-discreta",
+      "cluster": "ia_data_science",
+      "category": "Libro Digital Universitario",
+      "badge": "E-Book Académico",
+      "description": "Recurso educativo para estudiantes de ingeniería: lógica proposicional, teoría de grafos, relaciones de equivalencia y estructuras algebraicas.",
+      "tags": ["Matemáticas Discretas", "Grafos", "Lógica", "Ingeniería"]
+    },
+    {
+      "name": "Computacion-Sociedad",
+      "title": "Cátedra: Computación y Sociedad",
+      "url": "https://github.com/marchelo2212/Computacion-Sociedad",
+      "cluster": "politicas_direccion",
+      "category": "Ética & Cultura Digital",
+      "badge": "Ética & Sociedad",
+      "description": "Materiales de debate sobre impacto social de la tecnología, ética en inteligencia artificial, inclusión y brechas digitales.",
+      "tags": ["Ética Tecnológica", "Cultura Digital", "Sociedad del Conocimiento"]
+    },
+    {
+      "name": "scriptScratch",
+      "title": "Scripts y Algoritmos Didácticos en Scratch",
+      "url": "https://github.com/marchelo2212/scriptScratch",
+      "cluster": "tecnopedagogia",
+      "category": "Recursos Abiertos",
+      "badge": "Scratch / STEAM",
+      "description": "Colección de algoritmos, simulaciones y juegos formativos desarrollados en Scratch para talleres con docentes y jóvenes.",
+      "tags": ["Scratch", "Algoritmos", "Gamificación", "Videojuegos Educativos"]
+    },
+    {
+      "name": "PEC2-VisualizaionDatos",
+      "title": "Visualización de Datos y Analítica Gráfica",
+      "url": "https://github.com/marchelo2212/PEC2-VisualizaionDatos",
+      "cluster": "ia_data_science",
+      "category": "Ciencia de Datos",
+      "badge": "Data Science",
+      "description": "Modelado y diseño de visualizaciones analíticas de datos cuantitativos con enfoques interactivos.",
+      "tags": ["Data Viz", "Analítica", "R / Python", "Gráficos Estadísticos"]
+    },
+    {
+      "name": "cajaherramientas",
+      "title": "Caja de Herramientas Tecnopedagógicas",
+      "url": "https://github.com/marchelo2212/cajaherramientas",
+      "cluster": "tecnopedagogia",
+      "category": "Toolkit Docente",
+      "badge": "Open Toolkit",
+      "description": "Repositorio de instrumentos, rúbricas, plantillas y herramientas de software libre para la innovación en el aula virtual.",
+      "tags": ["Toolkit", "Software Libre", "Rúbricas", "Moodle"]
+    },
+    {
+      "name": "marchelo2212.github.io",
+      "title": "Digital Garden & Segundo Cerebro (Obsidian + Quartz)",
+      "url": "https://marchelo2212.github.io",
+      "cluster": "ia_data_science",
+      "category": "Jardín Digital",
+      "badge": "Obsidian Garden",
+      "description": "Espacio público de notas interconectadas de investigación sobre IA, ontologías, educación y analítica, compilado con Quartz desde Obsidian.",
+      "tags": ["Obsidian", "Quartz", "Digital Garden", "PKM", "Segundo Cerebro"]
+    }
+  ],
   "digitalResources": [
     {
       "title": "Programa PreNatal - Prevención de Discapacidades",
@@ -173,6 +276,18 @@
       "triggerWords": ["gamificacion", "escape room", "videojuegos", "quizziz"],
       "question": "¿Qué investigaciones tiene sobre gamificación y escape rooms?",
       "answer": "Ha publicado diversos artículos indexados sobre innovación tecnopedagógica lúdica, incluyendo estudios empíricos sobre 'Escape Room como estrategia de aprendizaje en estudiantes de educación superior' (2022), 'Videojuego RPG como recurso didáctico' (2022) y el uso de Quizziz y metodologías activas (PBL) para dinamizar la evaluación diagnóstica y formativa."
+    },
+    {
+      "id": "github-open-source",
+      "triggerWords": ["repositorios", "github", "codigo", "open source", "libros", "ebook", "scratch", "llm"],
+      "question": "¿Cuáles son los repositorios de código abierto y libros digitales que tiene Marcelo en GitHub?",
+      "answer": "En su GitHub (github.com/marchelo2212) cuenta con proyectos como: 'curso_llm' (modelos de lenguaje e IA generativa), 'ProgramacionPensamientoComputacional' y 'scriptScratch' para educación STEAM, e-books interactivos para cátedras universitarias ('ibook-FSO' de Sistemas Operativos, 'ebook-IHM' de Interacción Humano-Máquina, 'ebook-matematica-discreta'), además de su Jardín Digital en Obsidian ('marchelo2212.github.io' impulsado por Quartz)."
+    },
+    {
+      "id": "obsidian-quartz-garden",
+      "triggerWords": ["quartz", "obsidian", "jardin digital", "segundo cerebro", "notas"],
+      "question": "¿Qué es el Digital Garden de Quartz alojado en marchelo2212.github.io?",
+      "answer": "Es el jardín digital ('segundo cerebro') de Marcelo, publicado automáticamente desde su bóveda de notas en Obsidian mediante Quartz. En él comparte notas interconectadas, reflexiones y grafos conceptuales sobre Inteligencia Artificial, tecnologías educativas, diseño instruccional y transformación digital."
     },
     {
       "id": "contact-and-cv",

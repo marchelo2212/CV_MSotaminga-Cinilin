@@ -17,7 +17,8 @@
     "bio": "Doctorando en Ingeniería en la Universidad de La Sabana con diversas maestrías en Educación Tecnología Calidad y Gestión de la Información y el Conocimiento por la Universitat Oberta de Catalunya además de formación avanzada en Educación Tecnología e Innovación. Su investigación actual se centra en la aplicación de arquitecturas de Deep Learning y modelos de diagnóstico cognitivo para la medición de competencias el desarrollo de ontologías y la creación de sistemas inteligentes de apoyo al aprendizaje. Cuenta con más de 15 años de experiencia liderando proyectos de transformación digital innovación educativa y analítica de datos en colaboración con organismos como la UNESCO la OEI el BID y el Ministerio de Educación del Ecuador. Ha diseñado e implementado soluciones tecnopedagógicas y ecosistemas de aprendizaje digital basados en plataformas LMS analítica educativa y automatización de flujos de datos. Domina tecnologías como Python SQL R Power BI y Moodle junto con entornos GNU/Linux y herramientas de modelamiento de información. Actualmente se desempeña como docente universitario en asignaturas de bases de datos y Jefe de Producción Virtual en la Universidad de La Sabana así como profesor de posgrado en diversas instituciones iberoamericanas. Su trabajo integra investigación aplicada desarrollo tecnológico y formación docente en competencias digitales pensamiento computacional e inteligencia artificial. %Section: Work Experience at the top",
     "shortBio": "Arquitecto tecnopedagógico e investigador en IA educativa. Doctorando en Ingeniería (Universidad de La Sabana), Jefe de Producción Virtual en Unisabana e-learning y ex-Director de Tecnologías Emergentes en el MINTEL (Ecuador). Especialista en modelos de diagnóstico cognitivo, evaluación con IA, ecosistemas LMS a escala e innovación para el aprendizaje.",
     "cvPdfPath": "/cv.pdf",
-    "cvExecutivePdfPath": "/cv_ejecutivo.pdf"
+    "cvExecutivePdfPath": "/cv_ejecutivo.pdf",
+    "digitalGardenUrl": "https://marchelo2212.github.io"
   },
   "metrics": [
     {
@@ -216,68 +217,84 @@
         "info": "Modelos tecnopedagógicos y SGIC"
       },
       {
-        "id": "pub_paz-ojedaAdvancedCustomerSegmentation2026",
-        "label": "Advanced {{Customer Segmentation...",
+        "id": "repo_curso_llm",
+        "label": "Curso: Modelos de Lenguaje (...",
         "cluster": "ia_data_science",
-        "type": "publication",
-        "size": 12,
-        "info": "Advanced {{Customer Segmentation"
+        "type": "repository",
+        "size": 13,
+        "info": "Curso: Modelos de Lenguaje (LLMs) e IA Generativa - Recursos didácticos, cuadernos interactivos y laboratorios para la formación apl..."
       },
       {
-        "id": "pub_sotaminga-cinilinStudentPerceptionsAIBased2026",
-        "label": "Student {{Perceptions...",
+        "id": "repo_ProgramacionPensamientoComputacional",
+        "label": "Pensamiento Computacional & ...",
         "cluster": "tecnopedagogia",
-        "type": "publication",
-        "size": 12,
-        "info": "Student {{Perceptions"
+        "type": "repository",
+        "size": 13,
+        "info": "Pensamiento Computacional & Programación Didáctica - Guías, desafíos de lógica y secuencias didácticas orientadas a la formación del ..."
       },
       {
-        "id": "pub_sotaminga-cinilinTechnologicalMigrationSoftware2026",
-        "label": "Technological {{Migration...",
+        "id": "repo_ibook-FSO",
+        "label": "E-Book Interactivo: Fundamen...",
+        "cluster": "tecnopedagogia",
+        "type": "repository",
+        "size": 13,
+        "info": "E-Book Interactivo: Fundamentos de Sistemas Operativos - Libro interactivo y recurso docente para la asignatura universitaria de Fundamen..."
+      },
+      {
+        "id": "repo_ebook-IHM",
+        "label": "E-Book Interactivo: Interacc...",
+        "cluster": "tecnopedagogia",
+        "type": "repository",
+        "size": 13,
+        "info": "E-Book Interactivo: Interacción Humano-Máquina (IHM) - Texto interactivo para la cátedra universitaria de IHM: principios de usabilidad..."
+      },
+      {
+        "id": "repo_ebook-matematica-discreta",
+        "label": "E-Book Interactivo: Matemáti...",
         "cluster": "ia_data_science",
-        "type": "publication",
-        "size": 12,
-        "info": "Technological {{Migration"
+        "type": "repository",
+        "size": 13,
+        "info": "E-Book Interactivo: Matemáticas Discretas - Recurso educativo para estudiantes de ingeniería: lógica proposicional, teoría d..."
       },
       {
-        "id": "pub_paredes-ulloaCompetenciasDigitalesDocentes2025",
-        "label": "Competencias digitales de los docen...",
-        "cluster": "ia_data_science",
-        "type": "publication",
-        "size": 12,
-        "info": "Competencias digitales de los docentes de la unidad educativa amauta \\ñanpi Autores"
-      },
-      {
-        "id": "pub_apolo-buenanoUsosInternetCon2023",
-        "label": "Usos de Internet con fines educativ...",
-        "cluster": "ia_data_science",
-        "type": "publication",
-        "size": 12,
-        "info": "Usos de Internet con fines educativos: perspectivas para su fortalecimiento"
-      },
-      {
-        "id": "pub_sarmiento-pesantezNivelSatisfaccionEstudiantil2023",
-        "label": "Nivel de satisfacci\\ón estudiantil ...",
-        "cluster": "ia_data_science",
-        "type": "publication",
-        "size": 12,
-        "info": "Nivel de satisfacci\\ón estudiantil en el uso de estrategias y metodolog\\ías en la Educaci\\ón Virtual"
-      },
-      {
-        "id": "pub_arias-becerraQuizzizComoEstrategia2022",
-        "label": "Quizziz como estrategia de evaluaci...",
-        "cluster": "ia_data_science",
-        "type": "publication",
-        "size": 12,
-        "info": "Quizziz como estrategia de evaluaci\\ón en la carrera de medicina"
-      },
-      {
-        "id": "pub_ochoa-coronelAprendizajeBasadoProblemas2022",
-        "label": "Aprendizaje basado en problemas. Ex...",
+        "id": "repo_Computacion-Sociedad",
+        "label": "Cátedra: Computación y Socie...",
         "cluster": "politicas_direccion",
-        "type": "publication",
-        "size": 12,
-        "info": "Aprendizaje basado en problemas. Experiencia en estudiantes universitarios"
+        "type": "repository",
+        "size": 13,
+        "info": "Cátedra: Computación y Sociedad - Materiales de debate sobre impacto social de la tecnología, ética en inteligenci..."
+      },
+      {
+        "id": "repo_scriptScratch",
+        "label": "Scripts y Algoritmos Didácti...",
+        "cluster": "tecnopedagogia",
+        "type": "repository",
+        "size": 13,
+        "info": "Scripts y Algoritmos Didácticos en Scratch - Colección de algoritmos, simulaciones y juegos formativos desarrollados en Scrat..."
+      },
+      {
+        "id": "repo_PEC2-VisualizaionDatos",
+        "label": "Visualización de Datos y Ana...",
+        "cluster": "ia_data_science",
+        "type": "repository",
+        "size": 13,
+        "info": "Visualización de Datos y Analítica Gráfica - Modelado y diseño de visualizaciones analíticas de datos cuantitativos con enfoq..."
+      },
+      {
+        "id": "repo_cajaherramientas",
+        "label": "Caja de Herramientas Tecnope...",
+        "cluster": "tecnopedagogia",
+        "type": "repository",
+        "size": 13,
+        "info": "Caja de Herramientas Tecnopedagógicas - Repositorio de instrumentos, rúbricas, plantillas y herramientas de software lib..."
+      },
+      {
+        "id": "repo_marchelo2212.github.io",
+        "label": "Digital Garden & Segundo Cer...",
+        "cluster": "ia_data_science",
+        "type": "repository",
+        "size": 13,
+        "info": "Digital Garden & Segundo Cerebro (Obsidian + Quartz) - Espacio público de notas interconectadas de investigación sobre IA, ontologías, ..."
       }
     ],
     "links": [
@@ -415,51 +432,63 @@
       },
       {
         "source": "deep_learning",
-        "target": "pub_paz-ojedaAdvancedCustomerSegmentation2026",
-        "relationship": "publicación Springer/Scopus",
+        "target": "repo_curso_llm",
+        "relationship": "repositorio GitHub",
+        "value": 2
+      },
+      {
+        "source": "pensamiento_comp",
+        "target": "repo_ProgramacionPensamientoComputacional",
+        "relationship": "recurso abierto STEAM",
+        "value": 2
+      },
+      {
+        "source": "unisabana_pv",
+        "target": "repo_ibook-FSO",
+        "relationship": "material docente interactivo",
+        "value": 2
+      },
+      {
+        "source": "unisabana_pv",
+        "target": "repo_ebook-IHM",
+        "relationship": "material docente interactivo",
+        "value": 2
+      },
+      {
+        "source": "diagnostico_cognitivo",
+        "target": "repo_ebook-matematica-discreta",
+        "relationship": "recurso de ingeniería",
+        "value": 2
+      },
+      {
+        "source": "politicas_direccion",
+        "target": "repo_Computacion-Sociedad",
+        "relationship": "código abierto",
         "value": 1
       },
       {
-        "source": "tecnopedagogia",
-        "target": "pub_sotaminga-cinilinStudentPerceptionsAIBased2026",
-        "relationship": "artículo indexado",
+        "source": "pensamiento_comp",
+        "target": "repo_scriptScratch",
+        "relationship": "recurso abierto STEAM",
+        "value": 2
+      },
+      {
+        "source": "ia_data_science",
+        "target": "repo_PEC2-VisualizaionDatos",
+        "relationship": "código abierto",
         "value": 1
       },
       {
-        "source": "deep_learning",
-        "target": "pub_sotaminga-cinilinTechnologicalMigrationSoftware2026",
-        "relationship": "publicación Springer/Scopus",
-        "value": 1
+        "source": "unisabana_pv",
+        "target": "repo_cajaherramientas",
+        "relationship": "material docente interactivo",
+        "value": 2
       },
       {
-        "source": "deep_learning",
-        "target": "pub_paredes-ulloaCompetenciasDigitalesDocentes2025",
-        "relationship": "publicación Springer/Scopus",
-        "value": 1
-      },
-      {
-        "source": "deep_learning",
-        "target": "pub_apolo-buenanoUsosInternetCon2023",
-        "relationship": "publicación Springer/Scopus",
-        "value": 1
-      },
-      {
-        "source": "deep_learning",
-        "target": "pub_sarmiento-pesantezNivelSatisfaccionEstudiantil2023",
-        "relationship": "publicación Springer/Scopus",
-        "value": 1
-      },
-      {
-        "source": "deep_learning",
-        "target": "pub_arias-becerraQuizzizComoEstrategia2022",
-        "relationship": "publicación Springer/Scopus",
-        "value": 1
-      },
-      {
-        "source": "tecnopedagogia",
-        "target": "pub_ochoa-coronelAprendizajeBasadoProblemas2022",
-        "relationship": "artículo indexado",
-        "value": 1
+        "source": "ontologias",
+        "target": "repo_marchelo2212.github.io",
+        "relationship": "jardín digital Quartz",
+        "value": 2
       }
     ]
   },
@@ -528,6 +557,33 @@
       ],
       "question": "¿Qué investigaciones tiene sobre gamificación y escape rooms?",
       "answer": "Ha publicado diversos artículos indexados sobre innovación tecnopedagógica lúdica, incluyendo estudios empíricos sobre 'Escape Room como estrategia de aprendizaje en estudiantes de educación superior' (2022), 'Videojuego RPG como recurso didáctico' (2022) y el uso de Quizziz y metodologías activas (PBL) para dinamizar la evaluación diagnóstica y formativa."
+    },
+    {
+      "id": "github-open-source",
+      "triggerWords": [
+        "repositorios",
+        "github",
+        "codigo",
+        "open source",
+        "libros",
+        "ebook",
+        "scratch",
+        "llm"
+      ],
+      "question": "¿Cuáles son los repositorios de código abierto y libros digitales que tiene Marcelo en GitHub?",
+      "answer": "En su GitHub (github.com/marchelo2212) cuenta con proyectos como: 'curso_llm' (modelos de lenguaje e IA generativa), 'ProgramacionPensamientoComputacional' y 'scriptScratch' para educación STEAM, e-books interactivos para cátedras universitarias ('ibook-FSO' de Sistemas Operativos, 'ebook-IHM' de Interacción Humano-Máquina, 'ebook-matematica-discreta'), además de su Jardín Digital en Obsidian ('marchelo2212.github.io' impulsado por Quartz)."
+    },
+    {
+      "id": "obsidian-quartz-garden",
+      "triggerWords": [
+        "quartz",
+        "obsidian",
+        "jardin digital",
+        "segundo cerebro",
+        "notas"
+      ],
+      "question": "¿Qué es el Digital Garden de Quartz alojado en marchelo2212.github.io?",
+      "answer": "Es el jardín digital ('segundo cerebro') de Marcelo, publicado automáticamente desde su bóveda de notas en Obsidian mediante Quartz. En él comparte notas interconectadas, reflexiones y grafos conceptuales sobre Inteligencia Artificial, tecnologías educativas, diseño instruccional y transformación digital."
     },
     {
       "id": "contact-and-cv",
@@ -1350,6 +1406,160 @@
         "Pensamiento Computacional",
         "Software Libre",
         "STEAM"
+      ]
+    }
+  ],
+  "githubRepositories": [
+    {
+      "name": "curso_llm",
+      "title": "Curso: Modelos de Lenguaje (LLMs) e IA Generativa",
+      "url": "https://github.com/marchelo2212/curso_llm",
+      "cluster": "ia_data_science",
+      "category": "Inteligencia Artificial",
+      "badge": "IA & LLMs",
+      "description": "Recursos didácticos, cuadernos interactivos y laboratorios para la formación aplicada en LLMs, prompts y ecosistemas de IA generativa.",
+      "tags": [
+        "LLMs",
+        "Python",
+        "Generative AI",
+        "NLP",
+        "Educación con IA"
+      ]
+    },
+    {
+      "name": "ProgramacionPensamientoComputacional",
+      "title": "Pensamiento Computacional & Programación Didáctica",
+      "url": "https://github.com/marchelo2212/ProgramacionPensamientoComputacional",
+      "cluster": "tecnopedagogia",
+      "category": "Educación STEAM",
+      "badge": "STEAM & Código",
+      "description": "Guías, desafíos de lógica y secuencias didácticas orientadas a la formación del pensamiento computacional en docentes y jóvenes.",
+      "tags": [
+        "Pensamiento Computacional",
+        "Scratch",
+        "Python",
+        "Didáctica",
+        "STEAM"
+      ]
+    },
+    {
+      "name": "ibook-FSO",
+      "title": "E-Book Interactivo: Fundamentos de Sistemas Operativos",
+      "url": "https://github.com/marchelo2212/ibook-FSO",
+      "cluster": "tecnopedagogia",
+      "category": "Libro Digital Universitario",
+      "badge": "E-Book Académico",
+      "description": "Libro interactivo y recurso docente para la asignatura universitaria de Fundamentos de Sistemas Operativos (procesos, memoria y GNU/Linux).",
+      "tags": [
+        "GNU/Linux",
+        "Sistemas Operativos",
+        "Docencia Superior",
+        "E-Book"
+      ]
+    },
+    {
+      "name": "ebook-IHM",
+      "title": "E-Book Interactivo: Interacción Humano-Máquina (IHM)",
+      "url": "https://github.com/marchelo2212/ebook-IHM",
+      "cluster": "tecnopedagogia",
+      "category": "Libro Digital Universitario",
+      "badge": "E-Book Académico",
+      "description": "Texto interactivo para la cátedra universitaria de IHM: principios de usabilidad, diseño centrado en el usuario (UCD), interfaces y accesibilidad.",
+      "tags": [
+        "IHM / HCI",
+        "Usabilidad",
+        "UX/UI",
+        "Docencia Superior"
+      ]
+    },
+    {
+      "name": "ebook-matematica-discreta",
+      "title": "E-Book Interactivo: Matemáticas Discretas",
+      "url": "https://github.com/marchelo2212/ebook-matematica-discreta",
+      "cluster": "ia_data_science",
+      "category": "Libro Digital Universitario",
+      "badge": "E-Book Académico",
+      "description": "Recurso educativo para estudiantes de ingeniería: lógica proposicional, teoría de grafos, relaciones de equivalencia y estructuras algebraicas.",
+      "tags": [
+        "Matemáticas Discretas",
+        "Grafos",
+        "Lógica",
+        "Ingeniería"
+      ]
+    },
+    {
+      "name": "Computacion-Sociedad",
+      "title": "Cátedra: Computación y Sociedad",
+      "url": "https://github.com/marchelo2212/Computacion-Sociedad",
+      "cluster": "politicas_direccion",
+      "category": "Ética & Cultura Digital",
+      "badge": "Ética & Sociedad",
+      "description": "Materiales de debate sobre impacto social de la tecnología, ética en inteligencia artificial, inclusión y brechas digitales.",
+      "tags": [
+        "Ética Tecnológica",
+        "Cultura Digital",
+        "Sociedad del Conocimiento"
+      ]
+    },
+    {
+      "name": "scriptScratch",
+      "title": "Scripts y Algoritmos Didácticos en Scratch",
+      "url": "https://github.com/marchelo2212/scriptScratch",
+      "cluster": "tecnopedagogia",
+      "category": "Recursos Abiertos",
+      "badge": "Scratch / STEAM",
+      "description": "Colección de algoritmos, simulaciones y juegos formativos desarrollados en Scratch para talleres con docentes y jóvenes.",
+      "tags": [
+        "Scratch",
+        "Algoritmos",
+        "Gamificación",
+        "Videojuegos Educativos"
+      ]
+    },
+    {
+      "name": "PEC2-VisualizaionDatos",
+      "title": "Visualización de Datos y Analítica Gráfica",
+      "url": "https://github.com/marchelo2212/PEC2-VisualizaionDatos",
+      "cluster": "ia_data_science",
+      "category": "Ciencia de Datos",
+      "badge": "Data Science",
+      "description": "Modelado y diseño de visualizaciones analíticas de datos cuantitativos con enfoques interactivos.",
+      "tags": [
+        "Data Viz",
+        "Analítica",
+        "R / Python",
+        "Gráficos Estadísticos"
+      ]
+    },
+    {
+      "name": "cajaherramientas",
+      "title": "Caja de Herramientas Tecnopedagógicas",
+      "url": "https://github.com/marchelo2212/cajaherramientas",
+      "cluster": "tecnopedagogia",
+      "category": "Toolkit Docente",
+      "badge": "Open Toolkit",
+      "description": "Repositorio de instrumentos, rúbricas, plantillas y herramientas de software libre para la innovación en el aula virtual.",
+      "tags": [
+        "Toolkit",
+        "Software Libre",
+        "Rúbricas",
+        "Moodle"
+      ]
+    },
+    {
+      "name": "marchelo2212.github.io",
+      "title": "Digital Garden & Segundo Cerebro (Obsidian + Quartz)",
+      "url": "https://marchelo2212.github.io",
+      "cluster": "ia_data_science",
+      "category": "Jardín Digital",
+      "badge": "Obsidian Garden",
+      "description": "Espacio público de notas interconectadas de investigación sobre IA, ontologías, educación y analítica, compilado con Quartz desde Obsidian.",
+      "tags": [
+        "Obsidian",
+        "Quartz",
+        "Digital Garden",
+        "PKM",
+        "Segundo Cerebro"
       ]
     }
   ],
