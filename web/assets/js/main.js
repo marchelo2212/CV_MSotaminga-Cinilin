@@ -386,7 +386,7 @@ function renderProjects(mode) {
         </div>
       </div>
     `).join('');
-  } else {
+  } else if (mode === 'resources') {
     const list = cvData.digitalResources || [];
     container.innerHTML = list.map(r => `
       <div class="p-5 rounded-xl bg-surface-card border border-white/[0.08] hover:border-white/[0.14] transition flex flex-col justify-between">
@@ -426,6 +426,43 @@ function renderProjects(mode) {
             `).join('')}
           </div>
         ` : ''}
+      </div>
+    `).join('');
+  } else if (mode === 'blog') {
+    const list = cvData.digitalGardenPosts || [];
+    container.innerHTML = list.map(post => `
+      <div class="p-5 rounded-xl bg-surface-card border border-white/[0.08] hover:border-emerald-500/30 transition flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[10px]">
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">
+              ${post.badge || 'ENSAYO'}
+            </span>
+            <span class="text-slate-400 flex items-center gap-1 font-mono">
+              <i class="fa-solid fa-seedling text-emerald-400 text-[10px]"></i> ${post.collection}
+            </span>
+          </div>
+
+          <h4 class="font-serif text-base font-bold text-white group-hover:text-emerald-300 transition leading-snug">
+            ${post.title}
+          </h4>
+
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+            ${post.description}
+          </p>
+
+          ${post.tags && post.tags.length > 0 ? `
+            <div class="flex flex-wrap gap-1 mt-3 font-mono text-[10px]">
+              ${post.tags.map(t => `<span class="px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/[0.04]">${t}</span>`).join('')}
+            </div>
+          ` : ''}
+        </div>
+
+        <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between font-mono text-xs">
+          <a href="${post.url}" target="_blank" class="text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 text-[11px] font-medium">
+            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i> Leer en Quartz
+          </a>
+          <span class="text-[10px] text-slate-400">${post.year}</span>
+        </div>
       </div>
     `).join('');
   }
@@ -470,35 +507,48 @@ function setupEventListeners() {
     });
   }
 
-  // Tabs de Proyectos vs Repositorios vs Recursos Digitales
+  // Tabs de Proyectos vs Repositorios vs Recursos Digitales vs Ensayos Quartz
   const showProjBtn = document.getElementById('show-projects-btn');
   const showReposBtn = document.getElementById('show-repos-btn');
   const showResBtn = document.getElementById('show-resources-btn');
+  const showBlogBtn = document.getElementById('show-blog-btn');
 
   const activeTabClass = 'px-3.5 py-1.5 rounded-xl bg-purple-600 text-white font-medium transition shadow-md';
   const inactiveTabClass = 'px-3.5 py-1.5 rounded-xl bg-surface-card hover:bg-surface-raised text-slate-400 hover:text-white border border-white/[0.08] transition';
 
+  const resetProjectTabs = () => {
+    if (showProjBtn) showProjBtn.className = inactiveTabClass;
+    if (showReposBtn) showReposBtn.className = inactiveTabClass;
+    if (showResBtn) showResBtn.className = inactiveTabClass;
+    if (showBlogBtn) showBlogBtn.className = inactiveTabClass;
+  };
+
   if (showProjBtn && showReposBtn && showResBtn) {
     showProjBtn.addEventListener('click', () => {
+      resetProjectTabs();
       showProjBtn.className = activeTabClass;
-      showReposBtn.className = inactiveTabClass;
-      showResBtn.className = inactiveTabClass;
       renderProjects('projects');
     });
 
     showReposBtn.addEventListener('click', () => {
+      resetProjectTabs();
       showReposBtn.className = 'px-3.5 py-1.5 rounded-xl bg-sky-600 text-white font-medium transition shadow-md';
-      showProjBtn.className = inactiveTabClass;
-      showResBtn.className = inactiveTabClass;
       renderProjects('repos');
     });
 
     showResBtn.addEventListener('click', () => {
+      resetProjectTabs();
       showResBtn.className = 'px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white font-medium transition shadow-md';
-      showProjBtn.className = inactiveTabClass;
-      showReposBtn.className = inactiveTabClass;
       renderProjects('resources');
     });
+
+    if (showBlogBtn) {
+      showBlogBtn.addEventListener('click', () => {
+        resetProjectTabs();
+        showBlogBtn.className = 'px-3.5 py-1.5 rounded-xl bg-emerald-700 text-white font-medium transition shadow-md';
+        renderProjects('blog');
+      });
+    }
   }
 
   // Filtros de Publicaciones

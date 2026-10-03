@@ -256,6 +256,96 @@
       "tags": ["Scratch", "Pensamiento Computacional", "Software Libre", "STEAM"]
     }
   ],
+  "digitalGardenPosts": [
+    {
+      "title": "Fundamentos de IA y Mitos",
+      "year": "2025",
+      "collection": "Blog 2025",
+      "url": "https://marchelo2212.github.io/Blog/2025/Fundamentos-de-IA-y-Mitos",
+      "cluster": "ia_data_science",
+      "category": "Inteligencia Artificial",
+      "badge": "IA Teórica & Ética",
+      "description": "Profundización conceptual: IA débil vs AGI, evolución histórica desde Turing, auge del Deep Learning, modelos generativos y el riesgo de deuda cognitiva en la educación superior.",
+      "tags": ["IA", "Deep Learning", "AGI", "Ética", "Educación Superior"]
+    },
+    {
+      "title": "Creación de preguntas de base estructurada para Moodle empleando IA",
+      "year": "2025",
+      "collection": "Blog 2025",
+      "url": "https://marchelo2212.github.io/Blog/2025/Creación-de-preguntas-de-base-estructurada-para-Moodle-empleando-IA",
+      "cluster": "tecnopedagogia",
+      "category": "Evaluación con IA",
+      "badge": "Moodle & Prompting",
+      "description": "Metodología y prompting para analizar material de cursos y generar bancos estructurados de preguntas (CSV) con retroalimentación formativa inmediata en Moodle.",
+      "tags": ["Moodle", "IA Educativa", "Evaluación Formativa", "Prompt Engineering", "LMS"]
+    },
+    {
+      "title": "Automatizando la captura de información desde Telegram hacia Obsidian usando hashtags",
+      "year": "2025",
+      "collection": "Blog 2025",
+      "url": "https://marchelo2212.github.io/Blog/2025/Automatizando-la-captura-de-información-desde-Telegram-hacia-Obsidian-usando-hashtags",
+      "cluster": "ia_data_science",
+      "category": "Gestión del Conocimiento (PKM)",
+      "badge": "Doctorado & Automatización",
+      "description": "Pipeline automatizado de captura de papers, ontologías y herramientas para la investigación doctoral en Knowledge Tracing, conectando Telegram y Obsidian.",
+      "tags": ["Obsidian", "Telegram", "PKM", "Knowledge Tracing", "Doctorado"]
+    },
+    {
+      "title": "Guía Técnica: Instalación y Desinstalación de Plugins Oficiales en Moodle 4.5.4+",
+      "year": "2025",
+      "collection": "Blog 2025",
+      "url": "https://marchelo2212.github.io/Blog/2025/Guía-Técnica-Instalación-y-Desinstalación-de-Plugins-Oficiales-en-Moodle-4.5.4+",
+      "cluster": "tecnopedagogia",
+      "category": "Infraestructura LMS",
+      "badge": "Gobernanza Moodle",
+      "description": "Manual técnico de mejores prácticas para la administración, gobernanza, despliegue seguro y depuración de plugins en entornos universitarios Moodle a gran escala.",
+      "tags": ["Moodle", "LMS", "SysAdmin", "Gobernanza TIC", "E-learning"]
+    },
+    {
+      "title": "Publicando Obsidian Vault con Quartz 4 y GitHub",
+      "year": "2025",
+      "collection": "Blog 2025",
+      "url": "https://marchelo2212.github.io/Blog/2025/Publicando-Obsidian-vault-con-Quartz-4-y-GitHub",
+      "cluster": "ia_data_science",
+      "category": "Jardín Digital",
+      "badge": "Arquitectura Web PKM",
+      "description": "Arquitectura y pipeline de despliegue continuo de un segundo cerebro digital interactivo mediante Quartz 4, Node.js y GitHub Pages.",
+      "tags": ["Quartz", "Obsidian", "GitHub Pages", "Segundo Cerebro", "Open Web"]
+    },
+    {
+      "title": "10 sitios web de robótica educativa con materiales reciclados",
+      "year": "2025",
+      "collection": "Blog 2025",
+      "url": "https://marchelo2212.github.io/Blog/2025/10-sitios-web-de-robótica-educativa-con-materiales-reciclados",
+      "cluster": "tecnopedagogia",
+      "category": "Educación STEAM",
+      "badge": "Robótica Sostenible",
+      "description": "Curaduría pedagógica de iniciativas internacionales que integran robótica, pensamiento de diseño y sostenibilidad mediante materiales reciclados.",
+      "tags": ["Robótica", "STEAM", "Sostenibilidad", "Recursos Abiertos", "Maker"]
+    },
+    {
+      "title": "Top 20 Recursos Digitales STEM-STEAM",
+      "year": "2025",
+      "collection": "Blog 2025",
+      "url": "https://marchelo2212.github.io/Blog/2025/Top-20-Recursos-Digitales-STEM-STEAM",
+      "cluster": "tecnopedagogia",
+      "category": "Recursos Abiertos",
+      "badge": "Curaduría Docente",
+      "description": "Selección de simuladores, laboratorios virtuales y herramientas interactivas de software libre para la enseñanza de ciencias e ingeniería.",
+      "tags": ["STEAM", "Simuladores", "Laboratorios Virtuales", "Software Libre"]
+    },
+    {
+      "title": "Observatorio de Publicaciones y Ensayos 2026",
+      "year": "2026",
+      "collection": "Blog 2026",
+      "url": "https://marchelo2212.github.io/Blog/2026/",
+      "cluster": "ia_data_science",
+      "category": "Investigación Activa",
+      "badge": "En Producción 2026",
+      "description": "Repositorio continuo de reflexiones, modelos neuro-simbólicos, avances de tesis doctoral y experimentación con asistentes de IA para el año en curso.",
+      "tags": ["Investigación 2026", "Tesis Doctoral", "Neuro-Simbólico", "Feedback IA"]
+    }
+  ],
   "aiAssistantKnowledge": [
     {
       "id": "doctoral-research",
@@ -298,6 +388,12 @@
       "triggerWords": ["quartz", "obsidian", "jardin digital", "segundo cerebro", "notas"],
       "question": "¿Qué es el Digital Garden de Quartz alojado en marchelo2212.github.io?",
       "answer": "Es el jardín digital ('segundo cerebro') de Marcelo, publicado automáticamente desde su bóveda de notas en Obsidian mediante Quartz. En él comparte notas interconectadas, reflexiones y grafos conceptuales sobre Inteligencia Artificial, tecnologías educativas, diseño instruccional y transformación digital."
+    },
+    {
+      "id": "quartz-blog-notes",
+      "triggerWords": ["blog", "notas", "articulos", "ensayos", "2025", "2026", "publicaciones blog", "robotica", "telegram", "plugins moodle"],
+      "question": "¿Qué publicaciones y notas de investigación tiene Marcelo en su Blog de Quartz (2025 y 2026)?",
+      "answer": "En su Jardín Digital (marchelo2212.github.io/Blog/), Marcelo publica reflexiones técnicas y pedagógicas en vivo. Entre sus ensayos de 2025 y 2026 destacan:\n• 'Fundamentos de IA y Mitos': Análisis de IA estrecha vs AGI, evolución histórica y el fenómeno de deuda cognitiva en educación superior.\n• 'Creación de preguntas para Moodle con IA': Metodología para generar bancos estructurados CSV con retroalimentación formativa inmediata.\n• 'Automatizando captura de información desde Telegram a Obsidian': Pipeline para su investigación doctoral en Knowledge Tracing.\n• 'Guía Técnica: Instalación y Desinstalación de Plugins en Moodle 4.5.4+': Gobernanza de plataformas LMS a gran escala.\n• 'Publicando Obsidian vault con Quartz 4 y GitHub': Arquitectura de despliegue de su jardín digital.\n• '10 sitios web de robótica educativa con materiales reciclados' y 'Top 20 Recursos Digitales STEM-STEAM'.\nPuedes consultar las notas completas directamente en https://marchelo2212.github.io/Blog/2025/ y https://marchelo2212.github.io/Blog/2026/."
     },
     {
       "id": "contact-and-cv",

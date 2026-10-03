@@ -39,11 +39,13 @@ jobs:
           extra_system_packages: "fonts-fontin"
           args: -xelatex -file-line-error -interaction=nonstopmode
 
-      - name: Compilar CV Ejecutivo con pdflatex
+      - name: Compilar CV Ejecutivo con XeLaTeX
         uses: xu-cheng/latex-action@v3
         with:
           root_file: Cv2.tex
-          args: -pdf -file-line-error -interaction=nonstopmode
+          latexmk_use_xelatex: true
+          extra_system_packages: "fonts-fontin"
+          args: -xelatex -file-line-error -interaction=nonstopmode
 
       - name: Procesar datos estructurados y preparar web
         run: |

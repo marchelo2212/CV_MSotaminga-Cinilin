@@ -282,7 +282,7 @@ def parse_projects(section_text: str):
             })
     return items
 
-def build_knowledge_graph(profile, projects, publications, digital_resources, github_repos=None):
+def build_knowledge_graph(profile, projects, publications, digital_resources, github_repos=None, digital_garden_posts=None):
     """Construye los nodos y aristas del Espacio Latente (Knowledge Graph interactivo)."""
     clusters = [
         {
@@ -397,6 +397,22 @@ def build_knowledge_graph(profile, projects, publications, digital_resources, gi
         else:
             add_link(repo['cluster'], repo_id, "código abierto", value=1)
 
+    # Conectar notas y ensayos de investigación del Jardín Digital (Quartz)
+    for post in (digital_garden_posts or []):
+        post_id = f"blog_{post['title'][:20].lower().replace(' ', '_').replace(':', '')}"
+        add_node(post_id, post['title'][:26] + "...", post['cluster'], "blog_post", size=13, info=f"[{post['collection']}] {post['title']} - {post['description'][:80]}...")
+        t_low = post['title'].lower()
+        if "ia" in t_low or "mitos" in t_low:
+            add_link("deep_learning", post_id, "ensayo conceptual", value=2)
+        elif "moodle" in t_low:
+            add_link("moodle_scale", post_id, "artículo técnico LMS", value=2)
+        elif "telegram" in t_low or "obsidian" in t_low:
+            add_link("ontologias", post_id, "metodología PKM", value=2)
+        elif "robotica" in t_low or "steam" in t_low:
+            add_link("pensamiento_comp", post_id, "recurso STEAM", value=2)
+        else:
+            add_link(post['cluster'], post_id, "publicación digital", value=1)
+
     return {
         "clusters": clusters,
         "nodes": nodes,
@@ -493,6 +509,7 @@ def main():
         
     digital_resources = enrichment.get("digitalResources", [])
     github_repositories = enrichment.get("githubRepositories", [])
+    digital_garden_posts = enrichment.get("digitalGardenPosts", [])
     ai_knowledge = enrichment.get("aiAssistantKnowledge", [])
     
     # Actualizar bio o detalles si vienen en enrichment
@@ -502,7 +519,7 @@ def main():
                 profile[k] = v
                 
     # 8. Generar Knowledge Graph
-    knowledge_graph = build_knowledge_graph(profile, enriched_projects, publications, digital_resources, github_repositories)
+    knowledge_graph = build_knowledge_graph(profile, enriched_projects, publications, digital_resources, github_repositories, digital_garden_posts)
     
     # 9. Métricas Cuantitativas
     metrics = [
@@ -522,6 +539,7 @@ def main():
         "projects": enriched_projects,
         "digitalResources": digital_resources,
         "githubRepositories": github_repositories,
+        "digitalGardenPosts": digital_garden_posts,
         "workExperience": work_experience,
         "teachingExperience": teaching_experience,
         "education": education

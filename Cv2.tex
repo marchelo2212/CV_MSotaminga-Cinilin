@@ -1,78 +1,217 @@
-\documentclass[10pt]{article}
-\usepackage[margin=1.6cm]{geometry}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[hidelinks]{hyperref}
+\PassOptionsToPackage{hidelinks}{hyperref}
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1.35cm, top=1.2cm, bottom=1.2cm]{geometry}
+\usepackage{fontspec}
+\usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{tabularx}
-\pagenumbering{gobble}
-\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=*, itemsep=2pt}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{fontawesome5}
+\usepackage{hyperref}
+\usepackage{orcidlink}
+
+% Paleta Gráfica Coordinada con Web y Quartz
+\definecolor{primary}{HTML}{0F172A}      % Slate muy oscuro / Títulos
+\definecolor{secondary}{HTML}{334155}    % Slate medio / Texto secundario
+\definecolor{accentblue}{HTML}{0284C7}   % Sky Blue / IA y Enlaces
+\definecolor{accentamber}{HTML}{D97706}  % Amber / Distinciones y Doctorado
+\definecolor{accentgreen}{HTML}{059669}  % Emerald / Tecnopedagogía y Quartz
+\definecolor{rulecolor}{HTML}{CBD5E1}    % Línea separadora sutil
+\definecolor{linkedin}{HTML}{0A66C2}
+\definecolor{github}{HTML}{24292E}
+\definecolor{twitter}{HTML}{1DA1F2}
+\definecolor{facebook}{HTML}{1877F2}
+
+% Configuración de Hipervínculos
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accentblue,
+  linkcolor=primary
+}
+
+% Formato de Secciones con Línea Sutil
+\titleformat{\section}
+  {\large\scshape\raggedright\color{primary}}
+  {}{0em}{}
+  [{\vspace{-3pt}\color{rulecolor}\rule{\textwidth}{0.8pt}\vspace{-4pt}}]
+\titlespacing{\section}{0pt}{7pt}{4pt}
+
+% Configuración de Listas
+\setlist[itemize]{
+  noitemsep,
+  topsep=1.5pt,
+  parsep=1pt,
+  partopsep=0pt,
+  leftmargin=1.2em,
+  label=\textcolor{accentblue}{\small\textbullet}
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
 
 \begin{document}
-\begin{center}
-{\LARGE \textbf{Marcelo Javier Sotaminga Cinilin}}\\[2pt]
-\textbf{Jefe de Producción Virtual \,|\, Tecnología Educativa e IA}\\
-Cajicá (Cund.) \,|\, +57 317 475 1858\\
-\href{mailto:marcelo.sotaminga@unisabana.edu.co}{marcelo.sotaminga@unisabana.edu.co} (Sabana) \,|\,
-\href{mailto:msotaminga@uoc.edu}{msotaminga@uoc.edu} (UOC) \,|\,
-\href{mailto:marcelo.sotaminga@gmail.com}{marcelo.sotaminga@gmail.com}\\
-\href{https://www.linkedin.com/in/marchelo2212}{linkedin.com/in/marchelo2212} \,|\,
-\href{https://x.com/marchelo2212}{x.com/marchelo2212} \,|\,
-\href{https://github.com/marchelo2212}{github.com/marchelo2212} \,|\,
-\href{https://marchelo2212.espiraleducativa.org}{marchelo2212.espiraleducativa.org}
-\end{center}
 
-\section*{Perfil}
-Profesional en tecnología educativa con foco en \textbf{IA aplicada} y \textbf{producción e-learning end-to-end}.
-Diseño y despliegue de soluciones en \textbf{GNU/Linux}, \textbf{Python} y \textbf{SQL}; integración \textbf{LMS/CMS/CRM}; automatización de datos para \textbf{reportes dinámicos} y toma de decisiones basada en evidencia.
-Lidero equipos multidisciplinarios con \textbf{KPI}, \textbf{QA} gráfico–pedagógica y \textbf{SLAs} de entrega.
-Doctorando en Ingeniería, Universidad de La Sabana (en curso).
+% ==========================================
+% ENCABEZADO EJECUTIVO CON RETRATO Y CONTACTO
+% ==========================================
+\begin{minipage}[c]{0.16\textwidth}
+  \centering
+  \includegraphics[height=3.1cm, width=2.4cm, keepaspectratio]{foto_ms.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.82\textwidth}
+  {\LARGE\textbf{\textcolor{primary}{Marcelo Javier Sotaminga Cinilin}}}\\[2pt]
+  {\normalsize\textbf{\textcolor{accentamber}{Arquitecto Tecnopedagógico \& Investigador en IA Educativa}}}\\[2pt]
+  {\small\textbf{\textcolor{secondary}{Jefe de Producción Virtual · Unisabana e-learning}} \,|\, \textbf{Doctorando en Ingeniería, Univ. de La Sabana}}\\[5pt]
+  
+  % Fila 1 de contacto: Correos institucionales y personal
+  \scriptsize
+  \faLandmark\hspace{0.3ex}\href{mailto:marcelo.sotaminga@unisabana.edu.co}{marcelo.sotaminga@unisabana.edu.co} \textcolor{secondary}{(Sabana)} \quad
+  \faGraduationCap\hspace{0.3ex}\href{mailto:msotaminga@uoc.edu}{msotaminga@uoc.edu} \textcolor{secondary}{(UOC)} \quad
+  \faEnvelope\hspace{0.3ex}\href{mailto:marcelo.sotaminga@gmail.com}{marcelo.sotaminga@gmail.com} \\[4pt]
+  
+  % Fila 2 de contacto: Redes y enlaces
+  \footnotesize
+  \href{https://www.linkedin.com/in/marchelo2212}{\textcolor{linkedin}{\faLinkedin}\hspace{0.3ex}marchelo2212}\quad
+  \href{https://x.com/marchelo2212}{\textcolor{twitter}{\faTwitter}\hspace{0.3ex}@marchelo2212}\quad
+  \href{https://github.com/marchelo2212}{\textcolor{github}{\faGithub}\hspace{0.3ex}marchelo2212}\quad
+  \href{https://orcid.org/0000-0003-4250-906X}{\orcidlink{0000-0003-4250-906X}\hspace{0.3ex}0000-0003-4250-906X}\quad
+  \href{https://marchelo2212.github.io}{\textcolor{accentgreen}{\faSeedling}\hspace{0.3ex}Digital Garden (Quartz)}
+\end{minipage}
 
-\section*{Habilidades Clave}
-\begin{tabularx}{\textwidth}{@{}l X@{}}
-\textbf{Producción e-learning} & Planificación, estimaciones, control de \textbf{tiempos/costos}, coordinación de equipos (in-house/contratistas), \textbf{QA} pedagógica y gráfica, estándares \textbf{SCORM/xAPI}, accesibilidad.\\
-\textbf{Plataformas} & \textbf{Moodle} (admin y contenidos); experiencia trasladable a Edunext; CMS/CRM (WordPress/Joomla/Drupal, CiviCRM); LRS/analytics.\\
-\textbf{Herramientas} & Articulate Storyline; Jira/Trello; Power BI; Git; \textbf{GNU/Linux}, \textbf{Python} y \textbf{SQL} para ETL y automatización de reportería.\\
-\textbf{Gestión} & KPIs, OKR, tableros dinámicos, SGIC, \textbf{SLAs}, gestión de riesgos y cambios.\\
+\vspace{6pt}
+
+% ==========================================
+% PERFIL PROFESIONAL & INVESTIGACIÓN
+% ==========================================
+\section{Perfil Ejecutivo}
+Profesional e investigador con más de 15 años liderando proyectos de \textbf{transformación digital, tecnología educativa y analítica de datos} a escala nacional e internacional. Articula la investigación aplicada en \textbf{Deep Learning, modelos de diagnóstico cognitivo y arquitecturas neuro-simbólicas} con la dirección estratégica de producción virtual universitaria y la formulación de políticas públicas. Ha liderado la adopción de la \textit{Recomendación sobre la Ética de la Inteligencia Artificial} de la \textbf{UNESCO} como Director en el MINTEL y colaborado con organismos multilaterales (\textbf{BID, CEPAL, CAN, OEI}).
+
+\vspace{5pt}
+
+% ==========================================
+% HABILIDADES CLAVE Y DOMINIOS
+% ==========================================
+\section{Competencias Núcleo \& Habilidades Técnicas}
+\begin{tabularx}{\textwidth}{@{}p{4.2cm} X@{}}
+\textbf{\textcolor{primary}{Inteligencia Artificial \& Datos:}} & Modelos de diagnóstico cognitivo, Deep Learning (NLP/LLMs), analítica del aprendizaje, ontologías educativas semánticas, Python, SQL, R, flujos ETL y Power BI.\\
+\textbf{\textcolor{primary}{Producción E-Learning \& LMS:}} & Dirección de producción virtual end-to-end, gobernanza de plataformas Moodle a escala, estándares SCORM/xAPI, aseguramiento de la calidad pedagógica y gráfica (QA/QC), SLAs.\\
+\textbf{\textcolor{primary}{Gobernanza \& Políticas TIC:}} & Estrategia país de transformación digital (BID), marcos de ética de la IA (UNESCO), cooperación multilateral regional (eLAC/CEPAL, CAN), gestión de riesgos y SGIC.\\
 \end{tabularx}
 
-\section*{Experiencia Relevante}
-\textbf{Espiral Educativa} — Director de Proyectos \hfill 2015–2024\\
+\vspace{5pt}
+
+% ==========================================
+% EXPERIENCIA PROFESIONAL Y DIRECTIVA
+% ==========================================
+\section{Experiencia Profesional \& Liderazgo Directivo}
+
+\textbf{Universidad de La Sabana (Unisabana e-learning)} \hfill \textbf{Cajicá / Chía, Colombia}\\
+\textit{Jefe de Producción Virtual} \hfill \textbf{2024 – Actualidad}
 \begin{itemize}
-\item Lideré \textbf{pipelines de producción} de cursos virtuales (diseño, desarrollo, \textbf{QA}, despliegue en \textbf{Moodle}) y la estandarización de \textbf{lineamientos gráfico–pedagógicos}.
-\item Implementé \textbf{KPIs}, tableros y checklists de QA; disminución de tiempos de entrega y defectos post–lanzamiento; gestión de \textbf{SLAs} y presupuestos.
-\item Administración de \textbf{Moodle} (aulas, roles, backups, plugins, SCORM) y coordinación de equipos multidisciplinarios.
+  \item Lidera el equipo multidisciplinario de producción virtual para programas formales de grado, posgrado y educación continua, garantizando calidad instruccional, diseño gráfico y pertinencia tecnopedagógica.
+  \item Administra y gobierna ecosistemas LMS Moodle a gran escala; diseña tableros de analítica del aprendizaje (Learning Analytics) y métricas de retención para soporte a la toma de decisiones directivas.
+  \item Integra herramientas emergentes de IA generativa y asistentes conversacionales en procesos de diseño educativo y evaluación formativa.
 \end{itemize}
 
-\textbf{MINTEL (Gobierno de Ecuador)} — Director de Fomento de Tecnologías Emergentes \hfill 2021–2022\\
+\vspace{4pt}
+
+\textbf{MINTEL — Ministerio de Telecomunicaciones y Sociedad de la Información} \hfill \textbf{Quito, Ecuador}\\
+\textit{Director de Fomento de Tecnologías Emergentes} \hfill \textbf{2021 – 2022}
 \begin{itemize}
-\item Planeación y gobernanza de proyectos de adopción tecnológica; definición de \textbf{indicadores}, roadmap y seguimiento; articulación con cooperación internacional.
+  \item Lideró la adhesión de Ecuador a la Red de primeros países adoptantes de la \textit{Recomendación sobre la Ética de la IA} de la \textbf{UNESCO}.
+  \item Coordinó la formulación de la \textbf{Agenda de Transformación Digital del Ecuador} con el Banco Interamericano de Desarrollo (\textbf{BID}).
+  \item Articuló la participación técnica del país en la \textbf{Agenda Digital Andina (CAN)} y el plan regional \textbf{eLAC2022} de la \textbf{CEPAL}.
 \end{itemize}
 
-\textbf{ProFuturo–ChildFund} — Coord. Comunidades de Aprendizaje Digital \hfill 2021\\
+\vspace{4pt}
+
+\textbf{Espiral Educativa} \hfill \textbf{Ecuador / Colombia}\\
+\textit{Director de Proyectos \& Fundador} \hfill \textbf{2015 – 2024}
 \begin{itemize}
-\item Diseño y evaluación de comunidades de práctica; \textbf{reportes de logro} y analítica de participación.
+  \item Dirigió pipelines de producción de cursos virtuales, consultoría instruccional y soporte técnico sobre Moodle para clientes corporativos y ONGs.
+  \item Implementó tableros de gestión con KPIs, checklists de QA gráfico-pedagógica y optimización de tiempos de entrega en un 30\%.
 \end{itemize}
 
-\textbf{Fundación de Waal} — Coord. Educación, Innovación y TIC \hfill 2013–2020\\
+\vspace{4pt}
+
+\textbf{Fundación de Waal Internacional} \hfill \textbf{América Latina (4 países)}\\
+\textit{Coordinador de Educación, Innovación y TIC} \hfill \textbf{2013 – 2020}
 \begin{itemize}
-\item Administración de \textbf{LMS/CMS/CRM}; producción de \textbf{OVAs/REAs}; dashboards KPI; soporte a \textbf{4 países}.
+  \item Administró el campus virtual regional de formación para el personal de salud y educación en Ecuador, Bolivia, Perú y El Salvador.
+  \item Produjo más de 50 objetos virtuales de aprendizaje (OVAs/REAs) interactivos y coordinó la infraestructura tecnológica multi-sede.
 \end{itemize}
 
-\section*{Proyectos Seleccionados}
-BID/MINEDUC — \textit{Ciudadanía Digital}; CORAPE–GIZ/ONU Mujeres/UNICEF — \textit{EVA y MOOC}; OEI–CIESPAL/MINEDUC — \textit{Programación de videojuegos}; IAEN — \textit{Plataforma de formación continua}.
+% Salto de página limpio para dividir Liderazgo (Pág 1) de Investigación y Academia (Pág 2)
+\newpage
 
-\section*{Educación}
-\textbf{Doctorado en Ingeniería} (en curso), Universidad de La Sabana \hfill 2024–act.\\
-\textbf{Máster Univ. en Ciencia de Datos} (en curso), UOC \hfill 2024–act.\\
-\textbf{Máster Univ. en Gestión de la Información y el Conocimiento}, UOC \hfill 2020\\
-\textbf{Máster Univ. en Evaluación y Gestión de la Calidad en ES}, UOC \hfill 2019\\
-\textbf{Máster Univ. en Educación y TIC (Diseño Tecnopedagógico)}, UOC \hfill 2016
+% ==========================================
+% INVESTIGACIÓN, PUBLICACIONES & NOTAS QUARTZ
+% ==========================================
+\section{Investigación Doctoral, Publicaciones \& Ensayos en Jardín Digital}
 
-\section*{Certificaciones}
-Google Educator Level 1 (2022) \,|\, Moodle Course Creator Certificate (2017)
+\textbf{Investigación Doctoral en Curso (Universidad de La Sabana, Chía, Colombia):}\\
+Desarrollo de modelos neuro-simbólicos de diagnóstico cognitivo mediante Deep Learning y ontologías semánticas para la medición y trazabilidad de competencias STEM en territorios de aprendizaje sostenible de Sabana Centro.
 
-\section*{Tecnología}
-Moodle; Articulate Storyline; SCORM/xAPI; Power BI; Git; \textbf{Python/SQL}; \textbf{GNU/Linux}; Jira/Trello.
+\vspace{4pt}
+
+\textbf{Publicación Destacada en Springer Nature (2026):}\\
+\textit{Student Perceptions of an AI-Based Assistant for Formative Feedback in Higher Education}. Springer Nature. Autores: M. A. Uribe-Laverde \& M. J. Sotaminga. DOI: \href{https://doi.org/10.1007/978-3-032-10310-9_15}{10.1007/978-3-032-10310-9\_15}.
+
+\vspace{4pt}
+
+\textbf{Publicaciones Indexadas Seleccionadas (Scopus / Peer-Reviewed):}\\
+\textbullet~ \textit{Escape Room como estrategia de aprendizaje en estudiantes de educación superior} (Revista Andina de Educación, 2022).\\
+\textbullet~ \textit{Videojuego RPG como recurso didáctico para potenciar la lectoescritura} (Horizontes Revista de Investigación en Ciencias de la Educación, 2022).\\
+\textbullet~ \textit{Evaluación de competencias mediante entornos lúdicos y plataformas digitales} (2021).
+
+\vspace{4pt}
+
+\textbf{Ensayos y Notas de Investigación en Jardín Digital (Quartz — \href{https://marchelo2212.github.io/Blog/}{marchelo2212.github.io/Blog/}):}\\
+\textbullet~ \href{https://marchelo2212.github.io/Blog/2025/Fundamentos-de-IA-y-Mitos}{\textit{Fundamentos de IA y Mitos}} (2025): Modelos generativos, deuda cognitiva y alfabetización en IA superior.\\
+\textbullet~ \href{https://marchelo2212.github.io/Blog/2025/Creaci\%C3\%B3n-de-preguntas-de-base-estructurada-para-Moodle-empleando-IA}{\textit{Preguntas de base estructurada en Moodle con IA}} (2025): Prompting y feedback formativo automatizado.\\
+\textbullet~ \href{https://marchelo2212.github.io/Blog/2025/Automatizando-la-captura-de-informaci\%C3\%B3n-desde-Telegram-hacia-Obsidian-usando-hashtags}{\textit{Pipeline de Conocimiento Telegram-Obsidian}} (2025): Captura y modelado de datos para Knowledge Tracing.\\
+\textbullet~ \href{https://marchelo2212.github.io/Blog/2025/Gu\%C3\%ADa-T\%C3\%A9cnica-Instalaci\%C3\%B3n-y-Desinstalaci\%C3\%B3n-de-Plugins-Oficiales-en-Moodle-4.5.4+}{\textit{Gobernanza de Plugins en Moodle 4.5.4+}} (2025): SysAdmin universitario e infraestructura e-learning.\\
+\textbullet~ \href{https://marchelo2212.github.io/Blog/2025/Publicando-Obsidian-vault-con-Quartz-4-y-GitHub}{\textit{Publicando Obsidian vault con Quartz 4 y GitHub}} (2025): Arquitectura de jardines digitales.\\
+\textbullet~ \href{https://marchelo2212.github.io/Blog/2026/}{\textit{Observatorio de Investigación Activa 2026}} (2026): Avances continuos de doctorado y experimentación con LLMs.
+
+\vspace{5pt}
+
+% ==========================================
+% FORMACIÓN ACADÉMICA
+% ==========================================
+\section{Formación Académica}
+\begin{tabularx}{\textwidth}{@{}p{2.4cm} X r@{}}
+\textbf{2024 – Act.} & \textbf{Doctorado en Ingeniería (Informática)}, Universidad de La Sabana & Colombia\\
+\textbf{2024 – Act.} & \textbf{Máster Universitario en Ciencia de Datos}, Universitat Oberta de Catalunya (UOC) & España\\
+\textbf{2020} & \textbf{Máster Univ. en Gestión de la Información y el Conocimiento}, UOC & España\\
+\textbf{2019} & \textbf{Máster Univ. en Evaluación y Gestión de la Calidad en Educación Superior}, UOC & España\\
+\textbf{2016} & \textbf{Máster Univ. en Educación y TIC (Especialidad: Diseño Tecnopedagógico)}, UOC & España\\
+\textbf{2012} & \textbf{Licenciatura en Ciencias de la Educación (Informática)}, Universidad Central del Ecuador & Ecuador\\
+\end{tabularx}
+
+\vspace{5pt}
+
+% ==========================================
+% DISTINCIONES Y CERTIFICACIONES
+% ==========================================
+\section{Distinciones \& Certificaciones Profesionales}
+\textbullet~ \textbf{Distinción Carlos Jordana a la Excelencia Doctoral} (2024) — Universidad de La Sabana (Chía, Colombia).\\
+\textbullet~ \textbf{Google Certified Educator Level 1} (2022) — Google for Education.\\
+\textbullet~ \textbf{Moodle Course Creator Certificate} (2017) — Edulabs Colombia / Moodle Pty Ltd Australia.\\
+\textbullet~ \textbf{Experto en Educación Virtual} (2014) — Fundación para la Actualización Tecnológica de Latinoamérica (FATLA).
+
+\vspace{5pt}
+
+% ==========================================
+% INICIATIVAS Y CÓDIGO ABIERTO
+% ==========================================
+\section{Proyectos Internacionales Seleccionados \& Código Abierto}
+\begin{tabularx}{\textwidth}{@{}p{4.2cm} X@{}}
+\textbf{\textcolor{primary}{Cooperación Multilateral:}} & \textit{Ciudadanía Digital} (BID/MINEDUC); \textit{EVA \& MOOC} (CORAPE–GIZ / ONU Mujeres / UNICEF); \textit{Programación de Videojuegos STEAM} (OEI–CIESPAL / MINEDUC).\\
+\textbf{\textcolor{primary}{Código Abierto (GitHub):}} & \texttt{curso\_llm} (IA generativa y NLP didáctico); \texttt{ProgramacionPensamientoComputacional} \& \texttt{scriptScratch} (STEAM); E-books universitarios (\texttt{ibook-FSO}, \texttt{ebook-IHM}, \texttt{ebook-matematica-discreta}).\\
+\end{tabularx}
 
 \end{document}
