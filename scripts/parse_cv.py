@@ -417,7 +417,25 @@ def main():
         "githubUrl": "https://github.com/marchelo2212",
         "linkedin": "marchelo2212",
         "linkedinUrl": "https://www.linkedin.com/in/marchelo2212",
+        "twitter": "marchelo2212",
+        "twitterUrl": "https://x.com/marchelo2212",
+        "facebook": "marchelo2212",
+        "facebookUrl": "https://www.facebook.com/marchelo2212",
         "email": "marcelo.sotaminga@gmail.com",
+        "emailUnisabana": "marcelo.sotaminga@unisabana.edu.co",
+        "emailUoc": "msotaminga@uoc.edu",
+        "emails": [
+            { "label": "Universidad de La Sabana", "address": "marcelo.sotaminga@unisabana.edu.co", "badge": "Unisabana", "type": "institutional" },
+            { "label": "Universitat Oberta de Catalunya", "address": "msotaminga@uoc.edu", "badge": "UOC", "type": "institutional" },
+            { "label": "Correo Personal", "address": "marcelo.sotaminga@gmail.com", "badge": "Personal", "type": "personal" }
+        ],
+        "social": [
+            { "name": "LinkedIn", "url": "https://www.linkedin.com/in/marchelo2212", "icon": "fa-brands fa-linkedin-in", "handle": "marchelo2212" },
+            { "name": "X (Twitter)", "url": "https://x.com/marchelo2212", "icon": "fa-brands fa-x-twitter", "handle": "@marchelo2212" },
+            { "name": "Facebook", "url": "https://www.facebook.com/marchelo2212", "icon": "fa-brands fa-facebook-f", "handle": "marchelo2212" },
+            { "name": "GitHub", "url": "https://github.com/marchelo2212", "icon": "fa-brands fa-github", "handle": "marchelo2212" },
+            { "name": "ORCID", "url": "https://orcid.org/0000-0003-4250-906X", "icon": "fa-brands fa-orcid", "handle": "0000-0003-4250-906X" }
+        ],
         "website": "https://marchelo2212.espiraleducativa.org",
         "currentRole": "Jefe de Producción Virtual | Unisabana e-learning",
         "doctorate": "Doctorando en Ingeniería (Informática), Universidad de La Sabana",

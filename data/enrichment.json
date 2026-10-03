@@ -5,7 +5,17 @@
     "photo": "foto_ms.png",
     "cvPdfPath": "/cv.pdf",
     "cvExecutivePdfPath": "/cv_ejecutivo.pdf",
-    "digitalGardenUrl": "https://marchelo2212.github.io"
+    "digitalGardenUrl": "https://marchelo2212.github.io",
+    "email": "marcelo.sotaminga@gmail.com",
+    "emailUnisabana": "marcelo.sotaminga@unisabana.edu.co",
+    "emailUoc": "msotaminga@uoc.edu",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/marchelo2212",
+      "twitter": "https://x.com/marchelo2212",
+      "facebook": "https://www.facebook.com/marchelo2212",
+      "github": "https://github.com/marchelo2212",
+      "orcid": "https://orcid.org/0000-0003-4250-906X"
+    }
   },
   "projectEnrichments": [
     {
@@ -291,9 +301,9 @@
     },
     {
       "id": "contact-and-cv",
-      "triggerWords": ["contacto", "cv", "descargar", "pdf", "correo", "email", "telefono"],
+      "triggerWords": ["contacto", "cv", "descargar", "pdf", "correo", "email", "telefono", "sabana", "unisabana", "uoc", "linkedin", "twitter", "x", "facebook"],
       "question": "¿Cómo puedo contactar a Marcelo o descargar su CV oficial?",
-      "answer": "Puedes contactarlo a través de su correo marcelo.sotaminga@gmail.com, en LinkedIn (linkedin.com/in/marchelo2212) o consultar su identificador ORCID (0000-0003-4250-906X). Su CV formal completo en PDF y su versión ejecutiva se compilan automáticamente desde LaTeX en este repositorio y pueden descargarse directamente desde la barra superior de esta página."
+      "answer": "Puedes contactarlo a través de sus correos oficiales y personales:\n• Universidad de La Sabana: marcelo.sotaminga@unisabana.edu.co\n• Universitat Oberta de Catalunya (UOC): msotaminga@uoc.edu\n• Correo personal: marcelo.sotaminga@gmail.com\n\nRedes y perfiles en línea:\n• LinkedIn: linkedin.com/in/marchelo2212\n• X / Twitter: x.com/marchelo2212\n• Facebook: facebook.com/marchelo2212\n• GitHub: github.com/marchelo2212\n• ORCID: 0000-0003-4250-906X\n\nSus documentos formales en PDF (CV Académico y CV Ejecutivo) se compilan automáticamente desde LaTeX y están disponibles para descarga en la barra superior."
     }
   ]
 }

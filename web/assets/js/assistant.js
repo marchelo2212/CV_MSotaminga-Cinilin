@@ -77,6 +77,9 @@ export class AIAssistant {
             <button class="prompt-chip font-mono text-[11px] bg-white/[0.03] hover:bg-sky-500/15 text-slate-300 hover:text-sky-300 px-3 py-1.5 rounded-lg border border-white/[0.08] hover:border-sky-500/30 transition flex items-center gap-1.5" data-q="¿Qué es el Digital Garden de Quartz alojado en marchelo2212.github.io?">
               <span>🌱</span> Obsidian Digital Garden (Quartz)
             </button>
+            <button class="prompt-chip font-mono text-[11px] bg-white/[0.03] hover:bg-sky-500/15 text-slate-300 hover:text-sky-300 px-3 py-1.5 rounded-lg border border-white/[0.08] hover:border-sky-500/30 transition flex items-center gap-1.5" data-q="¿Cómo puedo contactar a Marcelo o consultar sus redes y correos institucionales?">
+              <span>📬</span> Directorio de Contacto & Redes
+            </button>
           </div>
         </div>
 
