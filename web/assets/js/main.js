@@ -1,5 +1,5 @@
 /**
- * main.js - Orquestador general del Research Lab & CV Interactivo
+ * main.js - Orquestador general del Research Lab & CV Interactivo (Edición Editorial)
  */
 
 import { KnowledgeGraph } from './graph.js';
@@ -32,23 +32,23 @@ function initApp() {
   setupEventListeners();
 }
 
-// 1. Renderizar Métricas
+// 1. Renderizar Métricas Instrumentales
 function renderMetrics() {
   const container = document.getElementById('metrics-grid');
   if (!container || !cvData.metrics) return;
 
   container.innerHTML = cvData.metrics.map(m => `
-    <div class="glass-card p-4 rounded-2xl border border-slate-800 hover:border-slate-700 transition group">
-      <div class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400 group-hover:from-sky-300 group-hover:to-indigo-300 transition">
+    <div class="p-4 rounded-xl bg-surface-card border border-white/[0.08] hover:border-white/[0.15] transition">
+      <div class="font-serif text-3xl sm:text-4xl font-normal text-amber-200">
         ${m.value}
       </div>
-      <div class="text-xs font-bold text-white mt-1">${m.label}</div>
-      <div class="text-[11px] text-slate-400">${m.subtext}</div>
+      <div class="text-xs font-semibold text-white mt-1">${m.label}</div>
+      <div class="font-mono text-[11px] text-slate-400 mt-0.5">${m.subtext}</div>
     </div>
   `).join('');
 }
 
-// 2. Inicializar Knowledge Graph
+// 2. Inicializar Knowledge Graph Observatory
 function initKnowledgeGraph() {
   if (!cvData.knowledgeGraph) return;
 
@@ -63,10 +63,10 @@ function initKnowledgeGraph() {
   clusterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       clusterBtns.forEach(b => {
-        b.classList.remove('bg-slate-700', 'text-white', 'font-bold');
+        b.classList.remove('bg-white/[0.12]', 'text-white', 'font-bold');
         b.classList.add('text-slate-400');
       });
-      btn.classList.add('bg-slate-700', 'text-white', 'font-bold');
+      btn.classList.add('bg-white/[0.12]', 'text-white', 'font-bold');
       btn.classList.remove('text-slate-400');
 
       const cluster = btn.getAttribute('data-cluster');
@@ -74,15 +74,22 @@ function initKnowledgeGraph() {
     });
   });
 
+  // Controles de zoom
+  const zoomIn = document.getElementById('graph-zoom-in');
+  const zoomOut = document.getElementById('graph-zoom-out');
   const resetBtn = document.getElementById('reset-graph-btn');
+
+  if (zoomIn) zoomIn.addEventListener('click', () => graphInstance.zoomBy(1.15));
+  if (zoomOut) zoomOut.addEventListener('click', () => graphInstance.zoomBy(0.85));
+
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
       graphInstance.resetView();
       clusterBtns.forEach(b => {
         if (b.getAttribute('data-cluster') === 'all') {
-          b.classList.add('bg-slate-700', 'text-white');
+          b.classList.add('bg-white/[0.12]', 'text-white');
         } else {
-          b.classList.remove('bg-slate-700', 'text-white');
+          b.classList.remove('bg-white/[0.12]', 'text-white');
         }
       });
     });
@@ -107,39 +114,37 @@ function showNodeDetail(node) {
   const linksEl = document.getElementById('detail-node-links');
 
   titleEl.textContent = node.label;
-  descEl.textContent = node.info || 'Nodo del espacio latente de investigación y trayectoria.';
+  descEl.textContent = node.info || 'Elemento del espacio latente de investigación y trayectoria.';
 
-  // Estilo según cluster
   let clusterName = 'Dimensión General';
-  let badgeClass = 'bg-slate-800 text-slate-300';
+  let badgeClass = 'bg-white/[0.06] text-slate-300 border border-white/[0.08]';
   if (node.cluster === 'ia_data_science') {
     clusterName = 'IA & Data Science';
-    badgeClass = 'bg-sky-500/20 text-sky-400 border border-sky-500/30';
+    badgeClass = 'bg-sky-500/10 text-sky-400 border border-sky-500/20';
   } else if (node.cluster === 'politicas_direccion') {
     clusterName = 'Políticas & Dirección';
-    badgeClass = 'bg-purple-500/20 text-purple-400 border border-purple-500/30';
+    badgeClass = 'bg-purple-500/10 text-purple-400 border border-purple-500/20';
   } else if (node.cluster === 'tecnopedagogia') {
     clusterName = 'Tecnopedagogía & Aprendizaje';
-    badgeClass = 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+    badgeClass = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
   }
 
   clusterEl.textContent = clusterName;
-  clusterEl.className = `text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${badgeClass}`;
+  clusterEl.className = `font-mono text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded ${badgeClass}`;
 
-  // Buscar relaciones de este nodo en proyectos y papers
-  const relatedProjects = cvData.projects.filter(p => 
+  const relatedProjects = (cvData.projects || []).filter(p => 
     p.title.toLowerCase().includes(node.label.toLowerCase()) ||
     (p.tags && p.tags.some(t => t.toLowerCase().includes(node.label.toLowerCase())))
   );
 
   linksEl.innerHTML = '';
   if (relatedProjects.length > 0) {
-    linksEl.innerHTML += `<div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-2">Iniciativas relacionadas:</div>`;
+    linksEl.innerHTML += `<div class="font-mono text-[10px] uppercase tracking-wider text-slate-500 mt-2">Iniciativas relacionadas:</div>`;
     relatedProjects.slice(0, 3).forEach(rp => {
       linksEl.innerHTML += `
-        <div class="p-2 rounded-lg bg-slate-800/60 border border-slate-700/50 text-[11px] mt-1">
+        <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/[0.06] text-xs mt-1">
           <div class="font-semibold text-white">${rp.title}</div>
-          <div class="text-[10px] text-slate-400">${rp.organization} (${rp.year})</div>
+          <div class="font-mono text-[10px] text-slate-400 mt-0.5">${rp.organization} (${rp.year})</div>
         </div>
       `;
     });
@@ -153,7 +158,7 @@ function initAssistant() {
   assistantInstance = new AIAssistant(cvData, 'ai-chat-root');
 }
 
-// 4. Renderizar Timeline (Liderazgo vs Docencia)
+// 4. Renderizar Timeline (Ledger de Liderazgo vs Docencia)
 function renderTimeline(mode) {
   const container = document.getElementById('timeline-content');
   if (!container) return;
@@ -161,18 +166,18 @@ function renderTimeline(mode) {
   if (mode === 'leadership') {
     const list = cvData.workExperience || [];
     container.innerHTML = list.map(item => `
-      <div class="p-5 rounded-2xl glass-card border border-slate-800 hover:border-slate-700 transition">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+      <div class="p-5 rounded-xl bg-surface-card border border-white/[0.08] hover:border-white/[0.14] transition">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
           <div>
-            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">${item.period}</span>
-            <h3 class="text-base font-bold text-white">${item.organization}</h3>
+            <span class="font-mono text-xs font-semibold text-emerald-400 tracking-wider">${item.period}</span>
+            <h3 class="font-serif text-lg font-bold text-white mt-0.5">${item.organization}</h3>
             ${item.unit ? `<span class="text-xs text-slate-400">${item.unit}</span>` : ''}
           </div>
-          <span class="inline-block px-3 py-1 rounded-full bg-slate-800 text-xs font-medium text-slate-300 border border-slate-700 self-start sm:self-auto">
+          <span class="inline-block px-3 py-1 rounded-full bg-white/[0.04] text-xs font-mono text-slate-300 border border-white/[0.06] self-start sm:self-auto">
             ${item.role}
           </span>
         </div>
-        <p class="text-xs text-slate-300 leading-relaxed mt-2">
+        <p class="text-xs sm:text-[13px] text-slate-300 leading-relaxed mt-2 font-sans">
           ${item.description}
         </p>
       </div>
@@ -180,23 +185,23 @@ function renderTimeline(mode) {
   } else {
     const list = cvData.teachingExperience || [];
     container.innerHTML = list.map(item => `
-      <div class="p-5 rounded-2xl glass-card border border-slate-800 hover:border-slate-700 transition">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+      <div class="p-5 rounded-xl bg-surface-card border border-white/[0.08] hover:border-white/[0.14] transition">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
           <div>
-            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">${item.period}</span>
-            <h3 class="text-base font-bold text-white">${item.institution}</h3>
+            <span class="font-mono text-xs font-semibold text-sky-400 tracking-wider">${item.period}</span>
+            <h3 class="font-serif text-lg font-bold text-white mt-0.5">${item.institution}</h3>
           </div>
-          <span class="inline-block px-3 py-1 rounded-full bg-slate-800 text-xs font-medium text-slate-300 border border-slate-700 self-start sm:self-auto">
+          <span class="inline-block px-3 py-1 rounded-full bg-white/[0.04] text-xs font-mono text-slate-300 border border-white/[0.06] self-start sm:self-auto">
             ${item.role}
           </span>
         </div>
         ${item.subjects ? `
-          <div class="mt-2 mb-2 p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-xs">
-            <span class="font-bold text-sky-400">Asignaturas:</span>
-            <span class="text-slate-200">${item.subjects}</span>
+          <div class="mt-2 mb-2 p-3 rounded-lg bg-white/[0.03] border border-white/[0.06] text-xs">
+            <span class="font-mono font-semibold text-sky-400">Asignaturas:</span>
+            <span class="text-slate-200 ml-1">${item.subjects}</span>
           </div>
         ` : ''}
-        <p class="text-xs text-slate-300 leading-relaxed">
+        <p class="text-xs sm:text-[13px] text-slate-300 leading-relaxed font-sans">
           ${item.description}
         </p>
       </div>
@@ -204,7 +209,7 @@ function renderTimeline(mode) {
   }
 }
 
-// 5. Renderizar Publicaciones (Búsqueda + Cluster + Copiar BibTeX)
+// 5. Renderizar Publicaciones (Buscador + DOI + BibTeX)
 function renderPublications(clusterFilter = 'all', searchQuery = '') {
   const container = document.getElementById('publications-grid');
   if (!container || !cvData.publications) return;
@@ -223,56 +228,56 @@ function renderPublications(clusterFilter = 'all', searchQuery = '') {
   }
 
   if (filtered.length === 0) {
-    container.innerHTML = `<div class="col-span-2 p-8 text-center text-slate-400 text-xs">No se encontraron publicaciones con esos criterios.</div>`;
+    container.innerHTML = `<div class="col-span-2 p-8 text-center text-slate-400 font-mono text-xs">No se localizaron registros para los criterios especificados.</div>`;
     return;
   }
 
   container.innerHTML = filtered.map(pub => {
     const isSpringer = pub.publisher && pub.publisher.includes('Springer');
-    const badgeColor = pub.cluster === 'ia_data_science' ? 'text-sky-400 border-sky-500/20 bg-sky-500/10' : 'text-emerald-400 border-emerald-500/20 bg-emerald-500/10';
+    const badgeClass = pub.cluster === 'ia_data_science' ? 'text-sky-400 border-sky-500/20 bg-sky-500/10' : 'text-emerald-400 border-emerald-500/20 bg-emerald-500/10';
 
     return `
-      <div class="p-5 rounded-2xl glass-card border border-slate-800 hover:border-slate-700 transition flex flex-col justify-between group">
+      <div class="p-5 rounded-xl bg-surface-card border border-white/[0.08] hover:border-white/[0.14] transition flex flex-col justify-between group">
         <div>
           <div class="flex items-center justify-between gap-2 mb-2">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${badgeColor}">
+            <span class="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border ${badgeClass}">
               ${pub.year} · ${pub.type}
             </span>
-            ${isSpringer ? `<span class="text-[10px] font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">Springer Nature</span>` : ''}
+            ${isSpringer ? `<span class="font-mono text-[10px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">SPRINGER NATURE</span>` : ''}
           </div>
           
-          <h4 class="text-sm font-bold text-white group-hover:text-sky-400 transition leading-snug">
+          <h4 class="font-serif text-base font-medium text-white group-hover:text-amber-300 transition leading-snug">
             ${pub.title}
           </h4>
 
-          <div class="text-xs text-slate-400 mt-2">
-            <strong>Autores:</strong> ${pub.authors.join(', ')}
+          <div class="text-xs text-slate-400 mt-2 font-sans">
+            <span class="font-medium text-slate-300">Autores:</span> ${pub.authors.join(', ')}
           </div>
 
-          <div class="text-xs text-slate-400 mt-1">
-            <strong>Publicado en:</strong> <em class="text-slate-300">${pub.venue || pub.publisher}</em>
+          <div class="text-xs text-slate-400 mt-1 font-sans">
+            <span class="font-medium text-slate-300">Publicado en:</span> <em class="text-slate-300">${pub.venue || pub.publisher}</em>
           </div>
 
           ${pub.abstract ? `
-            <details class="mt-3 text-xs text-slate-300">
-              <summary class="cursor-pointer text-sky-400 hover:text-sky-300 font-medium">Ver Resumen (Abstract)</summary>
-              <p class="mt-2 text-slate-400 text-[11px] leading-relaxed bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
+            <details class="mt-3 text-xs text-slate-300 font-sans">
+              <summary class="cursor-pointer text-amber-400/90 hover:text-amber-300 font-mono text-[11px]">Resumen (Abstract)</summary>
+              <p class="mt-2 text-slate-400 text-xs leading-relaxed bg-white/[0.02] p-3 rounded-lg border border-white/[0.06]">
                 ${pub.abstract}
               </p>
             </details>
           ` : ''}
         </div>
 
-        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2 text-xs">
+        <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between gap-2 font-mono text-xs">
           ${pub.url ? `
-            <a href="${pub.url}" target="_blank" class="text-sky-400 hover:text-sky-300 font-medium flex items-center gap-1">
-              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-              ${pub.doi ? `DOI: ${pub.doi}` : 'Ver en revista'}
+            <a href="${pub.url}" target="_blank" class="text-sky-400 hover:text-sky-300 flex items-center gap-1.5 text-[11px]">
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+              ${pub.doi ? `DOI: ${pub.doi}` : 'Ver publicación'}
             </a>
           ` : `<span></span>`}
 
-          <button class="copy-bib-btn text-slate-400 hover:text-white px-2 py-1 rounded bg-slate-800/80 hover:bg-slate-800 transition flex items-center gap-1 text-[11px]" data-bib="${encodeURIComponent(pub.bibtex)}">
-            <i class="fa-solid fa-copy"></i>
+          <button class="copy-bib-btn text-slate-400 hover:text-white px-2.5 py-1 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] transition flex items-center gap-1.5 text-[11px]" data-bib="${encodeURIComponent(pub.bibtex)}">
+            <i class="fa-solid fa-copy text-[10px]"></i>
             <span>BibTeX</span>
           </button>
         </div>
@@ -280,7 +285,6 @@ function renderPublications(clusterFilter = 'all', searchQuery = '') {
     `;
   }).join('');
 
-  // Eventos para copiar BibTeX
   container.querySelectorAll('.copy-bib-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const bibText = decodeURIComponent(btn.getAttribute('data-bib'));
@@ -306,35 +310,35 @@ function renderProjects(mode) {
   if (mode === 'projects') {
     const list = cvData.projects || [];
     container.innerHTML = list.map(p => `
-      <div class="p-5 rounded-2xl glass-card border border-slate-800 hover:border-slate-700 transition flex flex-col justify-between">
+      <div class="p-5 rounded-xl bg-surface-card border border-white/[0.08] hover:border-white/[0.14] transition flex flex-col justify-between">
         <div>
-          <div class="flex items-center justify-between gap-2 mb-2">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
+          <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[10px]">
+            <span class="px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">
               ${p.year}
             </span>
-            ${p.badge ? `<span class="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">${p.badge}</span>` : ''}
+            ${p.badge ? `<span class="text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">${p.badge}</span>` : ''}
           </div>
 
-          <h4 class="text-sm font-bold text-white leading-snug">
+          <h4 class="font-serif text-base font-bold text-white leading-snug">
             ${p.title}
           </h4>
 
-          <div class="text-xs text-slate-400 mt-1">
+          <div class="text-xs text-slate-400 mt-1 font-sans">
             <strong>Entidad:</strong> ${p.organization}
           </div>
 
           ${p.tags && p.tags.length > 0 ? `
-            <div class="flex flex-wrap gap-1 mt-3">
-              ${p.tags.map(t => `<span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300">${t}</span>`).join('')}
+            <div class="flex flex-wrap gap-1 mt-3 font-mono text-[10px]">
+              ${p.tags.map(t => `<span class="px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/[0.04]">${t}</span>`).join('')}
             </div>
           ` : ''}
         </div>
 
         ${p.links && p.links.length > 0 ? `
-          <div class="mt-4 pt-3 border-t border-slate-800 flex flex-wrap gap-2 text-xs">
+          <div class="mt-4 pt-3 border-t border-white/[0.06] flex flex-wrap gap-2 font-mono text-xs">
             ${p.links.map(l => `
-              <a href="${l.url}" target="_blank" class="text-sky-400 hover:text-sky-300 font-medium flex items-center gap-1">
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> ${l.label}
+              <a href="${l.url}" target="_blank" class="text-sky-400 hover:text-sky-300 flex items-center gap-1 text-[11px]">
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i> ${l.label}
               </a>
             `).join('')}
           </div>
@@ -344,80 +348,80 @@ function renderProjects(mode) {
   } else if (mode === 'repos') {
     const list = cvData.githubRepositories || [];
     container.innerHTML = list.map(repo => `
-      <div class="p-5 rounded-2xl glass-card border border-slate-800 hover:border-slate-700 transition flex flex-col justify-between group">
+      <div class="p-5 rounded-xl bg-surface-card border border-white/[0.08] hover:border-white/[0.14] transition flex flex-col justify-between group">
         <div>
-          <div class="flex items-center justify-between gap-2 mb-2">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">
-              ${repo.badge || 'Open Source'}
+          <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[10px]">
+            <span class="px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">
+              ${repo.badge || 'OPEN SOURCE'}
             </span>
-            <span class="text-[10px] font-medium text-slate-400 flex items-center gap-1">
+            <span class="text-slate-400 flex items-center gap-1">
               <i class="fa-brands fa-github"></i> marchelo2212
             </span>
           </div>
 
-          <h4 class="text-sm font-bold text-white group-hover:text-sky-400 transition leading-snug">
+          <h4 class="font-serif text-base font-bold text-white group-hover:text-amber-300 transition leading-snug">
             ${repo.title}
           </h4>
 
-          <div class="text-xs font-mono text-slate-400 mt-1">
-            repo: <span class="text-slate-300">${repo.name}</span>
+          <div class="font-mono text-xs text-slate-400 mt-1">
+            repo: <span class="text-slate-200">${repo.name}</span>
           </div>
 
-          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
             ${repo.description}
           </p>
 
           ${repo.tags && repo.tags.length > 0 ? `
-            <div class="flex flex-wrap gap-1 mt-3">
-              ${repo.tags.map(t => `<span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300">${t}</span>`).join('')}
+            <div class="flex flex-wrap gap-1 mt-3 font-mono text-[10px]">
+              ${repo.tags.map(t => `<span class="px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/[0.04]">${t}</span>`).join('')}
             </div>
           ` : ''}
         </div>
 
-        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
-          <a href="${repo.url}" target="_blank" class="text-sky-400 hover:text-sky-300 font-medium flex items-center gap-1.5">
-            <i class="fa-brands fa-github text-sm"></i> Ver Repositorio
+        <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between font-mono text-xs">
+          <a href="${repo.url}" target="_blank" class="text-sky-400 hover:text-sky-300 flex items-center gap-1.5 text-[11px]">
+            <i class="fa-brands fa-github text-xs"></i> Repositorio
           </a>
-          <span class="text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">${repo.category}</span>
+          <span class="text-[10px] text-slate-400">${repo.category}</span>
         </div>
       </div>
     `).join('');
   } else {
     const list = cvData.digitalResources || [];
     container.innerHTML = list.map(r => `
-      <div class="p-5 rounded-2xl glass-card border border-slate-800 hover:border-slate-700 transition flex flex-col justify-between">
+      <div class="p-5 rounded-xl bg-surface-card border border-white/[0.08] hover:border-white/[0.14] transition flex flex-col justify-between">
         <div>
-          <div class="flex items-center justify-between gap-2 mb-2">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[10px]">
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
               ${r.category}
             </span>
-            <span class="text-[10px] font-medium text-slate-400">${r.role}</span>
+            <span class="text-slate-400">${r.role}</span>
           </div>
 
-          <h4 class="text-sm font-bold text-white leading-snug">
+          <h4 class="font-serif text-base font-bold text-white leading-snug">
             ${r.title}
           </h4>
 
-          <div class="text-xs text-slate-400 mt-1 font-medium">
+          <div class="text-xs text-slate-400 mt-1 font-sans">
             ${r.institution}
           </div>
 
-          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
             ${r.description}
           </p>
 
           ${r.tags && r.tags.length > 0 ? `
-            <div class="flex flex-wrap gap-1 mt-3">
-              ${r.tags.map(t => `<span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300">${t}</span>`).join('')}
+            <div class="flex flex-wrap gap-1 mt-3 font-mono text-[10px]">
+              ${r.tags.map(t => `<span class="px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/[0.04]">${t}</span>`).join('')}
             </div>
           ` : ''}
         </div>
 
         ${r.links && r.links.length > 0 ? `
-          <div class="mt-4 pt-3 border-t border-slate-800 flex flex-wrap gap-3 text-xs">
+          <div class="mt-4 pt-3 border-t border-white/[0.06] flex flex-wrap gap-3 font-mono text-xs">
             ${r.links.map(l => `
-              <a href="${l.url}" target="_blank" class="text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-1">
-                <i class="fa-solid fa-link text-[10px]"></i> ${l.label}
+              <a href="${l.url}" target="_blank" class="text-emerald-400 hover:text-emerald-300 flex items-center gap-1 text-[11px]">
+                <i class="fa-solid fa-link text-[9px]"></i> ${l.label}
               </a>
             `).join('')}
           </div>
@@ -433,13 +437,13 @@ function renderEducation() {
   if (!container || !cvData.education) return;
 
   container.innerHTML = cvData.education.map(e => `
-    <div class="p-3.5 rounded-xl glass-card border border-slate-800 flex items-start justify-between gap-2">
+    <div class="p-3.5 rounded-xl bg-surface-card border border-white/[0.08] flex items-start justify-between gap-3">
       <div>
-        <span class="text-[10px] font-bold uppercase tracking-wider text-sky-400">${e.year}</span>
-        <h4 class="text-xs font-bold text-white">${e.degree}</h4>
-        <div class="text-xs text-slate-400">${e.institution}</div>
+        <span class="font-mono text-[10px] uppercase tracking-wider text-amber-400">${e.year}</span>
+        <h4 class="text-xs font-bold text-white font-serif mt-0.5">${e.degree}</h4>
+        <div class="text-xs text-slate-400 font-sans">${e.institution}</div>
       </div>
-      <span class="text-[10px] px-2 py-0.5 rounded-full ${e.status === 'En curso' ? 'bg-sky-500/20 text-sky-400 border border-sky-500/30 font-medium' : 'bg-slate-800 text-slate-400'}">
+      <span class="font-mono text-[10px] px-2 py-0.5 rounded ${e.status === 'En curso' ? 'bg-sky-500/15 text-sky-400 border border-sky-500/20' : 'bg-white/[0.04] text-slate-400'}">
         ${e.status}
       </span>
     </div>
@@ -454,13 +458,13 @@ function setupEventListeners() {
 
   if (leadBtn && teachBtn) {
     leadBtn.addEventListener('click', () => {
-      leadBtn.className = 'px-4 py-2 rounded-lg bg-emerald-500 text-white font-medium transition shadow-md';
+      leadBtn.className = 'px-4 py-2 rounded-lg bg-emerald-600/90 text-white font-medium transition';
       teachBtn.className = 'px-4 py-2 rounded-lg text-slate-400 hover:text-white transition';
       renderTimeline('leadership');
     });
 
     teachBtn.addEventListener('click', () => {
-      teachBtn.className = 'px-4 py-2 rounded-lg bg-sky-500 text-white font-medium transition shadow-md';
+      teachBtn.className = 'px-4 py-2 rounded-lg bg-sky-600/90 text-white font-medium transition';
       leadBtn.className = 'px-4 py-2 rounded-lg text-slate-400 hover:text-white transition';
       renderTimeline('teaching');
     });
@@ -471,8 +475,8 @@ function setupEventListeners() {
   const showReposBtn = document.getElementById('show-repos-btn');
   const showResBtn = document.getElementById('show-resources-btn');
 
-  const activeTabClass = 'px-3.5 py-1.5 rounded-xl bg-purple-600 text-white text-xs font-medium transition shadow-md';
-  const inactiveTabClass = 'px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white text-xs font-medium border border-slate-800 transition';
+  const activeTabClass = 'px-3.5 py-1.5 rounded-xl bg-purple-600 text-white font-medium transition shadow-md';
+  const inactiveTabClass = 'px-3.5 py-1.5 rounded-xl bg-surface-card hover:bg-surface-raised text-slate-400 hover:text-white border border-white/[0.08] transition';
 
   if (showProjBtn && showReposBtn && showResBtn) {
     showProjBtn.addEventListener('click', () => {
@@ -483,14 +487,14 @@ function setupEventListeners() {
     });
 
     showReposBtn.addEventListener('click', () => {
-      showReposBtn.className = 'px-3.5 py-1.5 rounded-xl bg-sky-600 text-white text-xs font-medium transition shadow-md';
+      showReposBtn.className = 'px-3.5 py-1.5 rounded-xl bg-sky-600 text-white font-medium transition shadow-md';
       showProjBtn.className = inactiveTabClass;
       showResBtn.className = inactiveTabClass;
       renderProjects('repos');
     });
 
     showResBtn.addEventListener('click', () => {
-      showResBtn.className = 'px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-medium transition shadow-md';
+      showResBtn.className = 'px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white font-medium transition shadow-md';
       showProjBtn.className = inactiveTabClass;
       showReposBtn.className = inactiveTabClass;
       renderProjects('resources');
@@ -510,20 +514,20 @@ function setupEventListeners() {
   if (pubSearch) pubSearch.addEventListener('input', onPubFilterChange);
   if (pubCluster) pubCluster.addEventListener('change', onPubFilterChange);
 
-  // Switcher de Vista Dual (Research Lab vs CV Clásico)
+  // Switcher de Vista Dual
   const interactiveBtn = document.getElementById('view-interactive-btn');
   const classicBtn = document.getElementById('view-classic-btn');
 
   if (interactiveBtn && classicBtn) {
     interactiveBtn.addEventListener('click', () => {
-      interactiveBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500 text-white font-medium shadow-md transition';
+      interactiveBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.1] text-white font-medium transition';
       classicBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition';
       const el = document.getElementById('research-lab');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     });
 
     classicBtn.addEventListener('click', () => {
-      classicBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-600 text-white font-medium shadow-md transition';
+      classicBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.1] text-white font-medium transition';
       interactiveBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition';
       const el = document.getElementById('timeline-sec');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -531,5 +535,4 @@ function setupEventListeners() {
   }
 }
 
-// Iniciar al cargar el DOM
 document.addEventListener('DOMContentLoaded', loadData);

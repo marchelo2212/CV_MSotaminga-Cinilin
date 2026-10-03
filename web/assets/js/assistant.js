@@ -1,6 +1,6 @@
 /**
  * assistant.js - AI Feedback Assistant (Tutor Interactivo de Trayectoria)
- * Motor inteligente en cliente para consultas sobre investigación, proyectos y publicaciones.
+ * Consola académica y diálogo reflexivo sobre la investigación de Marcelo Sotaminga.
  */
 
 export class AIAssistant {
@@ -9,6 +9,7 @@ export class AIAssistant {
     this.knowledgeBase = data.aiKnowledgeBase || [];
     this.publications = data.publications || [];
     this.projects = data.projects || [];
+    this.repos = data.githubRepositories || [];
     this.container = document.getElementById(chatContainerId);
     this.initUI();
   }
@@ -17,84 +18,85 @@ export class AIAssistant {
     if (!this.container) return;
 
     this.container.innerHTML = `
-      <div class="chat-card bg-slate-900/90 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md">
-        <!-- Header del Asistente -->
-        <div class="p-4 border-b border-slate-800 bg-slate-950/60 flex items-center justify-between">
+      <div class="academic-console border border-white/[0.08] bg-[#0d1017]/90 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-xl">
+        <!-- Barra de Estado / Consola de Investigación -->
+        <div class="px-5 py-3.5 border-b border-white/[0.06] bg-[#090b10] flex flex-wrap items-center justify-between gap-3">
           <div class="flex items-center gap-3">
-            <div class="relative">
-              <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white shadow-lg">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-              </div>
-              <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-slate-900 rounded-full"></span>
-            </div>
+            <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
             <div>
-              <h4 class="text-sm font-semibold text-white flex items-center gap-2">
-                AI Research & Trajectory Assistant
-                <span class="text-[10px] font-normal px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">Demo Viva</span>
-              </h4>
-              <p class="text-xs text-slate-400">Inspirado en Springer 2026: Formative Feedback Assistant</p>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs text-white font-medium tracking-tight">AI-ED DIALOGUE CONSOLE</span>
+                <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">SPRINGER 2026 PoC</span>
+              </div>
+              <p class="text-[11px] text-slate-400 font-serif italic mt-0.5">Asistente basado en feedback formativo para explorar publicaciones y trayectoria</p>
             </div>
           </div>
-          <button id="clear-chat-btn" class="text-xs text-slate-400 hover:text-white px-2 py-1 rounded bg-slate-800/60 hover:bg-slate-800 transition">
-            Reiniciar
+          
+          <button id="clear-chat-btn" class="font-mono text-[11px] text-slate-400 hover:text-white px-2.5 py-1 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] transition flex items-center gap-1.5">
+            <i class="fa-solid fa-arrow-rotate-left text-[10px]"></i> Reiniciar
           </button>
         </div>
 
-        <!-- Historial de Mensajes -->
-        <div id="chat-messages" class="p-4 space-y-4 max-h-[380px] overflow-y-auto text-sm scroll-smooth">
-          <!-- Mensaje de Bienvenida -->
+        <!-- Historial de Diálogo -->
+        <div id="chat-messages" class="p-5 space-y-4 max-h-[400px] overflow-y-auto text-xs leading-relaxed font-sans scroll-smooth">
+          <!-- Mensaje Inicial de Marcelo -->
           <div class="flex items-start gap-3">
-            <div class="w-7 h-7 rounded-lg bg-sky-600/30 text-sky-400 flex items-center justify-center flex-shrink-0 text-xs border border-sky-500/30">
-              AI
+            <div class="w-7 h-7 rounded-lg bg-sky-500/15 border border-sky-500/30 text-sky-400 flex items-center justify-center font-mono text-[11px] flex-shrink-0 mt-0.5">
+              Ψ
             </div>
-            <div class="bg-slate-800/80 text-slate-200 p-3.5 rounded-2xl rounded-tl-sm max-w-[85%] border border-slate-700/60 leading-relaxed">
-              ¡Hola! Soy el asistente inteligente de la trayectoria de <strong>Marcelo Sotaminga</strong>. Puedes preguntarme sobre su <strong>investigación doctoral</strong>, su labor en <strong>MINTEL/UNESCO</strong>, sus publicaciones en <strong>Springer</strong> o su rol como <strong>Jefe de Producción Virtual en La Sabana</strong>.
+            <div class="bg-white/[0.03] text-slate-200 p-4 rounded-xl rounded-tl-sm max-w-[90%] border border-white/[0.06] shadow-sm">
+              <div class="font-serif text-sm font-semibold text-white mb-1">
+                Bienvenido al diálogo interactivo sobre mi investigación
+              </div>
+              <p class="text-slate-300 leading-relaxed text-[13px]">
+                Este espacio funciona como una prueba de concepto en vivo inspirada en mi trabajo sobre 
+                <em>asistentes inteligentes para retroalimentación formativa</em>. Puedes indagar con preguntas libres o seleccionar uno de los tópicos metodológicos siguientes:
+              </p>
             </div>
           </div>
         </div>
 
-        <!-- Prompts Rápidos (Chips) -->
-        <div class="px-4 py-2 border-t border-slate-800/80 bg-slate-950/40">
-          <div class="text-[11px] font-medium text-slate-400 mb-1.5 flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-            Prompts rápidos sugeridos:
+        <!-- Chips de Indagación Socrática -->
+        <div class="px-5 py-3 border-t border-white/[0.06] bg-[#090b10]/60">
+          <div class="text-[11px] font-mono text-slate-400 mb-2 flex items-center gap-1.5">
+            <span class="text-amber-400">§</span> Consultas rápidas recomendadas:
           </div>
           <div class="flex flex-wrap gap-1.5" id="chat-prompts">
-            <button class="prompt-chip text-xs bg-slate-800/80 hover:bg-sky-950 hover:text-sky-300 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700 hover:border-sky-700/50 transition" data-q="¿Qué impacto tuvo Marcelo en políticas de ética de IA en Ecuador?">
-              ⚖️ Ética de IA en MINTEL & UNESCO
+            <button class="prompt-chip font-mono text-[11px] bg-white/[0.03] hover:bg-sky-500/15 text-slate-300 hover:text-sky-300 px-3 py-1.5 rounded-lg border border-white/[0.08] hover:border-sky-500/30 transition flex items-center gap-1.5" data-q="¿Qué impacto tuvo Marcelo en políticas de ética de IA en Ecuador?">
+              <span>⚖️</span> Ética de IA (MINTEL / UNESCO)
             </button>
-            <button class="prompt-chip text-xs bg-slate-800/80 hover:bg-sky-950 hover:text-sky-300 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700 hover:border-sky-700/50 transition" data-q="Explica el proyecto de Ecosistema Neuro-Simbólico de Sabana Centro.">
-              🧠 Ecosistema Neuro-Simbólico
+            <button class="prompt-chip font-mono text-[11px] bg-white/[0.03] hover:bg-sky-500/15 text-slate-300 hover:text-sky-300 px-3 py-1.5 rounded-lg border border-white/[0.08] hover:border-sky-500/30 transition flex items-center gap-1.5" data-q="Explica el proyecto de Ecosistema Neuro-Simbólico de Sabana Centro.">
+              <span>🧠</span> Ecosistema Neuro-Simbólico
             </button>
-            <button class="prompt-chip text-xs bg-slate-800/80 hover:bg-sky-950 hover:text-sky-300 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700 hover:border-sky-700/50 transition" data-q="¿En qué consiste su investigación doctoral en diagnóstico cognitivo?">
-              🔬 Tesis Doctoral en La Sabana
+            <button class="prompt-chip font-mono text-[11px] bg-white/[0.03] hover:bg-sky-500/15 text-slate-300 hover:text-sky-300 px-3 py-1.5 rounded-lg border border-white/[0.08] hover:border-sky-500/30 transition flex items-center gap-1.5" data-q="¿En qué consiste su investigación doctoral en diagnóstico cognitivo?">
+              <span>🔬</span> Tesis Doctoral & Diagnóstico Cognitivo
             </button>
-            <button class="prompt-chip text-xs bg-slate-800/80 hover:bg-sky-950 hover:text-sky-300 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700 hover:border-sky-700/50 transition" data-q="Muéstrame sus publicaciones sobre gamificación y escape rooms.">
-              🎮 Gamificación & Escape Rooms
+            <button class="prompt-chip font-mono text-[11px] bg-white/[0.03] hover:bg-sky-500/15 text-slate-300 hover:text-sky-300 px-3 py-1.5 rounded-lg border border-white/[0.08] hover:border-sky-500/30 transition flex items-center gap-1.5" data-q="¿Cuáles son los repositorios de código abierto y libros digitales que tiene Marcelo en GitHub?">
+              <span>💻</span> Repositorios Open-Source & E-Books
             </button>
-            <button class="prompt-chip text-xs bg-slate-800/80 hover:bg-sky-950 hover:text-sky-300 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700 hover:border-sky-700/50 transition" data-q="¿Cuál es su rol como Jefe de Producción Virtual en Unisabana?">
-              🏢 Producción Virtual Unisabana
+            <button class="prompt-chip font-mono text-[11px] bg-white/[0.03] hover:bg-sky-500/15 text-slate-300 hover:text-sky-300 px-3 py-1.5 rounded-lg border border-white/[0.08] hover:border-sky-500/30 transition flex items-center gap-1.5" data-q="¿Qué es el Digital Garden de Quartz alojado en marchelo2212.github.io?">
+              <span>🌱</span> Obsidian Digital Garden (Quartz)
             </button>
           </div>
         </div>
 
-        <!-- Input de Chat -->
-        <form id="chat-form" class="p-3 bg-slate-950/80 border-t border-slate-800 flex gap-2">
-          <input 
-            type="text" 
-            id="chat-input"
-            placeholder="Pregunta sobre proyectos, investigación, docencia..." 
-            class="flex-1 bg-slate-900 text-slate-200 placeholder-slate-500 text-sm px-3.5 py-2.5 rounded-xl border border-slate-700 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
-          />
+        <!-- Entrada de Texto -->
+        <form id="chat-form" class="p-3 bg-[#07090d] border-t border-white/[0.06] flex gap-2">
+          <div class="relative flex-1">
+            <span class="absolute left-3.5 top-2.5 font-mono text-slate-500 text-xs">></span>
+            <input 
+              type="text" 
+              id="chat-input"
+              placeholder="Formula una pregunta metodológica sobre la trayectoria o publicaciones..." 
+              class="w-full bg-[#10141d] text-slate-200 placeholder-slate-500 font-sans text-xs pl-8 pr-4 py-2.5 rounded-xl border border-white/[0.08] focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+            />
+          </div>
           <button 
             type="submit" 
-            class="bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-medium px-4 py-2.5 rounded-xl flex items-center justify-center transition shadow-lg shadow-sky-500/20"
+            class="bg-sky-600 hover:bg-sky-500 text-white font-mono text-xs px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition shadow-lg shadow-sky-600/20"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-            </svg>
+            <span>Consultar</span>
+            <i class="fa-solid fa-arrow-turn-down text-[10px] -rotate-90"></i>
           </button>
         </form>
       </div>
@@ -122,7 +124,6 @@ export class AIAssistant {
     const clearBtn = this.container.querySelector('#clear-chat-btn');
     if (clearBtn) {
       clearBtn.addEventListener('click', () => {
-        this.messagesContainer.innerHTML = '';
         this.initUI();
       });
     }
@@ -130,21 +131,19 @@ export class AIAssistant {
 
   handleUserQuery(query) {
     this.appendMessage('user', query);
-    
-    // Indicador de "escribiendo..."
     const typingId = this.showTypingIndicator();
 
     setTimeout(() => {
       this.removeTypingIndicator(typingId);
       const response = this.computeAnswer(query);
       this.appendMessage('assistant', response);
-    }, 450);
+    }, 400);
   }
 
   computeAnswer(query) {
     const qLower = query.toLowerCase();
 
-    // 1. Buscar coincidencia en base de conocimiento curada
+    // 1. Base curada
     for (const item of this.knowledgeBase) {
       const matchWord = item.triggerWords.some(w => qLower.includes(w.toLowerCase()));
       if (matchWord) {
@@ -152,7 +151,7 @@ export class AIAssistant {
       }
     }
 
-    // 2. Buscar en Publicaciones
+    // 2. Coincidencia en Publicaciones
     const matchedPubs = this.publications.filter(p => 
       p.title.toLowerCase().includes(qLower) || 
       (p.abstract && p.abstract.toLowerCase().includes(qLower)) ||
@@ -161,14 +160,36 @@ export class AIAssistant {
 
     if (matchedPubs.length > 0) {
       const topPub = matchedPubs[0];
-      return `Encontré la siguiente publicación relevante de Marcelo: 
-      <br/><br/>
-      <strong>"${topPub.title}"</strong> (${topPub.year}). Publicado en <em>${topPub.venue || topPub.publisher}</em>.
-      ${topPub.doi ? `<br/><a href="${topPub.url}" target="_blank" class="text-sky-400 underline font-medium mt-1 inline-block">Ver publicación (DOI: ${topPub.doi})</a>` : ''}
-      <br/><span class="text-xs text-slate-400 mt-2 block">${topPub.abstract ? topPub.abstract.substring(0, 180) + '...' : ''}</span>`;
+      return `<div class="space-y-2">
+        <p>Referencia bibliográfica indexada localizada:</p>
+        <blockquote class="border-l-2 border-sky-400 pl-3 italic font-serif text-[13px] text-white my-1">
+          "${topPub.title}"
+        </blockquote>
+        <div class="text-[11px] text-slate-400 font-mono">
+          Autores: ${topPub.authors.join(', ')} (${topPub.year}) · <em>${topPub.venue || topPub.publisher}</em>
+        </div>
+        ${topPub.doi ? `<div class="pt-1"><a href="${topPub.url}" target="_blank" class="inline-flex items-center gap-1 text-sky-400 underline font-mono text-[11px]">Enlace DOI oficial: ${topPub.doi} <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a></div>` : ''}
+      </div>`;
     }
 
-    // 3. Buscar en Proyectos
+    // 3. Coincidencia en Repositorios
+    const matchedRepo = this.repos.filter(r =>
+      r.name.toLowerCase().includes(qLower) ||
+      r.title.toLowerCase().includes(qLower) ||
+      (r.tags && r.tags.some(t => t.toLowerCase().includes(qLower)))
+    );
+
+    if (matchedRepo.length > 0) {
+      const r = matchedRepo[0];
+      return `<div class="space-y-1.5">
+        <p>En el catálogo abierto de GitHub de Marcelo:</p>
+        <div class="font-bold text-white text-[13px]">${r.title}</div>
+        <p class="text-slate-300 text-[12px]">${r.description}</p>
+        <div class="pt-1"><a href="${r.url}" target="_blank" class="text-sky-400 font-mono underline inline-flex items-center gap-1">Ver repositorio en GitHub: marchelo2212/${r.name} <i class="fa-brands fa-github"></i></a></div>
+      </div>`;
+    }
+
+    // 4. Coincidencia en Proyectos
     const matchedProjects = this.projects.filter(p => 
       p.title.toLowerCase().includes(qLower) || 
       p.organization.toLowerCase().includes(qLower) ||
@@ -177,16 +198,17 @@ export class AIAssistant {
 
     if (matchedProjects.length > 0) {
       const topProj = matchedProjects[0];
-      return `Sobre este tema, Marcelo lideró/participó en: 
-      <br/><br/>
-      <strong>${topProj.title}</strong> (${topProj.year}) en <strong>${topProj.organization}</strong>.
-      ${topProj.tags ? `<br/><span class="text-xs text-slate-400">Áreas: ${topProj.tags.join(', ')}</span>` : ''}`;
+      return `<div class="space-y-1.5">
+        <p>Iniciativa documentada en su trayectoria:</p>
+        <div class="font-bold text-white text-[13px]">${topProj.title} (${topProj.year})</div>
+        <div class="text-slate-400 text-[11px]">Organización / Convenio: <strong>${topProj.organization}</strong></div>
+      </div>`;
     }
 
-    // 4. Respuesta general sintetizada
-    return `Marcelo Sotaminga es <strong>Arquitecto Tecnopedagógico e Investigador en IA Educativa</strong>, actualmente <em>Jefe de Producción Virtual en la Universidad de La Sabana</em> y <em>Doctorando en Ingeniería</em>. 
-    <br/><br/>
-    Su trayectoria articula <strong>modelos de Deep Learning y diagnóstico cognitivo</strong>, <strong>gobernanza y ética de la IA (MINTEL/UNESCO)</strong>, y <strong>ecosistemas de aprendizaje virtual a gran escala</strong>. Puedes probar con los botones de temas sugeridos o descargar su CV formal en PDF.`;
+    return `<div class="space-y-1.5">
+      <p>Marcelo Sotaminga es <strong>Arquitecto Tecnopedagógico e Investigador en IA Educativa</strong>, Jefe de Producción Virtual en <em>Unisabana e-learning</em> y Doctorando en Ingeniería.</p>
+      <p class="text-slate-400 text-[12px]">Su trabajo investigativo conecta <strong>modelos de Deep Learning y diagnóstico cognitivo</strong>, <strong>gobernanza ética de la IA (UNESCO/MINTEL)</strong> y <strong>ecosistemas abiertos de aprendizaje</strong>. Puedes seleccionar los temas sugeridos para profundizar.</p>
+    </div>`;
   }
 
   showTypingIndicator() {
@@ -195,13 +217,13 @@ export class AIAssistant {
     div.id = id;
     div.className = 'flex items-start gap-3';
     div.innerHTML = `
-      <div class="w-7 h-7 rounded-lg bg-sky-600/30 text-sky-400 flex items-center justify-center flex-shrink-0 text-xs border border-sky-500/30">
-        AI
+      <div class="w-7 h-7 rounded-lg bg-sky-500/15 border border-sky-500/30 text-sky-400 flex items-center justify-center font-mono text-[11px] flex-shrink-0">
+        Ψ
       </div>
-      <div class="bg-slate-800/60 p-3 rounded-2xl rounded-tl-sm flex gap-1.5 items-center">
-        <span class="w-2 h-2 rounded-full bg-slate-400 animate-pulse"></span>
-        <span class="w-2 h-2 rounded-full bg-slate-400 animate-pulse delay-150"></span>
-        <span class="w-2 h-2 rounded-full bg-slate-400 animate-pulse delay-300"></span>
+      <div class="bg-white/[0.03] p-3 rounded-xl rounded-tl-sm flex gap-1.5 items-center border border-white/[0.04]">
+        <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-pulse"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-pulse delay-150"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-pulse delay-300"></span>
       </div>
     `;
     this.messagesContainer.appendChild(div);
@@ -220,10 +242,10 @@ export class AIAssistant {
     div.className = `flex items-start gap-3 ${isUser ? 'flex-row-reverse' : ''}`;
     
     div.innerHTML = `
-      <div class="w-7 h-7 rounded-lg ${isUser ? 'bg-indigo-600 text-white' : 'bg-sky-600/30 text-sky-400 border border-sky-500/30'} flex items-center justify-center flex-shrink-0 text-xs">
-        ${isUser ? 'Tú' : 'AI'}
+      <div class="w-7 h-7 rounded-lg ${isUser ? 'bg-indigo-600 text-white' : 'bg-sky-500/15 border border-sky-500/30 text-sky-400'} flex items-center justify-center flex-shrink-0 font-mono text-[11px]">
+        ${isUser ? '>' : 'Ψ'}
       </div>
-      <div class="${isUser ? 'bg-indigo-600 text-white rounded-tr-sm' : 'bg-slate-800/90 text-slate-200 border border-slate-700/60 rounded-tl-sm'} p-3.5 rounded-2xl max-w-[85%] leading-relaxed shadow-sm">
+      <div class="${isUser ? 'bg-indigo-600 text-white rounded-tr-sm' : 'bg-white/[0.03] text-slate-200 border border-white/[0.06] rounded-tl-sm'} p-3.5 rounded-xl max-w-[88%] leading-relaxed shadow-sm text-[13px]">
         ${text}
       </div>
     `;
