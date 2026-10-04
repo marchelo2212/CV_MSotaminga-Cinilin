@@ -29,7 +29,6 @@ function initApp() {
   renderPublications('all', '');
   renderProjects('projects');
   renderEducation();
-  initSidebar();
   setupEventListeners();
 }
 
@@ -630,10 +629,18 @@ function initSidebar() {
   const progressBar = document.getElementById('reading-progress-bar');
   const mobileProgressBar = document.getElementById('mobile-reading-progress-bar');
 
-  // Actualización de progreso de lectura global
+  // Actualización de progreso de lectura global robusta (cross-browser)
   const updateScrollProgress = () => {
-    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+    const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const scrollHeight = Math.max(
+      document.body.scrollHeight || 0,
+      document.documentElement.scrollHeight || 0,
+      document.body.offsetHeight || 0,
+      document.documentElement.offsetHeight || 0
+    );
+    const clientHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+    const totalHeight = scrollHeight - clientHeight;
+    const progress = totalHeight > 0 ? (scrollTop / totalHeight) * 100 : 0;
     const clamped = Math.min(100, Math.max(0, Math.round(progress)));
     const widthStr = `${clamped}%`;
 
@@ -644,6 +651,8 @@ function initSidebar() {
   };
 
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  window.addEventListener('resize', updateScrollProgress, { passive: true });
+  window.addEventListener('load', updateScrollProgress, { passive: true });
   updateScrollProgress();
 
   // Función para activar visualmente el link correspondiente
@@ -730,4 +739,7 @@ function initSidebar() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', loadData);
+document.addEventListener('DOMContentLoaded', () => {
+  initSidebar();
+  loadData();
+});
