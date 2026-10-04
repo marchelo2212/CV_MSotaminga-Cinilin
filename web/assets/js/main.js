@@ -29,6 +29,7 @@ function initApp() {
   renderPublications('all', '');
   renderProjects('projects');
   renderEducation();
+  initSidebar();
   setupEventListeners();
 }
 
@@ -607,6 +608,126 @@ function setupEventListeners() {
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     });
   }
+}
+
+// 9. Inicializar Barra Lateral y Navegación ScrollSpy
+function initSidebar() {
+  const navLinks = document.querySelectorAll('.sidebar-nav-link');
+  const sectionIds = [
+    'hero',
+    'research-lab',
+    'ai-assistant-sec',
+    'timeline-sec',
+    'publications-sec',
+    'projects-sec',
+    'education-sec'
+  ];
+  
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  const desktopReadingLabel = document.getElementById('reading-percentage-label');
+  const mobileReadingLabel = document.getElementById('mobile-reading-percentage-label');
+  const progressBar = document.getElementById('reading-progress-bar');
+  const mobileProgressBar = document.getElementById('mobile-reading-progress-bar');
+
+  // Actualización de progreso de lectura global
+  const updateScrollProgress = () => {
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+    const clamped = Math.min(100, Math.max(0, Math.round(progress)));
+    const widthStr = `${clamped}%`;
+
+    if (progressBar) progressBar.style.width = widthStr;
+    if (mobileProgressBar) mobileProgressBar.style.width = widthStr;
+    if (desktopReadingLabel) desktopReadingLabel.textContent = `${clamped}%`;
+    if (mobileReadingLabel) mobileReadingLabel.textContent = `${clamped}%`;
+  };
+
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  updateScrollProgress();
+
+  // Función para activar visualmente el link correspondiente
+  const setActiveNav = (targetId) => {
+    navLinks.forEach(link => {
+      const target = link.getAttribute('data-target') || link.getAttribute('href')?.replace('#', '');
+      if (target === targetId) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  };
+
+  // IntersectionObserver para detectar sección visible con precisión
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -55% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setActiveNav(entry.target.id);
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(sec => observer.observe(sec));
+  setActiveNav('hero');
+
+  // Drawer Móvil
+  const mobileToggleBtn = document.getElementById('mobile-sidebar-toggle');
+  const floatingIndexBtn = document.getElementById('floating-index-btn');
+  const closeMobileDrawerBtn = document.getElementById('close-mobile-sidebar');
+  const mobileBackdrop = document.getElementById('mobile-sidebar-backdrop');
+  const mobileDrawer = document.getElementById('mobile-sidebar-drawer');
+
+  const openMobileDrawer = () => {
+    if (mobileBackdrop && mobileDrawer) {
+      mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+      mobileBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+      mobileDrawer.classList.remove('-translate-x-full');
+      mobileDrawer.classList.add('translate-x-0');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const closeMobileDrawer = () => {
+    if (mobileBackdrop && mobileDrawer) {
+      mobileBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+      mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+      mobileDrawer.classList.remove('translate-x-0');
+      mobileDrawer.classList.add('-translate-x-full');
+      document.body.style.overflow = '';
+    }
+  };
+
+  if (mobileToggleBtn) mobileToggleBtn.addEventListener('click', openMobileDrawer);
+  if (floatingIndexBtn) floatingIndexBtn.addEventListener('click', openMobileDrawer);
+  if (closeMobileDrawerBtn) closeMobileDrawerBtn.addEventListener('click', closeMobileDrawer);
+  if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMobileDrawer);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileDrawer();
+  });
+
+  // Manejador de clics en enlaces con smooth scroll
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('data-target') || link.getAttribute('href')?.replace('#', '');
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+        setActiveNav(targetId);
+        closeMobileDrawer();
+        if (history.pushState) {
+          history.pushState(null, '', `#${targetId}`);
+        }
+      }
+    });
+  });
 }
 
 document.addEventListener('DOMContentLoaded', loadData);

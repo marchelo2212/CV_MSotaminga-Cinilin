@@ -96,6 +96,43 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #333a4c;
     }
+
+    /* Scrollbar sutil para la barra lateral */
+    .sidebar-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .sidebar-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+    }
+    .sidebar-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Estilos de enlace de navegación en barra lateral */
+    .sidebar-nav-link {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .sidebar-nav-link.active {
+      background: linear-gradient(90deg, rgba(217, 119, 6, 0.16) 0%, rgba(217, 119, 6, 0.04) 100%);
+      color: #ffffff !important;
+      border-left: 2.5px solid #d97706;
+      padding-left: 0.75rem;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .sidebar-nav-link.active .nav-icon-badge {
+      background-color: rgba(217, 119, 6, 0.25);
+      color: #fbbf24;
+      border-color: rgba(217, 119, 6, 0.45);
+    }
+    .sidebar-nav-link.active .nav-tag {
+      color: #fbbf24 !important;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body class="blueprint-bg text-slate-200 min-h-screen font-sans selection:bg-amber-500/30 selection:text-amber-200 antialiased">
@@ -103,23 +140,30 @@
   <!-- ========================================== -->
   <!-- 1. HEADER EDITORIAL MINIMALISTA            -->
   <!-- ========================================== -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[#090b0e]/85 backdrop-blur-md border-b border-white/[0.06] transition-all">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+  <header class="sticky top-0 left-0 right-0 z-40 bg-[#090b0e]/90 backdrop-blur-md border-b border-white/[0.06] transition-all">
+    <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 h-16 flex items-center justify-between gap-4">
       
-      <!-- Marca Editorial -->
-      <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-8 h-8 rounded-lg bg-surface-raised border border-white/[0.1] overflow-hidden flex-shrink-0">
-          <img src="assets/foto_ms.png" alt="Marcelo Sotaminga" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-300">
-        </div>
-        <div>
-          <span class="font-serif font-bold text-sm text-white tracking-wide group-hover:text-amber-400 transition">
-            M. Sotaminga Cinilin
-          </span>
-          <span class="block font-mono text-[10px] text-slate-400 uppercase tracking-widest">
-            AI-ED RESEARCH LAB
-          </span>
-        </div>
-      </a>
+      <!-- Marca Editorial + Botón de Índice en Móvil -->
+      <div class="flex items-center gap-3">
+        <button id="mobile-sidebar-toggle" class="lg:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-raised hover:bg-white/[0.1] text-slate-200 border border-white/[0.08] text-xs font-mono transition" title="Abrir índice de navegación">
+          <i class="fa-solid fa-bars-staggered text-amber-400 text-xs"></i>
+          <span class="font-medium text-[11px]">Índice</span>
+        </button>
+
+        <a href="#hero" class="flex items-center gap-3 group">
+          <div class="w-8 h-8 rounded-lg bg-surface-raised border border-white/[0.1] overflow-hidden flex-shrink-0">
+            <img src="assets/foto_ms.png" alt="Marcelo Sotaminga" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-300">
+          </div>
+          <div>
+            <span class="font-serif font-bold text-sm text-white tracking-wide group-hover:text-amber-400 transition">
+              M. Sotaminga Cinilin
+            </span>
+            <span class="block font-mono text-[10px] text-slate-400 uppercase tracking-widest">
+              AI-ED RESEARCH LAB
+            </span>
+          </div>
+        </a>
+      </div>
 
       <!-- Selector de Vista (Observatorio vs Curriculum) -->
       <div class="hidden sm:flex items-center p-1 rounded-xl bg-surface-raised border border-white/[0.06] text-xs font-mono">
@@ -193,13 +237,164 @@
   </header>
 
   <!-- ========================================== -->
-  <!-- 2. HERO: EDITORIAL IDENTITY & PROFILING   -->
+  <!-- CONTENEDOR MAESTRO CON MARGEN Y BORDES     -->
   <!-- ========================================== -->
-  <section id="hero" class="pt-28 pb-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+  <div class="max-w-[1560px] mx-auto px-3 sm:px-6 lg:px-8 xl:px-10 py-6">
+    <div class="flex flex-col lg:flex-row gap-6 xl:gap-8 items-start">
       
-      <!-- Columna Principal -->
-      <div class="lg:col-span-8 space-y-6">
+      <!-- ========================================== -->
+      <!-- BARRA LATERAL STICKY (DESKTOP)             -->
+      <!-- ========================================== -->
+      <aside id="desktop-sidebar" class="hidden lg:flex flex-col w-64 xl:w-72 flex-shrink-0 sticky top-20 h-[calc(100vh-6rem)] rounded-2xl bg-[#0e121a]/90 backdrop-blur-xl border border-white/[0.08] shadow-2xl p-4 overflow-hidden z-30 justify-between">
+        
+        <!-- Cabecera de la Barra Lateral -->
+        <div class="space-y-3">
+          <div class="pb-3 border-b border-white/[0.06] flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="font-mono text-[10px] uppercase text-emerald-400 tracking-wider font-semibold">Índice del CV</span>
+            </div>
+            <span class="font-mono text-[9px] text-slate-500 uppercase">7 Secciones</span>
+          </div>
+
+          <!-- Indicador de Progreso de Lectura -->
+          <div class="space-y-1">
+            <div class="flex items-center justify-between font-mono text-[10px] text-slate-400">
+              <span>Progreso</span>
+              <span id="reading-percentage-label">0%</span>
+            </div>
+            <div class="h-1 bg-white/[0.06] rounded-full overflow-hidden">
+              <div id="reading-progress-bar" class="h-full bg-gradient-to-r from-amber-500 to-sky-400 w-0 transition-all duration-150"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enlaces de Navegación por Secciones -->
+        <nav class="my-3 space-y-1 overflow-y-auto sidebar-scroll pr-1 flex-1 py-1">
+          <a href="#hero" class="sidebar-nav-link flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="hero">
+            <div class="flex items-center gap-2.5 truncate">
+              <span class="nav-icon-badge w-6 h-6 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center text-[10px] flex-shrink-0 transition">
+                <i class="fa-regular fa-id-badge"></i>
+              </span>
+              <span class="truncate">Perfil & Bio</span>
+            </div>
+            <span class="nav-tag font-mono text-[10px] text-slate-500">§ 00</span>
+          </a>
+
+          <a href="#research-lab" class="sidebar-nav-link flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="research-lab">
+            <div class="flex items-center gap-2.5 truncate">
+              <span class="nav-icon-badge w-6 h-6 rounded-lg bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center text-[10px] flex-shrink-0 transition">
+                <i class="fa-solid fa-compass-drafting"></i>
+              </span>
+              <span class="truncate">Espacio Latente (Grafo)</span>
+            </div>
+            <span class="nav-tag font-mono text-[10px] text-slate-500">§ 01</span>
+          </a>
+
+          <a href="#ai-assistant-sec" class="sidebar-nav-link flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="ai-assistant-sec">
+            <div class="flex items-center gap-2.5 truncate">
+              <span class="nav-icon-badge w-6 h-6 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center text-[10px] flex-shrink-0 transition">
+                <i class="fa-solid fa-terminal"></i>
+              </span>
+              <span class="truncate">Consola Diálogo IA</span>
+            </div>
+            <span class="nav-tag font-mono text-[10px] text-slate-500">§ 02</span>
+          </a>
+
+          <a href="#timeline-sec" class="sidebar-nav-link flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="timeline-sec">
+            <div class="flex items-center gap-2.5 truncate">
+              <span class="nav-icon-badge w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center text-[10px] flex-shrink-0 transition">
+                <i class="fa-solid fa-briefcase"></i>
+              </span>
+              <span class="truncate">Gestión & Cátedras</span>
+            </div>
+            <span class="nav-tag font-mono text-[10px] text-slate-500">§ 03</span>
+          </a>
+
+          <a href="#publications-sec" class="sidebar-nav-link flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="publications-sec">
+            <div class="flex items-center gap-2.5 truncate">
+              <span class="nav-icon-badge w-6 h-6 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center text-[10px] flex-shrink-0 transition">
+                <i class="fa-solid fa-book-bookmark"></i>
+              </span>
+              <span class="truncate">Publicaciones Scopus</span>
+            </div>
+            <span class="nav-tag font-mono text-[10px] text-slate-500">§ 04</span>
+          </a>
+
+          <a href="#projects-sec" class="sidebar-nav-link flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="projects-sec">
+            <div class="flex items-center gap-2.5 truncate">
+              <span class="nav-icon-badge w-6 h-6 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center text-[10px] flex-shrink-0 transition">
+                <i class="fa-solid fa-cubes"></i>
+              </span>
+              <span class="truncate">Proyectos & Repos</span>
+            </div>
+            <span class="nav-tag font-mono text-[10px] text-slate-500">§ 05</span>
+          </a>
+
+          <a href="#education-sec" class="sidebar-nav-link flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="education-sec">
+            <div class="flex items-center gap-2.5 truncate">
+              <span class="nav-icon-badge w-6 h-6 rounded-lg bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center text-[10px] flex-shrink-0 transition">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </span>
+              <span class="truncate">Formación & Méritos</span>
+            </div>
+            <span class="nav-tag font-mono text-[10px] text-slate-500">§ 06</span>
+          </a>
+        </nav>
+
+        <!-- Acciones Rápidas del Sidebar -->
+        <div class="pt-3 border-t border-white/[0.06] space-y-2 font-mono text-xs">
+          <div class="text-[10px] uppercase text-slate-500 font-semibold tracking-wider flex items-center justify-between">
+            <span>Descargas XeLaTeX</span>
+            <i class="fa-solid fa-file-pdf text-amber-400/80"></i>
+          </div>
+          <div class="grid grid-cols-2 gap-1.5 text-[11px]">
+            <a href="cv.pdf" target="_blank" download="CV_Marcelo_Sotaminga_Academico.pdf" class="px-2 py-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-white border border-white/[0.06] text-center truncate transition" title="CV Académico Completo">
+              CV Completo
+            </a>
+            <a href="cv_ejecutivo.pdf" target="_blank" download="CV_Marcelo_Sotaminga_Ejecutivo.pdf" class="px-2 py-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-white border border-white/[0.06] text-center truncate transition" title="CV Ejecutivo Resumido">
+              Ejecutivo
+            </a>
+          </div>
+
+          <a href="https://marchelo2212.github.io/jardin/" target="_blank" class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-emerald-950/30 hover:bg-emerald-900/40 text-emerald-300 border border-emerald-800/40 text-[11px] transition">
+            <span class="flex items-center gap-1.5 truncate">
+              <i class="fa-solid fa-seedling text-[10px]"></i>
+              <span class="truncate">Obsidian Garden</span>
+            </span>
+            <span class="text-[9px] opacity-70">↗</span>
+          </a>
+
+          <div class="pt-1 flex items-center justify-between text-slate-400 text-xs">
+            <a href="https://www.linkedin.com/in/marchelo2212" target="_blank" class="hover:text-[#0A66C2] transition" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/marchelo2212" target="_blank" class="hover:text-white transition" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://orcid.org/0000-0003-4250-906X" target="_blank" class="hover:text-[#A6CE39] transition" title="ORCID"><i class="fa-brands fa-orcid"></i></a>
+            <a href="https://x.com/marchelo2212" target="_blank" class="hover:text-white transition" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="mailto:marcelo.sotaminga@unisabana.edu.co" class="hover:text-amber-400 transition" title="Correo"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- ========================================== -->
+      <!-- CANVAS PRINCIPAL ENMARCADO CON BORDES      -->
+      <!-- ========================================== -->
+      <main class="flex-1 min-w-0 bg-[#0a0d13]/85 backdrop-blur-sm border border-white/[0.08] rounded-2xl md:rounded-3xl shadow-2xl p-5 sm:p-8 lg:p-10 xl:p-12 relative overflow-hidden space-y-16">
+        
+        <!-- Marcas de registro arquitectónicas en las esquinas -->
+        <div class="hidden sm:block absolute top-3 left-3 font-mono text-[10px] text-white/20 select-none">+</div>
+        <div class="hidden sm:block absolute top-3 right-3 font-mono text-[10px] text-white/20 select-none">+</div>
+        <div class="hidden sm:block absolute bottom-3 left-3 font-mono text-[10px] text-white/20 select-none">+</div>
+        <div class="hidden sm:block absolute bottom-3 right-3 font-mono text-[10px] text-white/20 select-none">+</div>
+
+        <!-- ========================================== -->
+        <!-- 2. HERO: EDITORIAL IDENTITY & PROFILING   -->
+        <!-- ========================================== -->
+        <section id="hero" class="scroll-mt-24 pb-4">
+          <div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+            
+            <!-- Columna Principal -->
+            <div class="xl:col-span-8 space-y-6">
         
         <!-- Eyebrow Institucional -->
         <div class="flex flex-wrap items-center gap-2 font-mono text-[11px] text-slate-400">
@@ -260,7 +455,7 @@
       </div>
 
       <!-- Columna Retrato con Marco Archival -->
-      <div class="lg:col-span-4 flex flex-col items-center lg:items-end">
+      <div class="xl:col-span-4 flex flex-col items-center xl:items-end">
         <div class="crosshair-corner p-2 rounded-2xl bg-surface-card border border-white/[0.08] shadow-2xl">
           <div class="w-52 h-52 sm:w-60 sm:h-60 rounded-xl overflow-hidden bg-[#151922] relative group">
             <img src="assets/foto_ms.png" alt="Marcelo Sotaminga" class="w-full h-full object-cover grayscale contrast-105 group-hover:grayscale-0 transition duration-500">
@@ -342,7 +537,7 @@
   <!-- ========================================== -->
   <!-- 3. RESEARCH LAB: OBSERVATORIO LATENTE      -->
   <!-- ========================================== -->
-  <section id="research-lab" class="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/[0.08]">
+  <section id="research-lab" class="scroll-mt-24 pt-14 border-t border-white/[0.08]">
     
     <div class="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
       <div>
@@ -410,7 +605,7 @@
     <!-- ========================================== -->
     <!-- 4. DIALOGUE CONSOLE: AI FEEDBACK ASSISTANT -->
     <!-- ========================================== -->
-    <div id="ai-assistant-sec" class="mt-14">
+    <div id="ai-assistant-sec" class="scroll-mt-24 mt-14">
       <div class="mb-4">
         <div class="font-mono text-xs text-indigo-400 uppercase tracking-widest flex items-center gap-2">
           <span>§ 02</span>
@@ -432,7 +627,7 @@
   <!-- ========================================== -->
   <!-- 5. TIMELINE: LEDGER HISTÓRICO Y DOCENTE    -->
   <!-- ========================================== -->
-  <section id="timeline-sec" class="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/[0.08]">
+  <section id="timeline-sec" class="scroll-mt-24 pt-14 border-t border-white/[0.08]">
     
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
       <div>
@@ -465,7 +660,7 @@
   <!-- ========================================== -->
   <!-- 6. BIBLIOTECA CIENTÍFICA & PUBLICACIONES   -->
   <!-- ========================================== -->
-  <section id="publications-sec" class="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/[0.08]">
+  <section id="publications-sec" class="scroll-mt-24 pt-14 border-t border-white/[0.08]">
     
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
       <div>
@@ -509,7 +704,7 @@
   <!-- ========================================== -->
   <!-- 7. PROYECTOS, REPOSITORIOS & RECURSOS     -->
   <!-- ========================================== -->
-  <section id="projects-sec" class="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/[0.08]">
+  <section id="projects-sec" class="scroll-mt-24 pt-14 border-t border-white/[0.08]">
     
     <div class="mb-6">
       <div class="font-mono text-xs text-purple-400 uppercase tracking-widest flex items-center gap-2">
@@ -548,8 +743,8 @@
   <!-- ========================================== -->
   <!-- 8. FORMACIÓN ACADÉMICA Y CERTIFICACIONES   -->
   <!-- ========================================== -->
-  <section id="education-sec" class="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/[0.08]">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+  <section id="education-sec" class="scroll-mt-24 pt-14 border-t border-white/[0.08]">
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
       
       <!-- Títulos Universitarios -->
       <div>
@@ -621,8 +816,8 @@
   <!-- ========================================== -->
   <!-- 9. FOOTER EDITORIAL                        -->
   <!-- ========================================== -->
-  <footer class="py-12 border-t border-white/[0.08] bg-[#07090c] font-mono text-xs text-slate-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+  <footer class="pt-12 border-t border-white/[0.08] font-mono text-xs text-slate-400 space-y-6">
+    <div>
       
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-3">
@@ -672,6 +867,139 @@
 
     </div>
   </footer>
+
+  </main>
+</div>
+</div>
+
+<!-- ========================================== -->
+<!-- DRAWER LATERAL PARA DISPOSITIVOS MÓVILES    -->
+<!-- ========================================== -->
+<div id="mobile-sidebar-backdrop" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<aside id="mobile-sidebar-drawer" class="fixed top-0 left-0 bottom-0 z-50 w-72 sm:w-80 bg-[#0d1017] border-r border-white/[0.1] shadow-2xl p-5 flex flex-col justify-between -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+  <div>
+    <div class="flex items-center justify-between pb-4 border-b border-white/[0.08]">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-surface-raised border border-white/[0.1] overflow-hidden flex-shrink-0">
+          <img src="assets/foto_ms.png" alt="Marcelo Sotaminga" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <div class="font-serif font-bold text-xs text-white">M. Sotaminga Cinilin</div>
+          <div class="font-mono text-[9px] text-amber-400 uppercase tracking-wider">Índice del CV</div>
+        </div>
+      </div>
+      <button id="close-mobile-sidebar" class="w-8 h-8 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-400 hover:text-white flex items-center justify-center transition" aria-label="Cerrar índice">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+    </div>
+
+    <!-- Progreso Móvil -->
+    <div class="my-4 space-y-1">
+      <div class="flex items-center justify-between font-mono text-[10px] text-slate-400">
+        <span>Progreso de lectura</span>
+        <span id="mobile-reading-percentage-label">0%</span>
+      </div>
+      <div class="h-1 bg-white/[0.06] rounded-full overflow-hidden">
+        <div id="mobile-reading-progress-bar" class="h-full bg-gradient-to-r from-amber-500 to-sky-400 w-0 transition-all duration-150"></div>
+      </div>
+    </div>
+
+    <!-- Enlaces Móviles -->
+    <nav class="space-y-1.5 my-3">
+      <a href="#hero" class="sidebar-nav-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="hero">
+        <div class="flex items-center gap-2.5 truncate">
+          <span class="nav-icon-badge w-6 h-6 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center text-[10px] flex-shrink-0">
+            <i class="fa-regular fa-id-badge"></i>
+          </span>
+          <span class="truncate">Perfil & Bio</span>
+        </div>
+        <span class="nav-tag font-mono text-[10px] text-slate-500">§ 00</span>
+      </a>
+
+      <a href="#research-lab" class="sidebar-nav-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="research-lab">
+        <div class="flex items-center gap-2.5 truncate">
+          <span class="nav-icon-badge w-6 h-6 rounded-lg bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center text-[10px] flex-shrink-0">
+            <i class="fa-solid fa-compass-drafting"></i>
+          </span>
+          <span class="truncate">Espacio Latente (Grafo)</span>
+        </div>
+        <span class="nav-tag font-mono text-[10px] text-slate-500">§ 01</span>
+      </a>
+
+      <a href="#ai-assistant-sec" class="sidebar-nav-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="ai-assistant-sec">
+        <div class="flex items-center gap-2.5 truncate">
+          <span class="nav-icon-badge w-6 h-6 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center text-[10px] flex-shrink-0">
+            <i class="fa-solid fa-terminal"></i>
+          </span>
+          <span class="truncate">Consola Diálogo IA</span>
+        </div>
+        <span class="nav-tag font-mono text-[10px] text-slate-500">§ 02</span>
+      </a>
+
+      <a href="#timeline-sec" class="sidebar-nav-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="timeline-sec">
+        <div class="flex items-center gap-2.5 truncate">
+          <span class="nav-icon-badge w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center text-[10px] flex-shrink-0">
+            <i class="fa-solid fa-briefcase"></i>
+          </span>
+          <span class="truncate">Gestión & Cátedras</span>
+        </div>
+        <span class="nav-tag font-mono text-[10px] text-slate-500">§ 03</span>
+      </a>
+
+      <a href="#publications-sec" class="sidebar-nav-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="publications-sec">
+        <div class="flex items-center gap-2.5 truncate">
+          <span class="nav-icon-badge w-6 h-6 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center text-[10px] flex-shrink-0">
+            <i class="fa-solid fa-book-bookmark"></i>
+          </span>
+          <span class="truncate">Publicaciones Scopus</span>
+        </div>
+        <span class="nav-tag font-mono text-[10px] text-slate-500">§ 04</span>
+      </a>
+
+      <a href="#projects-sec" class="sidebar-nav-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="projects-sec">
+        <div class="flex items-center gap-2.5 truncate">
+          <span class="nav-icon-badge w-6 h-6 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center text-[10px] flex-shrink-0">
+            <i class="fa-solid fa-cubes"></i>
+          </span>
+          <span class="truncate">Proyectos & Repos</span>
+        </div>
+        <span class="nav-tag font-mono text-[10px] text-slate-500">§ 05</span>
+      </a>
+
+      <a href="#education-sec" class="sidebar-nav-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.04]" data-target="education-sec">
+        <div class="flex items-center gap-2.5 truncate">
+          <span class="nav-icon-badge w-6 h-6 rounded-lg bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center text-[10px] flex-shrink-0">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </span>
+          <span class="truncate">Formación & Méritos</span>
+        </div>
+        <span class="nav-tag font-mono text-[10px] text-slate-500">§ 06</span>
+      </a>
+    </nav>
+  </div>
+
+  <div class="pt-4 border-t border-white/[0.08] space-y-2.5 font-mono text-xs">
+    <div class="grid grid-cols-2 gap-2 text-[11px]">
+      <a href="cv.pdf" target="_blank" download="CV_Marcelo_Sotaminga_Academico.pdf" class="p-2 rounded-lg bg-white/[0.04] text-slate-200 border border-white/[0.06] text-center truncate">
+        <i class="fa-solid fa-file-pdf text-amber-400 mr-1"></i> CV Completo
+      </a>
+      <a href="cv_ejecutivo.pdf" target="_blank" download="CV_Marcelo_Sotaminga_Ejecutivo.pdf" class="p-2 rounded-lg bg-white/[0.04] text-slate-200 border border-white/[0.06] text-center truncate">
+        <i class="fa-solid fa-file-pdf text-sky-400 mr-1"></i> Ejecutivo
+      </a>
+    </div>
+
+    <a href="https://marchelo2212.github.io/jardin/" target="_blank" class="flex items-center justify-center gap-2 p-2 rounded-lg bg-emerald-950/40 text-emerald-300 border border-emerald-800/40 text-xs">
+      <i class="fa-solid fa-seedling"></i>
+      <span>Obsidian Digital Garden ↗</span>
+    </a>
+  </div>
+</aside>
+
+<!-- Botón Flotante en Móvil -->
+<button id="floating-index-btn" class="lg:hidden fixed bottom-6 right-6 z-40 px-3.5 py-2.5 rounded-full bg-surface-card/95 backdrop-blur-md border border-white/[0.15] text-amber-400 shadow-2xl flex items-center gap-2 text-xs font-mono hover:scale-105 active:scale-95 transition" aria-label="Abrir índice de secciones">
+  <i class="fa-solid fa-list-ul text-xs"></i>
+  <span class="text-white font-medium text-[11px]">Índice</span>
+</button>
 
   <script type="module" src="assets/js/main.js"></script>
 </body>
