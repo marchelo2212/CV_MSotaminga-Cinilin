@@ -37,7 +37,7 @@ jobs:
           root_file: cv.tex
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
-          args: -xelatex -file-line-error -interaction=nonstopmode
+          args: -f -interaction=nonstopmode
 
       - name: Compilar CV Ejecutivo con XeLaTeX
         uses: xu-cheng/latex-action@v3
@@ -45,7 +45,7 @@ jobs:
         with:
           root_file: Cv2.tex
           latexmk_use_xelatex: true
-          args: -xelatex -file-line-error -interaction=nonstopmode
+          args: -f -interaction=nonstopmode
 
       - name: Procesar datos estructurados y preparar web
         run: |
